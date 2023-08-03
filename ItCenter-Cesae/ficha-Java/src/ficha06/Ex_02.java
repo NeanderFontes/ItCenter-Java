@@ -3,6 +3,12 @@ package ficha06;
 import java.util.Scanner;
 
 public class Ex_02 {
+    private static void funcaoRetorno(int numRetorno) {
+        for (int numIndice = 0; numIndice < numRetorno; numIndice++) {
+            System.out.print("*");
+        }
+    }
+
     //Função principal:
     public static void main(String[] args) {
         //Import Scanner input para entrada de dados:
@@ -12,12 +18,16 @@ public class Ex_02 {
         int numEntrada;
 
         //Entrada de dados:
-        System.out.print("Introduza um valor: ");
-        numEntrada = input.nextInt();
-
-        funcaoRetorno(numEntrada);
+        do {
+            System.out.print("Introduza um valor inteiro positivo: ");
+            numEntrada = input.nextInt();
+            if (numEntrada % 2 == 0) {
+                funcaoRetorno(numEntrada);
+            } else {
+                System.out.println("Numero inválido");
+            }
+            System.out.println();
+        } while (numEntrada >= 0);
     }
 
-    private static void funcaoRetorno(int numRetorno) {
-    }
 }
