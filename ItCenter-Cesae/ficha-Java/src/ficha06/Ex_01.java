@@ -7,7 +7,6 @@ public class Ex_01 {
     //Método fazerBarulho
     static void fazerBarulho(String animal) {
         //Inicialização para "igualar" a forma escrita e seguir a compilação.
-        animal.toUpperCase();
         switch (animal) {
             case "CACHORRO":
                 System.out.print("O Cachorro faz: ");
