@@ -4,12 +4,12 @@ public class Ex_03 {
 
     /**
      * Analisando o Método se numero o número é Par ou Não.
-     * @param num - Numero a ser analizado
+     * @param numPar - Numero a ser analizado
      * @return true- se for par || false - se for impar
      */
-    public static boolean numPar (int num) {
+    public static boolean funcaoPar (int numPar) {
 
-        if (num % 2 == 0) {
+        if (numPar % 2 == 0) {
             return true;
         } else {
             return false;
@@ -18,18 +18,32 @@ public class Ex_03 {
 
     /**
      * Método para analisar se o número é positivo
-     * @param num - Parâmetro da Variável num a ser analizado.
+     * @param numPositivo - Valor de parâmetro formal a ser analizado e
+        será devolvido ao paâmetro real o valor final.
      * @return true || false na Condição declarada dentro do método.
      */
-    public static boolean numPositivo(int num) {
+    public static boolean funcaoPositivo(int numPositivo) {
 
-        if (num >= 0) {
+        if (numPositivo >= 0) {
             return true;
         } else {
             return false;
         }
     }
-    //
 
+    /**
+     * Analisando o Método se numero o número é Primo ou não.
+     * @param numPrimo - Valor de parâmetro formal a ser analizado e
+    será devolvido ao paâmetro real o valor final.
+     * @return true- se for par || false - se for impar
+     */
+    public static boolean funcaoPrimo(int numPrimo) {
+        for (int numIndice = 0; numIndice < numPrimo; numIndice++) {
+            if (numPrimo % numIndice == numPrimo || numPrimo % numPrimo == 0) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
