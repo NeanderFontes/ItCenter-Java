@@ -10,20 +10,30 @@ public class Ex_01 {
         animal.toUpperCase();
         switch (animal) {
             case "CACHORRO":
-                System.out.println("");
+                System.out.print("O Cachorro faz: ");
+                System.out.println("au au");
                 break;
+
             case "GATO":
-                System.out.println("");
+                System.out.print("O Gato faz: ");
+                System.out.println("miau");
                 break;
+
             case "PEIXE":
-                System.out.println("");
+                System.out.print("O Peixe faz: ");
+                System.out.println("glub glub");
                 break;
+
             case "VACA":
-                System.out.println("");
+                System.out.print("A Vaca faz: ");
+                System.out.println("muuuuuuuu");
                 break;
+
             case "PORCO":
-                System.out.println("");
+                System.out.print("O Porco faz: ");
+                System.out.println("oinc oinc");
                 break;
+
             default:
                 System.out.println("");
                 break;
@@ -39,16 +49,22 @@ public class Ex_01 {
         String animal;
 
         //Entrada de dados
-        System.out.println("Escolha algum animal");
+        System.out.println("Escolha algum animal: ");
         do {
-            System.out.println("cachorro");
-            System.out.println("gato");
+            System.out.println("Cachorro");
+            System.out.println("Gato");
+            System.out.println("Peixe");
+            System.out.println("Vaca");
+            System.out.println("Porco");
+            System.out.println("Ou digite 'sair' para finalizar.");
+            System.out.print("Digite o nome do anial desejado: ");
+            //Entrada de dados com caixa alta:
+            animal = input.next().toUpperCase();
+
+            //Saída de dados do utilizador em método.
+            fazerBarulho(animal);
             System.out.println();
-            animal = input.next();
-            animal.toUpperCase();
-        } while (!animal.equals("cachorro"));
-        //Saída de dados do utilizador em método.
-        fazerBarulho(animal);
+        } while (!animal.equalsIgnoreCase("sair"));
 
     }
 }
