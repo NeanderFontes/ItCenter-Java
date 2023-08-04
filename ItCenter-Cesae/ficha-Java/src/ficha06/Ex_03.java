@@ -43,9 +43,14 @@ public class Ex_03 {
      * @return true- se for par || false - se for impar
      */
     public static boolean funcaoPrimo(int numPrimo) {
-        for (int numIndice = 1; numIndice < numPrimo; numIndice++) {
-            if (numPrimo % numIndice != numPrimo || numPrimo % numPrimo != 1) {
-                return false;
+        int numIncrementoPrimo = 0;
+        for (int numIndice = 1; numIndice <= numPrimo; numIndice++) {
+            if (numPrimo % numIndice == 0) {
+                numIncrementoPrimo++;
+            } else {
+                if (numIncrementoPrimo == 2) {
+                    return false;
+                }
             }
         }
         return true;
