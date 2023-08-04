@@ -137,7 +137,7 @@ public class Ex_03 {
                     numEntrada = input.nextInt();
                     System.out.println("Valor alterado com sucesso! \nNovo valor = " + numEntrada);
                     break;
-                case 0:
+                case 0: //Finalização da analise do código.
                     System.out.println("Finalizando analise.");
                     break;
                 default:
