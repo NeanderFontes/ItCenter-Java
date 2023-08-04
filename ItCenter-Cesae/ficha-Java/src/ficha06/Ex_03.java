@@ -90,8 +90,9 @@ public class Ex_03 {
         System.out.print("Digite o numero desejado: ");
         numEntrada = input.nextInt();
         System.out.println("***************************************");
+
+        //Menu para analise do numero de entrada:
         do {
-            //Menu para analise do numero de entrada:
             System.out.println("===================== Analisando =====================");
             System.out.println("Escolha as opções abaixo para analisar se o número é:");
             System.out.println("1 - Par ou Impar.");
