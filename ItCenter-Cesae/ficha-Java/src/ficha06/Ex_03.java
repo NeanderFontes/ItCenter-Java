@@ -96,7 +96,7 @@ public class Ex_03 {
             System.out.println("5 - Triângular ou Não.");
             System.out.println("6 - Trocar de Número.");
             System.out.println("0 - Opção Sair.");
-            System.out.println("======================================================\n");
+            System.out.println("======================================================");
             //Numero entrada opção menu:
             System.out.print("Escolha uma opção acima: ");
             opcaoMenu = input.nextInt();
