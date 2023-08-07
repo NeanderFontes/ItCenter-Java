@@ -21,7 +21,7 @@ public class Caneta {
     //Métodos(Comportamentos) da Caneta:
     void rabiscar() {
         if (this.tampada == true) {
-            System.out.println("Erro, A Caneta está tampada, não da pra Rabiscar.");
+            System.out.println("Erro, A Caneta está tampada, tire a tampa.");
         } else {
             System.out.println("A Caneta está destampada, pode Rabiscar!");
         }
