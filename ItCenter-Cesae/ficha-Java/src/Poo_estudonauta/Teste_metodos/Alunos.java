@@ -79,6 +79,22 @@ public class Alunos {
     public boolean getAlunoFormado() {
         return alunoFormado;
     }
+
+    //Estado atual do Objeto Aluno para saída de dados na função main principal:
+    public void status() {
+        System.out.println("Sobre o Aluno:");
+        System.out.println("Nome do aluno: " + this.nome);
+        System.out.println("A idade do aluno: " + this.idadeAluno);
+        System.out.println("Nota 1 do aluno = " + this.nota1Aluno);
+        System.out.println("Nota 2 do aluno = " + this.nota2Aluno);
+        System.out.println("Média final do aluno = " + this.mediaAluno);
+
+        if (this.alunoFormado == true) {
+            System.out.println("Aluno passou de ano!");
+        } else {
+            System.out.println("Infelizmente o aluno não está formado!");
+        }
+    }
 }
 
 
