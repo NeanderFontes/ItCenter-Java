@@ -8,7 +8,7 @@ public class Caderno {
     boolean setCaderno;
 
     //Estado do Objeto:
-    void statusCaderno(){
+    protected void statusCaderno(){
         System.out.println("O Modelo deste caderno é " + this.marca);
         System.out.println("Ele contém " + this.materias + " matérias com total de " + this.totalFolhas + " folhas.");
         System.out.println("O Caderno está aberto? " + this.setCaderno);
