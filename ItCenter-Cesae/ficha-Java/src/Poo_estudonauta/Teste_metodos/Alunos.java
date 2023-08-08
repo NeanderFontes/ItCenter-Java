@@ -89,6 +89,7 @@ public class Alunos {
         System.out.println("Nota 2 do aluno = " + this.nota2Aluno);
         System.out.println("Média final do aluno = " + this.mediaAluno);
 
+        //Verificação do metodo getAlunoFormado() e setAlunoFormado:
         if (this.alunoFormado == true) {
             System.out.println("Aluno passou de ano!");
         } else {
