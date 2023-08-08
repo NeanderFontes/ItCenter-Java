@@ -77,7 +77,7 @@ public class Alunos {
     }
     //Método getAlunoFormado():
     public boolean getAlunoFormado() {
-
+        return alunoFormado;
     }
 }
 
