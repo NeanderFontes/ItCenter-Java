@@ -26,11 +26,12 @@ public class ContaBanco {
         System.out.println("Tipo da conta: " + this.getTipoConta());
         System.out.println("Dono: " + this.getDono());
         System.out.println("Saldo Atual R$" + this.getSaldo());
-        if (!this.getStatusConta()) {
+        if (this.getStatusConta()) {
             System.out.println("Status da conta: Ativada!!");
         } else {
             System.out.println("Status da conta: Desativada!!");
         }
+        System.out.println("===================================================================");
     }
 
     //Métodos personalizados para os dados da conta:
