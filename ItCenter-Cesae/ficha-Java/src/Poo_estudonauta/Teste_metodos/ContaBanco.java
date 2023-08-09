@@ -7,7 +7,7 @@ package Poo_estudonauta.Teste_metodos;
  * Objeto ContaBanco.
  * Atributos: dono, numConta, tipo, saldo, statusConta;
  * Metods: abrirConta(), fecharConta(), depositar(), sacar(), pagarMensalidade();
- * Estado: status();
+ * Estado: statusAtual();
  */
 
 import java.util.Scanner;
@@ -19,31 +19,45 @@ public class ContaBanco {
     private String dono;
     private int saldo;
     private boolean statusConta;
+    //Estado atual da conta:
+    public void statusAtual() {
+        System.out.println("====================== STATUS ATUAL DA CONTA ======================");
+        System.out.println("Conta nº: " + this.getNumConta());
+        System.out.println("Tipo da conta: " + this.getTipoConta());
+        System.out.println("Dono: " + this.getDono());
+        System.out.println("Saldo Atual R$" + this.getSaldo());
+        if (!this.getStatusConta()) {
+            System.out.println("Status da conta: Ativada!!");
+        } else {
+            System.out.println("Status da conta: Desativada!!");
+        }
+    }
 
     //Métodos personalizados para os dados da conta:
     public void abrirConta(String tipoConta) {
         this.setTipoConta(tipoConta);
         this.setStatusConta(true);
         //Se abrir contaCorrente recebe 50 reais:
-        if ((tipoConta).equalsIgnoreCase("contaCorrente")) {
+        if (tipoConta == "CC") {
             this.setSaldo(50);
         //Se abrir contaPoupanca recebe 150 reais:
-        } else if ((tipoConta).equalsIgnoreCase("contaPoupanca")) {
+        } else if (tipoConta == "CP") {
            this.setSaldo(150);
         }
+        System.out.println("Conta Aberta com Sucesso!!");
     }
 
     public void fecharConta() {
-        //Fechar conta somente se numConta == 0 reais
-        if (this.getSaldo() == 0) {
-            System.out.println("Conta fechada com sucesso.");
-            this.setStatusConta(false);
         //Se Saldo positivo sacar dinheiro
-        } else if (this.getSaldo() > 0) {
-            System.out.println("Conta contém dinheiro, precisa saca para fechar conta.");
-        //Se Saldo negativo depositar dinheiro
-        } else {
+        if (this.getSaldo() > 0) {
+            System.out.println("Conta contém dinheiro, precisa sacar para fechar conta.");
+            //Se Saldo negativo depositar dinheiro
+        } else if (this.getSaldo() < 0) {
             System.out.println("Conta em débito, precisa negociar para fechar conta.");
+            //Fechar conta somente se numConta == 0 reais
+        } else {
+            this.setStatusConta(false);
+            System.out.println("Conta fechada com Sucesso!");
         }
     }
 
@@ -62,7 +76,7 @@ public class ContaBanco {
         //Se statusConta for verdadeiro
         if (this.getStatusConta()) {
             //Se saldo maior que 0 e saldo menor ou igual que valor do saldo
-            if (this.getSaldo() > 0) {
+            if (this.getSaldo() >= valorSacar) {
                 this.setSaldo(this.getSaldo() - valorSacar);
                 System.out.println("Valor sacado na conta de " + getDono());
             } else {
@@ -74,13 +88,13 @@ public class ContaBanco {
     }
 
     public void pagarMensalidade() {
+        //Obs: Mensalidade cobrada quando chamar o metodo
         int valorMensalidade = 0;
-        //Mensalidade cobrada quando chamar o metodo
         //Mensalidade contaCorrente = 12 reais
-        if (this.getTipoConta().equalsIgnoreCase("contaCorrente")) {
+        if (this.getTipoConta().equalsIgnoreCase("CC")) {
             valorMensalidade = 12 ;
         //Mensalidade contaPoupanca = 20 reais
-        } else if (this.getTipoConta().equalsIgnoreCase("contaPoupanca")) {
+        } else if (this.getTipoConta().equalsIgnoreCase("CP")) {
             valorMensalidade = 20;
         }
         if (this.getStatusConta()) {
@@ -98,11 +112,11 @@ public class ContaBanco {
     //Métodos especiais construct, getter e setter dos atributos:
 
     //Método construct:
-    public void ContaBanco() {
+    public ContaBanco() {
         //Se nova conta conta não existe.
-        this.setSaldo(0);
+        this.saldo = 0;
         //Se nova conta saldo == 0
-        this.setStatusConta(false);
+        this.statusConta = false;
     }
 
     public void setNumConta(int numConta) {
