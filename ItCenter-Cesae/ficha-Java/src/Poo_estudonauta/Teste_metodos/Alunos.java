@@ -7,7 +7,7 @@ package Poo_estudonauta.Teste_metodos;
  * Metodos Visibilidade: public, private, protected.
  * Objeto Aluno.
  * Atributos: nome, idadeAluno, nota1Aluno, nota2Aluno, mediaAluno, alunoFormado;
- * Metodos:
+ * Metods: getter e setter de todas variáveis criadas
  * Estado: status();
  */
 public class Alunos {
@@ -16,6 +16,12 @@ public class Alunos {
     private int idadeAluno;
     private double nota1Aluno, nota2Aluno, mediaAluno;
     private boolean alunoFormado;
+
+    //Método Construtc:
+    public Alunos(String nomeAluno, int idadeAluno) {
+        this.nome = nomeAluno;
+        this.idadeAluno = idadeAluno;
+    }
 
     //Métodos get e set dos valores dos atributos:
     //Passagem através de parâmetro para atribuir valor a "String nome" do objeto aluno:
@@ -37,7 +43,7 @@ public class Alunos {
     }
 
     //Passagem de valor na varável "double nota1Aluno" através de parâmetro set atribuindo valor do objeto aluno:
-    public void setNota1Aluno() {
+    public void setNota1Aluno(double nota1Aluno) {
         this.nota1Aluno = nota1Aluno;
     }
     //Método getNota1Aluno():
@@ -56,8 +62,8 @@ public class Alunos {
 
     //Passagem de valor na varável "double mediaAluno" através de parâmetro set atribuindo valor do objeto aluno:
     public void setMediaAluno(double nota1Aluno, double nota2Aluno) {
-        nota1Aluno = this.nota1Aluno;
-        nota2Aluno = this.nota2Aluno;
+        //nota1Aluno = getNota1Aluno();
+        //nota2Aluno = getNota2Aluno();
         this.mediaAluno = (nota1Aluno + nota2Aluno) / 2;
     }
     //Método getMediaAluno():
