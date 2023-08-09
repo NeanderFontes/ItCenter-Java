@@ -39,10 +39,10 @@ public class ContaBanco {
         this.setTipoConta(tipoConta);
         this.setStatusConta(true);
         //Se abrir contaCorrente recebe 50 reais:
-        if (tipoConta == "CC") {
+        if ((tipoConta).equalsIgnoreCase("CC")) {
             this.setSaldo(50);
         //Se abrir contaPoupanca recebe 150 reais:
-        } else if (tipoConta == "CP") {
+        } else if ((tipoConta).equalsIgnoreCase("CP")) {
            this.setSaldo(150);
         }
         System.out.println("Conta Aberta com Sucesso!!");
