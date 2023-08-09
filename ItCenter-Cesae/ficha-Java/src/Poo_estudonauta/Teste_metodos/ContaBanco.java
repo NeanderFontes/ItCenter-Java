@@ -60,9 +60,9 @@ public class ContaBanco {
 
     public void sacar(int valorSacar) {
         //Se statusConta for verdadeiro
-        if (getStatusConta()) {
+        if (this.getStatusConta()) {
             //Se saldo maior que 0 e saldo menor ou igual que valor do saldo
-            if (getSaldo() > 0) {
+            if (this.getSaldo() > 0) {
                 this.setSaldo(this.getSaldo() - valorSacar);
                 System.out.println("Valor sacado na conta de " + getDono());
             } else {
@@ -73,14 +73,25 @@ public class ContaBanco {
         }
     }
 
-    public void pagarMensalidade(String mensalidade) {
+    public void pagarMensalidade() {
+        int valorMensalidade = 0;
         //Mensalidade cobrada quando chamar o metodo
         //Mensalidade contaCorrente = 12 reais
-        if (tipoConta == "contaCorrente") {
-            saldo = -12 ;
+        if (this.getTipoConta().equalsIgnoreCase("contaCorrente")) {
+            valorMensalidade = 12 ;
         //Mensalidade contaPoupanca = 20 reais
-        } else if (tipoConta == "contaPoupanca") {
-            saldo = 20;
+        } else if (this.getTipoConta().equalsIgnoreCase("contaPoupanca")) {
+            valorMensalidade = 20;
+        }
+        if (this.getStatusConta()) {
+            if (this.getSaldo() > valorMensalidade) {
+                this.setSaldo(this.getSaldo() - valorMensalidade);
+                System.out.println("Valor de mensalidade " + valorMensalidade + "debitada na conta de " + getDono());
+            } else {
+                System.out.println("Saldo insuficiente");
+            }
+        } else {
+            System.out.println("Conta inexistente.");
         }
     }
 
