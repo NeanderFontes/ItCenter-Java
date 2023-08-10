@@ -7,7 +7,6 @@ package Poo_estudonauta.Encapsulamento;
  */
 public interface InterfaceBanco {
     //Encapsulamento Métodos abstratos:
-    public abstract void pagarMensalidade();
     void fechaConta();
     void depositar(int valorDepositado);
     void sacar(int valorSacar);
