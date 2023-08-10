@@ -3,7 +3,7 @@ package Poo_estudonauta.Encapsulamento;
 public class PraticaEncapsulamento implements InterfaceBanco{
     //Atributos do Objeto ContaBanco:
     private int numConta;
-    protected String tipoConta;
+    private String tipoConta;
     private String dono;
     private int saldo;
     private boolean statusConta;
