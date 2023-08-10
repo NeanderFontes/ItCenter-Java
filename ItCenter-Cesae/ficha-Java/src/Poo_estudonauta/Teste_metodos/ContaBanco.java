@@ -55,7 +55,7 @@ public class ContaBanco {
             //Se Saldo negativo depositar dinheiro
         } else if (this.getSaldo() < 0) {
             System.out.println("Conta em débito, precisa negociar para fechar conta.");
-            //Fechar conta somente se numConta == 0 reais
+            //Fechar conta somente se saldo == 0 reais
         } else {
             this.setStatusConta(false);
             System.out.println("Conta fechada com Sucesso!");
