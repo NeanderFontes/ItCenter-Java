@@ -9,6 +9,8 @@ package Poo_estudonauta.Aula_pratica07_08;
  * Metodos implementados: apresentador();
  */
 
+import java.util.Random;
+
 //Classe agregada:
 public class Luta {
     //Atributos agregado ao Objeto Lutador:
@@ -72,8 +74,30 @@ public class Luta {
     }
 
     public void lutar() {
+        //Parâmetro criado para decidir quem ganha, empaga ou perde.
+        Random random = new Random();
+        int vencedor = random.nextInt(0, 2);
+
         if (this.isLutaAprovada()) {
             this.getDesafiado().apresentar();
+            this.getDesafiante().apresentar();
+            switch (vencedor) {
+                case 0: //Empatar a Luta
+                    System.out.println("Empate da luta!!");
+                    this.getDesafiado().empatarLuta();
+                    this.getDesafiante().empatarLuta();
+                    break;
+                case 1: //Ganhar "Desafiado" Luta
+                    System.out.println("Lutador " + this.desafiado.getNome() + " é o Vencedor da luta!!");
+                    this.getDesafiado().ganharLuta();
+                    this.getDesafiante().perderLuta();
+                    break;
+                case 2: //Ganhar "Desafiante" Luta
+                    System.out.println("Lutador " + this.desafiante.getNome() + " é o Vencedor da luta!!");
+                    this.getDesafiado().perderLuta();
+                    this.getDesafiante().ganharLuta();
+                    break;
+            }
         } else {
             System.out.println("Luta anulada, componentes diferentes do exigido!!");
         }

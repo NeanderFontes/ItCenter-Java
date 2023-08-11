@@ -20,5 +20,7 @@ public class UFC {
         lutador[3] = new Lutador("Delta", "Brasil", 34, 0, 0, 0, 1.81f, 94.5f);
         lutador[4] = new Lutador("Echo","Italia", 0, 0, 0, 0, 1.70f, 69.5f);
         lutador[5] = new Lutador("FoxTrot", "Suica", 30, 0, 0, 0,1.70f,102.5f);
+
+        UFC luta01 = new UFC();
     }
 }

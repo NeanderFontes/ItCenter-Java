@@ -16,5 +16,5 @@ public interface Funcionalidade_da_luta {
     void status();
     void ganharLuta();
     void perderLuta();
-    void emapatarLuta();
+    void empatarLuta();
 }

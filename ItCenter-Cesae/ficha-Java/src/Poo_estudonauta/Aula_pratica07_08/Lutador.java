@@ -163,7 +163,7 @@ public class Lutador implements Funcionalidade_da_luta{
     }
 
     @Override
-    public void emapatarLuta() {
+    public void empatarLuta() {
         setEmpates(getEmpates() + 1);
     }
 }
