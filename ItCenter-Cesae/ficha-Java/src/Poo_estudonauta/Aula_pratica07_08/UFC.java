@@ -14,7 +14,7 @@ public class UFC {
     public static void main(String[] args) {
         //Instaciamento do objeto Lutador utilizando array com 6 lutadores
         Lutador lutador[] = new Lutador[6];
-        lutador[0] = new Lutador("Alpha", "Fraça", 31, 11 , 1, 3, 1.75f,68.9f);
+        lutador[0] = new Lutador("Alpha", "Fraça", 31, 0 , 0, 0, 1.75f,68.9f);
         lutador[1] = new Lutador("Bravo", "Portugal", 29, 0,0, 0, 1.60f, 57.8f);
         lutador[2] = new Lutador("Charlie", "Espanha", 28, 0, 0, 0, 1.65f, 80.9f);
         lutador[3] = new Lutador("Delta", "Brasil", 34, 0, 0, 0, 1.81f, 81.6f);
@@ -25,5 +25,8 @@ public class UFC {
         Luta UFC01 = new Luta();
         UFC01.marcarLuta(lutador[0], lutador[1]);
         UFC01.lutar();
+        //Status após Luta entre os Lutadores:
+        lutador[0].status();
+        lutador[1].status();
     }
 }

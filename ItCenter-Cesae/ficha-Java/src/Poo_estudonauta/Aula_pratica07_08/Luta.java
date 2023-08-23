@@ -86,7 +86,7 @@ public class Luta {
             //Import Random e Parâmetro criado para decidir quem ganha, empaga ou perde.
             Random random = new Random();
             int vencedor = random.nextInt(0, 2);
-
+            System.out.println("========= RESULTADO DA LUTA =========");
             switch (vencedor) {
                 case 0: //Empatar a Luta
                     System.out.println("Empate da luta!!");
@@ -104,6 +104,7 @@ public class Luta {
                     this.getDesafiante().ganharLuta();
                     break;
             }
+            System.out.println("=====================================");
         } else {
             System.out.println("Luta anulada, componentes diferentes do exigido!!");
         }
