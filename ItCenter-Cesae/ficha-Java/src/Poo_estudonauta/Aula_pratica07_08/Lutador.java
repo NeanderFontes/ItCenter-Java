@@ -159,7 +159,6 @@ public class Lutador implements Funcionalidade_da_luta{
     @Override
     public void perderLuta() {
         setDerrotas(getDerrotas() + 1);
-
     }
 
     @Override
