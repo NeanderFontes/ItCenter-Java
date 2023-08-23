@@ -9,6 +9,7 @@ package Poo_estudonauta.Aula_pratica07_08;
  * Metodos implementados: apresentador();
  */
 
+import java.util.Objects;
 import java.util.Random;
 
 //Classe agregada:
@@ -62,7 +63,8 @@ public class Luta {
         » Só pode ter como resultado a vitória de um dos lutadores ou empate.
      */
     public void marcarLuta(Lutador lutador1, Lutador lutador2) {
-        if (lutador1.getCategoria() == lutador2.getCategoria() && lutador1 != lutador2) {
+        //Objects.equals = lutador1.getCategoria() == lutador2.getCategoria()
+        if (Objects.equals(lutador1.getCategoria(), lutador2.getCategoria()) && lutador1 != lutador2) {
             this.setLutaAprovada(true);
             this.setDesafiado(lutador1);
             this.setDesafiante(lutador2);
@@ -74,13 +76,17 @@ public class Luta {
     }
 
     public void lutar() {
-        //Parâmetro criado para decidir quem ganha, empaga ou perde.
-        Random random = new Random();
-        int vencedor = random.nextInt(0, 2);
 
         if (this.isLutaAprovada()) {
+            System.out.println("###### DESAFIADO ######");
             this.getDesafiado().apresentar();
+            System.out.println("###### DESAFIANTE ######");
             this.getDesafiante().apresentar();
+
+            //Import Random e Parâmetro criado para decidir quem ganha, empaga ou perde.
+            Random random = new Random();
+            int vencedor = random.nextInt(0, 2);
+            System.out.println("========= RESULTADO DA LUTA =========");
             switch (vencedor) {
                 case 0: //Empatar a Luta
                     System.out.println("Empate da luta!!");
@@ -98,6 +104,7 @@ public class Luta {
                     this.getDesafiante().ganharLuta();
                     break;
             }
+            System.out.println("=====================================");
         } else {
             System.out.println("Luta anulada, componentes diferentes do exigido!!");
         }

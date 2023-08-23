@@ -142,13 +142,13 @@ public class Lutador implements Funcionalidade_da_luta{
     @Override
     public void status() {
         //Apresentação dos Lutadores e suas características principais resumidas:
-        System.out.println("********** VAI COMEÇAR A LUTA **********");
+        System.out.println("********** RESULTADO DO LUTADOR **********");
         System.out.println("Lutador: " + getNome());
         System.out.println("Categoria: " + getCategoria());
         System.out.println("Vitórias: " + getVitorias());
         System.out.println("Derrotas: " + getDerrotas());
         System.out.println("Empates: " + getEmpates());
-        System.out.println("****************************************");
+        System.out.println("******************************************");
     }
 
     @Override
@@ -159,7 +159,6 @@ public class Lutador implements Funcionalidade_da_luta{
     @Override
     public void perderLuta() {
         setDerrotas(getDerrotas() + 1);
-
     }
 
     @Override
