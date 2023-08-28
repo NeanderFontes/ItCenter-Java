@@ -15,9 +15,15 @@ public class Pessoa {
     private char sexo;
 
     //Método Específico:
-    public boolean fazerAniversario(){
+    public void fazerAniversario() {
+        this.idade++;
+    }
 
-        return false;
+    //Método Construtor da class Pessoa:
+    public Pessoa(String nome, int idade, char sexo) {
+        this.nome = nome;
+        this.idade = idade;
+        this.sexo = sexo;
     }
 
     //Métodos especiais Getter e Setter dos atributos abstratos:

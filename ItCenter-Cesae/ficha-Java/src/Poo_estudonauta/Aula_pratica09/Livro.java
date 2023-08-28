@@ -8,16 +8,43 @@ package Poo_estudonauta.Aula_pratica09;
  */
 
 //CLasse agredada da Pessoa, Livro:
-public class Livro {
+public class Livro implements Publicacao {
     //Atributos abstratos:
     private String titulo;
     private String autor;
     private int totPaginas;
-    private boolean pagAtual;
+    private int pagAtual;
     private boolean aberto;
 
     //Atributo agregado específico:
     private Pessoa leitor;
+
+    //Métodos Específico:
+    public String detalhes() {
+        return "Livro {" +
+                "\n\tTitulo = '" + titulo + '\'' +
+                "\n\tAutor = '" + autor + '\'' +
+                "\n\tTotal de Páginas = " + totPaginas +
+                "\n\tLivro Está Aberto? = " + aberto +
+                "\n\tPágina Atual = " + pagAtual +
+                "\n\tInformações do Leitor {" +
+                "\n\t\tLeitor = " + leitor.getNome() +
+                "\n\t\tIdade = " + leitor.getIdade() +
+                "\n\t\tSexo = " + leitor.getSexo()+
+                "\n\t\tPágina Atual = " + getPagAtual()+
+                "\n\t}" +
+                "\n}";
+    }
+
+    //Método Construtor:
+    public Livro(String titulo, String autor, int totPaginas, Pessoa leitor) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.totPaginas = totPaginas;
+        this.aberto = false;
+        this.pagAtual = 0;
+        this.leitor = leitor;
+    }
 
     //Métodos especiais Getter and Setter:
     public String getTitulo() {
@@ -44,11 +71,11 @@ public class Livro {
         this.totPaginas = totPaginas;
     }
 
-    public boolean isPagAtual() {
+    public int getPagAtual() {
         return pagAtual;
     }
 
-    public void setPagAtual(boolean pagAtual) {
+    public void setPagAtual(int pagAtual) {
         this.pagAtual = pagAtual;
     }
 
@@ -58,5 +85,31 @@ public class Livro {
 
     public void setAberto(boolean aberto) {
         this.aberto = aberto;
+    }
+
+    //Métodos implementados para definir os dados internos da Interface:
+    @Override
+    public void abrir() {
+        this.aberto = true;
+    }
+
+    @Override
+    public void fechar() {
+        this.aberto = false;
+    }
+
+    @Override
+    public void folhear(int p) {
+        this.pagAtual = p;
+    }
+
+    @Override
+    public void avancarPag() {
+        this.pagAtual++;
+    }
+
+    @Override
+    public void voltarPag() {
+        this.pagAtual--;
     }
 }

@@ -9,10 +9,10 @@ package Poo_estudonauta.Aula_pratica09;
 
 //Lista de métodos publicos Interface:
 public interface Publicacao {
-    public boolean abrir();
-    public boolean fechar();
-    public boolean folhear();
-    public boolean avancarPag();
-    public boolean voltarPag();
+    public void abrir();
+    public void fechar();
+    public void folhear(int p);
+    public void avancarPag();
+    public void voltarPag();
 
 }
