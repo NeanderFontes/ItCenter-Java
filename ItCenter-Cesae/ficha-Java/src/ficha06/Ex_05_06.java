@@ -8,9 +8,9 @@ public class Ex_05_06 {
      * Analisando o Método do vetor para verificar qual o numero Maior.
      * @param numVetor - Valor de parâmetro formal a ser analizado e
         será devolvido ao parâmetro real o valor na função main.
-     * @return true- se for par || false - se for impar
+     * @return numMaior - Retorna o maior valor da variável para função princopal main();
      */
-    public static int funcaoMaior(int numVetor[]) {
+    static int funcaoMaior(int numVetor[]) {
         int numMaior = 0, numIndice;
         for (numIndice = 0; numIndice <= numVetor.length; numIndice++) {
             if (numIndice == 0) {
@@ -29,7 +29,7 @@ public class Ex_05_06 {
      * Analisando o Método do vetor para verificar qual o numero Menor.
      * @param numVetor - Valor de parâmetro formal a ser analizado e
         será devolvido ao parâmetro real o valor na função main.
-     * @return true- se for par || false - se for impar
+     * @return numMenor- Retorna o menor valor da variável para função princopal main();
      */
     public static int funcaoMenor(int numVetor[]) {
         int numMenor = 0, numIndice;
@@ -49,7 +49,7 @@ public class Ex_05_06 {
      * Analisando o Método do vetor para verificar se o vetor é em ordem crescente.
      * @param numCrescente - Valor de parâmetro formal a ser analizado e
         será devolvido ao parâmetro real o valor na função main.
-     * @return true- se for par || false - se for impar
+     * @return true- se for crescente ou false - se não for crescente
      */
 
     public static boolean funcaoCrescente(int numCrescente[]) {
@@ -65,7 +65,7 @@ public class Ex_05_06 {
      * Analisando o Método do vetor para verificar se o vetor é em ordem decrescente.
      * @param numDecrescente - Valor de parâmetro formal a ser analizado e
     será devolvido ao parâmetro real o valor na função main.
-     * @return true- se for par || false - se for impar
+     * @return true- se for descrescente ou false - se não for descrescente
      */
 
     public static boolean funcaoDecrescente(int numDecrescente[]) {
