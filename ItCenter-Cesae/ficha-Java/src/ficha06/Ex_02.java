@@ -24,7 +24,7 @@ public class Ex_02 {
             System.out.print("Introduza um valor inteiro positivo: ");
             numEntrada = input.nextInt();
 
-            if (numEntrada % 2 == 0) {
+            if (numEntrada >= 0) {
                 funcaoRetorno(numEntrada);
             } else {
                 System.out.println("Número inválido, o Valor deve ser inteiro e positivo.");
