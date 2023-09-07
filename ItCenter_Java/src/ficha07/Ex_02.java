@@ -23,8 +23,8 @@ public class Ex_02 {
         //Execução direta para criar "conteúdo" no "meu_arquivo01.txt" utilizando conteúdo da "String":
         escrever.println(novoArquivo);
 
-        //Executando "novo conteúdo a partir de uma nova chamada "String":
-        escrever.println("");
+        //Rescrevendo e acrescentando "novo conteúdo a partir de uma nova chamada com conteúdo "String":
+        escrever.println("Novo conteúdo gerado a partir de nova escrita.");
 
         //Fechamento do arquivo salvando o mesmo, "correção do flush":
         escrever.close();
