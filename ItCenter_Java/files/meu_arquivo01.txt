@@ -1,0 +1,2 @@
+Criando novo ficheiro com tratamento de exceções.
+
