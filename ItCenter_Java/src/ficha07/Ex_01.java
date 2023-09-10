@@ -15,7 +15,12 @@ public class Ex_01 {
         scannerFicheiro.close();
     }
 
-    public static void main(String[] args) throws FileNotFoundException{
-        imprimirFicheiro("files/exercicio_01.txt");
+    public static void main(String[] args) {
+        try {
+            imprimirFicheiro("files/exercicio_01.tx");
+        } catch (FileNotFoundException ex) {
+            //String erro = ex.getMessage();
+            System.err.println("Erro, arquivo não encontrado.");
+        }
     }
 }
