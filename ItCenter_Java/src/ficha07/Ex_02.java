@@ -25,6 +25,7 @@ public class Ex_02 {
 
         //Rescrevendo e acrescentando "novo conteúdo a partir de uma nova chamada com conteúdo "String":
         escrever.println("Novo conteúdo gerado a partir de nova escrita.");
+        escrever.println("Adicionando conteúdo no dia 11/09 às 12h54 no 'meu_arquivo01'.");
 
         //Fechamento do arquivo salvando o mesmo, "correção do flush":
         escrever.close();
