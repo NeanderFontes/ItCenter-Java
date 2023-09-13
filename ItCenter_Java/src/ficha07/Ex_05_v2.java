@@ -39,10 +39,17 @@ public class Ex_05_v2 {
         }
     }
 
+    /**
+     * Função principal
+     * @param args
+     */
     public static void main(String[] args) {
+        //Tratamento de exceções:
         try {
+            //Passagem da função de parametro "String":
             arquivo1999("files/exercicio_05_1999.txt");
         } catch (FileNotFoundException exception) {
+            //Passagem do lançamento de erro por msg:
             System.err.println(exception.getMessage());
         }
     }
