@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Ex_05 {
     /**
-     * Escrever um programa que leia o arquivo "exercicio_05_31.txt"
+     * Procedimento para escrever um programa que leia o arquivo "exercicio_05_31.txt"
      * que contém números inteiros separados por espaço e
      * calcular a soma desses números.
      * @throws FileNotFoundException
@@ -35,7 +35,7 @@ public class Ex_05 {
     }
 
     /**
-     * Função principal para execução de chamada da faunção "arquivo05_31".
+     * Função principal para execução de chamada de procedimento do "arquivo05_31".
      * @param args
      * @throws FileNotFoundException
      */

@@ -8,7 +8,7 @@ import java.util.Scanner;
 //Criar uma função para ler o conteúdo "String" do arquivo "meu_arquivo01.txt"
 // e gravar no aquivo "meu_arquivo02.txt"
 public class Ex_03 {
-    /** Função para ler aquivo "meu_arquivo01.txt" e copiar o conteúdo em "meu_arquivo02.txt"
+    /** Procedimento para ler aquivo "meu_arquivo01.txt" e copiar o conteúdo em "meu_arquivo02.txt"
      *
      * @throws FileNotFoundException
      */
@@ -39,7 +39,13 @@ public class Ex_03 {
         escreverArquivo.close();
     }
 
+    /**
+     * Função principal main()
+     * @param args
+     * @throws FileNotFoundException
+     */
     public static void main(String[] args) throws FileNotFoundException {
+        //Chamada do procedimento:
         lerRescreverArquivo();
     }
 }

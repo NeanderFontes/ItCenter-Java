@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Ex_04 {
-    /** Função para ler aquivo "exercicio_04.csv" e imprimir no console.
+    /** Procedimento para ler aquivo "exercicio_04.csv" e imprimir no console.
      *
      * @throws FileNotFoundException
      */
@@ -40,11 +40,15 @@ public class Ex_04 {
      * @throws FileNotFoundException
      */
     public static void main(String[] args) {
+        //Tratamento de exceção de arquivo não encontrado:
         try {
+            //Chamada de procedimento:
             lerArquivo();
         } catch (FileNotFoundException excecao) {
+            //Tratamento:
             System.err.println(excecao.getMessage());
         }
+        //Teste de tratamento se houver falha:
         System.out.println("Teste de arquivo interrompido");
 
     }

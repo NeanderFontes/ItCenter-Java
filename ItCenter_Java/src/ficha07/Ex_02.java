@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
 public class Ex_02 {
-    //Função "novoArquivo" para criar novos ficheiro ou "arquivo" através do "throws":
+    //Procedimento "novoArquivo" para criar novos ficheiro ou "arquivo" através do "throws":
     public static void novoArquivo() throws FileNotFoundException {
         //Variável para novo arquivo:
         String novoArquivo = "Criando novo ficheiro com tratamento de exceções.";
@@ -36,7 +36,7 @@ public class Ex_02 {
 
     //Função principal e criação dos arquivos:
     public static void main(String[] args) throws FileNotFoundException {
-        //Chamada da função:
+        //Chamada do procedimento:
         novoArquivo();
     }
 }

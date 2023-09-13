@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Ex_06 {
     /**
-     * Escrever um programa que leia o arquivo "exercicio_06.txt"
+     * Procedimento para escrever um programa que leia o arquivo "exercicio_06.txt"
      * que contém nomes e idades separados por virgulas e
      * imprimir o nome da pessoa mais velha no main.
      *
@@ -69,6 +69,7 @@ public class Ex_06 {
     }
 
     public static void main(String[] args) {
+        //Tratamento de exceções:
         try {
             arquivo06("files/exercicio_06.txt");
         } catch (FileNotFoundException exception) {

@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Ex_05_v2 {
     /**
-     * Escrever um programa que leia o arquivo "exercicio_05_1999.txt"
+     * Procedimento para Escrever um programa que leia o arquivo "exercicio_05_1999.txt"
      * que contém números inteiros separados por espaço e
      * calcular a soma desses números.
      * @throws FileNotFoundException

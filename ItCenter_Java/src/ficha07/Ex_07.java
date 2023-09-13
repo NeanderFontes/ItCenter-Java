@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Ex_07 {
     /**
-     * Escrever um programa que leia o conteúdo do arquivo "exercicio_07.txt"
+     * Procedimento para Escrever um programa que leia o conteúdo do arquivo "exercicio_07.txt"
      * e imprimir o numero de linhas na função main principal.
      *
      * @param diretorio
