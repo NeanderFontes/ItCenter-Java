@@ -26,7 +26,6 @@ public class Ex_10 {
             int produtoParaCasa = 0;
             int produtoHigiene = 0;
             double somaTotalVendas = 0;
-            double total=0, precoLinha=0;
             String conteudoLinha = "";
 
             //Ciclo para executar leitura e calcular valor do arquivo "exercicio_10.csv":
@@ -65,10 +64,7 @@ public class Ex_10 {
                     quantidadeProdutoVendido += Integer.parseInt(parteLinha[2]);
 
                     //Soma total da vendas de todos produtos:
-                    somaTotalVendas = quantidadeProdutoVendido * Double.parseDouble(parteLinha[3]);
-
-                    precoLinha = Double.parseDouble(parteLinha[2]) * Double.parseDouble(parteLinha[3]);
-                    total += precoLinha;
+                    somaTotalVendas += Double.parseDouble(parteLinha[2]) * Double.parseDouble(parteLinha[3]);
                 }
 
             }
@@ -80,7 +76,6 @@ public class Ex_10 {
             System.out.println("» Produtos de Higiene: " + produtoHigiene);
             System.out.println("Quantidade Total de Produtos Vendidos = " + quantidadeProdutoVendido);
             System.out.println("Soma total da vendas de todos produtos: €" + somaTotalVendas);
-            System.out.println("Soma total da vendas de todos produtos: €" + total);
 
             //Fechamento do scanner:
             lerArquivo.close();
