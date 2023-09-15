@@ -1,0 +1,4 @@
+Criando novo ficheiro com tratamento de exceções.
+Novo conteúdo gerado a partir de nova escrita.
+Adicionando conteúdo no dia 11/09 às 12h54 no 'meu_arquivo01'.
+Criando novo conteúdo no 'meu_arquivo02.txt' copiando o conteúdo nas linhas(1, 2) que existe em 'meu_arquivo01.txt'.
