@@ -17,6 +17,7 @@ public class Calculadora {
 
     /**
      * Método para retornar Soma
+     *
      * @return
      */
     public double resultadoSomar() {
