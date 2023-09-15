@@ -4,7 +4,7 @@ package Ex_03;
  * Class Retângulo
  */
 public class Retangulo {
-    int altura, largura;
+    private int altura, largura;
 
     /**
      * Método Construtor
