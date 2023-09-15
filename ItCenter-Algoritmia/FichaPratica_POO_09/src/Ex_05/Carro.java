@@ -1,5 +1,7 @@
 package Ex_05;
 
+import java.util.Scanner;
+
 /**
  * Class Carro
  */
@@ -25,20 +27,39 @@ public class Carro {
             System.out.println("Carro Desligado.\nPrecisa Ligar o carro.");
         } else {
             this.ligado = true;
-            System.out.println("Atenção Carro Ligado!!");
+            System.out.println("***** Atenção Carro Ligado!! *****");
         }
-
     }
 
     public void desligarCarro() {
         if (ligado == true) {
-            System.out.println("");
+            System.out.println("Carro Ligado.\nCuidado ao dirigir.");
+        } else {
+            this.ligado = false;
+            System.out.println("***** Carro Desligado!! *****");
         }
-        this.ligado = false;
-        
     }
 
     public void travarCarro() {
+        //Scanner para travar o carro:
+        Scanner input = new Scanner(System.in);
 
+        if (ligado == true) {
+            System.out.println("***** Atenção!! Carro ligado, Desligar antes de Travar.");
+        } else {
+            this.ligado = true;
+            System.out.print("Deseja travar o carro? (S/N):");
+            String opcaoTrava = input.next().toUpperCase();
+            do {
+                if (!opcaoTrava.equals("S") || !opcaoTrava.equals("N")) {
+                    System.out.println("Opção inválida, Insira novamente:");
+                    opcaoTrava = input.next().toUpperCase();
+                } else if (opcaoTrava.equals("N")) {
+                    System.out.println("***** Atenção Carro Destravado *****");
+                } else if (opcaoTrava.equals("S")) {
+                    System.out.println("***** Carro Travado *****");
+                }
+            } while (opcaoTrava.equals("S"));
+        }
     }
 }
