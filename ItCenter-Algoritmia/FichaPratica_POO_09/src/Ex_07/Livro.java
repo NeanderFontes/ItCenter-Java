@@ -5,7 +5,7 @@ import java.math.BigInteger;
 public class Livro {
     private String titulo, autor, categoria, iSBN;
     private int numPagina;
-    //private long iSBN;
+    //private long iSBNL;
 
     /**
      * Método Construtor para construção da instancia
