@@ -20,8 +20,16 @@ public class Retangulo {
      * Método para retornar Área do Retângulo
      * @return - area do Retângulo
      */
-    public int areaRetangulo() {
+    public double areaRetangulo() {
         return (this.altura * this.largura);
+    }
+
+    /**
+     * Método para calcular Perimetro do retangulo
+     * @return
+     */
+    public double perimetroRetangulo() {
+        return ((this.altura * 2) + (this.largura * 2));
     }
 
     /**

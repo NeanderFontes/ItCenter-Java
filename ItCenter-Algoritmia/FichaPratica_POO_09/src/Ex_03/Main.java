@@ -11,5 +11,6 @@ public class Main {
 
         //Saída de dados para identificar área do retangulo criado:
         System.out.println("Área do Retângulo = " + tipo1.areaRetangulo());
+        System.out.println("Petrimetro do Retângulo = " + tipo1.perimetroRetangulo());
     }
 }
