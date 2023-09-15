@@ -46,8 +46,10 @@ public class Carro {
 
         if (ligado == true) {
             System.out.println("***** Atenção!! Carro ligado, Desligar antes de Travar.");
+        } else if (ligado) {
+            System.out.println("Carro Está desligado!!");
         } else {
-            this.ligado = true;
+            //this.ligado = true;
             System.out.print("Deseja travar o carro? (S/N):");
             String opcaoTrava = input.next().toUpperCase();
             do {
