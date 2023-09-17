@@ -63,6 +63,9 @@ public class Main {
                     } catch (FileNotFoundException exception) {
                         System.err.println("\t\t\t\t\t\t"+exception.getMessage());
                         System.out.println("\t\t\t\t\t\tContinuando programa... ");
+                    } catch (InputMismatchException mismatchException) {
+                        System.err.println("\t\t\t\t\t\t"+mismatchException.getMessage());
+                        System.out.println("\t\t\t\t\t\tContinuando programa... ");
                     }
                     break;
                 case 3: //Classificação média de filmes do Produtor(realizador)
@@ -70,6 +73,9 @@ public class Main {
                         mediaFilme("files/IMBD.csv");
                     } catch (FileNotFoundException exception) {
                         System.err.println("\t\t\t\t\t\t"+exception.getMessage());
+                        System.out.println("\t\t\t\t\t\tContinuando programa... ");
+                    } catch (InputMismatchException mismatchException) {
+                        System.err.println("\t\t\t\t\t\t"+mismatchException.getMessage());
                         System.out.println("\t\t\t\t\t\tContinuando programa... ");
                     }
                     break;
@@ -190,6 +196,9 @@ public class Main {
         } catch (FileNotFoundException exception) {
             exception.getMessage();
             throw new FileNotFoundException("Erro de Leitura: Arquivo não encontrado");
+        } catch (InputMismatchException mismatchException) {
+            mismatchException.getMessage();
+            throw new InputMismatchException("Erro de entrada incompatível.");
         }
     }
 
@@ -250,6 +259,9 @@ public class Main {
         } catch (FileNotFoundException exception) {
             exception.getMessage();
             throw new FileNotFoundException("Erro de Leitura: Arquivo não encontrado");
+        } catch (InputMismatchException mismatchException) {
+            mismatchException.getMessage();
+            throw new InputMismatchException("Erro de entrada incompatível.");
         }
     }
 
