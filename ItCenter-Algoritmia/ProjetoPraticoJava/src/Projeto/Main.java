@@ -91,7 +91,15 @@ public class Main {
                     }
                     break;
                 case 5: //Melhor e Pior filmes de acordo com produtores(realizador)"
-                    System.out.println("Opção 5 Escolhida");
+                    try {
+                        melhorPiorFilme("files/IMBD.csv");
+                    } catch (FileNotFoundException exception) {
+                        System.err.println("\t\t\t\t\t\t"+exception.getMessage());
+                        System.out.println("\t\t\t\t\t\tContinuando programa... ");
+                    } catch (InputMismatchException mismatchException) {
+                        System.err.println("\t\t\t\t\t\t"+mismatchException.getMessage());
+                        System.out.println("\t\t\t\t\t\tContinuando programa... ");
+                    }
                     break;
                 case 6: //'Imprimir no console todos filmes do estudio'
                     System.out.println("Opção 6 Escolhida");
@@ -282,7 +290,7 @@ public class Main {
             Scanner input = new Scanner(System.in);
 
             //Declaração de variáveis:
-            boolean produtorExiste = false;
+            boolean filmeExiste = false;
             String idFilmeAux = "", idFilmePesquisa, conteudoLinha = "";
 
             //Entrada de dados:
@@ -299,15 +307,15 @@ public class Main {
 
                 String[] parteLinha = conteudoLinha.split(";");
                 if (parteLinha[0].equalsIgnoreCase(idFilmePesquisa)) {
-                    produtorExiste = true;
-                    if (produtorExiste == true) {
+                    filmeExiste = true;
+                    if (filmeExiste == true) {
                         idFilmeAux = conteudoLinha;
                     }
                 }
             }
 
             //Saida de dados:
-            if (produtorExiste == true) {
+            if (filmeExiste == true) {
                 System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t» Opção valida «");
                 System.out.println("\t\t\t\t\t\t» Informações do filme: ");
                 System.out.println("\t\t\t\t\t\tID do Filme;Titulo do Filme;Rating;Duração;Ano;Estudio;Realizador;Genero");
@@ -315,6 +323,68 @@ public class Main {
             } else {
                 System.out.println("\t\t\t\t\t\t» Identificação inválida.");
                 System.out.println("\t\t\t\t\t\t» Verifique se escreveu corretamente \n\t\t\t\t\t\t\t\t\t\t\t» Exemplo: 'F00-001' «");
+            }
+
+            //Fechamento do arquivo:
+            lerArquivo.close();
+        } catch (FileNotFoundException exception) {
+            exception.getMessage();
+            throw new FileNotFoundException("Erro de Leitura: Arquivo não encontrado");
+        } catch (InputMismatchException mismatchException) {
+            mismatchException.getMessage();
+            throw new InputMismatchException("Erro de entrada incompatível.");
+        }
+    }
+
+    /**
+     * Menu Opção 5:
+     * Método para imprimir no console o melhor e pior filme do Produtor
+     * filtrados de acordo com Ranting no arquivo "IMBD.csv"
+     * @param diretorio - Diretorio do arquivo
+     * @throws FileNotFoundException
+     */
+    private static void melhorPiorFilme(String diretorio) throws FileNotFoundException {
+        //Tratamento de exceção para arquivo não encontrado:
+        try {
+            //Instancia de arquivo imdb.txt
+            File menuImbd = new File(diretorio);
+
+            //Scanner para entrada de dados e leitura de arquivo:
+            Scanner lerArquivo = new Scanner(menuImbd);
+            Scanner input = new Scanner(System.in);
+
+            //Declaração de variáveis:
+            boolean produtorIsTrue = false;
+            int maiorRating, menorRating;
+            String idFilmeAux = "", nomeProdutor, conteudoLinha = "";
+
+            //Entrada de dados:
+            System.out.print("\t\t\t\t\t\t» Por Produtor deseja pesquisar? ");
+            nomeProdutor = input.nextLine();
+
+            //Ciclo para executar o arquivo:
+            lerArquivo.nextLine();
+            while (lerArquivo.hasNextLine()) {
+                //Atribuir na variável o conteúdo da linha do arquivo:
+                conteudoLinha = lerArquivo.nextLine();
+
+                String[] parteLinha = conteudoLinha.split(";");
+                if (parteLinha[0].equalsIgnoreCase(nomeProdutor)) {
+                    produtorIsTrue = true;
+                    if (produtorIsTrue == true) {
+                        idFilmeAux = conteudoLinha;
+                        maiorRating = 0;
+                        menorRating = 0;
+                    }
+                }
+            }
+
+            //Saida de dados:
+            if (produtorIsTrue == true) {
+                System.out.println("\t\t\t\t\t\t» O Produtor " + nomeProdutor + " contém " + quantidadeProdutor + " filmes na lista IMBD.");
+            } else {
+                System.out.println("\t\t\t\t\t\t» Produtor não existe na Lista IMBD.");
+                System.out.println("\t\t\t\t\t\t» Verifique o Nome e Sobrenome.");
             }
 
             //Fechamento do arquivo:
