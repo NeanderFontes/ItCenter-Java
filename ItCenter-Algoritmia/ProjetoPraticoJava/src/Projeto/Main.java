@@ -295,7 +295,7 @@ public class Main {
 
             //Entrada de dados:
             System.out.println("\t\t\t\t\t\t» Para informações do filme indique a identificação entre os valosres abaixo:");
-            System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t» F00-001 - F00-129 «");
+            System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t» 001 - 129 «");
             System.out.print("\t\t\t\t\t\t» Por qual ID deseja pesquisar? ");
             idFilmePesquisa = input.nextLine();
 
@@ -306,7 +306,7 @@ public class Main {
                 conteudoLinha = lerArquivo.nextLine();
 
                 String[] parteLinha = conteudoLinha.split(";");
-                if (parteLinha[0].equalsIgnoreCase(idFilmePesquisa)) {
+                if (parteLinha[0].equalsIgnoreCase("F00-" + idFilmePesquisa)) {
                     filmeExiste = true;
                     if (filmeExiste == true) {
                         idFilmeAux = conteudoLinha;
@@ -322,7 +322,7 @@ public class Main {
                 System.out.println("\t\t\t\t\t\t" + idFilmeAux);
             } else {
                 System.out.println("\t\t\t\t\t\t» Identificação inválida.");
-                System.out.println("\t\t\t\t\t\t» Verifique se escreveu corretamente \n\t\t\t\t\t\t\t\t\t\t\t» Exemplo: 'F00-001' «");
+                System.out.println("\t\t\t\t\t\t» Verifique se escreveu corretamente \n\t\t\t\t\t\t\t\t\t\t\t» Exemplo: '001' «");
             }
 
             //Fechamento do arquivo:
@@ -381,7 +381,7 @@ public class Main {
 
             //Saida de dados:
             if (produtorIsTrue == true) {
-                System.out.println("\t\t\t\t\t\t» O Produtor " + nomeProdutor + " contém " + quantidadeProdutor + " filmes na lista IMBD.");
+                System.out.println("\t\t\t\t\t\t» O Produtor " + nomeProdutor + " contém " + "quantidadeProdutor" + " filmes na lista IMBD.");
             } else {
                 System.out.println("\t\t\t\t\t\t» Produtor não existe na Lista IMBD.");
                 System.out.println("\t\t\t\t\t\t» Verifique o Nome e Sobrenome.");
