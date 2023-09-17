@@ -2,6 +2,7 @@ package Projeto;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -15,6 +16,9 @@ public class Main {
             menuImbd("files/imdb.txt");
         } catch (FileNotFoundException exception) {
             System.err.println(exception.getMessage());
+            System.out.println("Continuando programa... ");
+        } catch (InputMismatchException mismatchException) {
+            System.err.println(mismatchException.getMessage());
             System.out.println("Continuando programa... ");
         }
         menuPrincipal();
@@ -34,8 +38,8 @@ public class Main {
             System.out.println(" ================================== CLASSIFICAÇÕES IMBD =================================");
             System.out.println(" |\t\t\t\t\t\t1 - Lista de Filmes.\t\t\t\t\t\t\t\t\t\t\t|");
             System.out.println(" |\t\t\t\t\t\t2 - Quantidade total de Filmes em IMBD.\t\t\t\t\t\t\t|");
-            System.out.println(" |\t\t\t\t\t\t3 - Média de classificação por Produtores.\t\t\t\t\t\t|");
-            System.out.println(" |\t\t\t\t\t\t4 - Informações de filmes desejado.\t\t\t\t\t\t\t\t|");
+            System.out.println(" |\t\t\t\t\t\t3 - Média da classificação por Produtores.\t\t\t\t\t\t|");
+            System.out.println(" |\t\t\t\t\t\t4 - Informações dos filmes em IMBD.\t\t\t\t\t\t\t\t|");
             System.out.println(" |\t\t\t\t\t\t5 - Melhor e Pior filmes de acordo com produtores(realizador)");
             System.out.println(" |\t\t\t\t\t\t6 - Pesquisar filmes por Estudio.\t\t\t\t\t\t\t\t|");
             System.out.println(" |\t\t\t\t\t\t0 - Sair.\t\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -70,7 +74,15 @@ public class Main {
                     }
                     break;
                 case 4: //Todas informações do arquivo para imprimir na consla
-                    System.out.println("Opção 4 Escolhida");
+                    try {
+                        idFilme("files/IMBD.csv");
+                    } catch (FileNotFoundException exception) {
+                        System.err.println("\t\t\t\t\t\t"+exception.getMessage());
+                        System.out.println("\t\t\t\t\t\tContinuando programa... ");
+                    } catch (InputMismatchException mismatchException) {
+                        System.err.println("\t\t\t\t\t\t"+mismatchException.getMessage());
+                        System.out.println("\t\t\t\t\t\tContinuando programa... ");
+                    }
                     break;
                 case 5: //Melhor e Pior filmes de acordo com produtores(realizador)"
                     System.out.println("Opção 5 Escolhida");
@@ -111,6 +123,9 @@ public class Main {
         } catch (FileNotFoundException exception) {
             exception.getMessage();
             throw new FileNotFoundException("Erro de Leitura: Arquivo não encontrado");
+        } catch (InputMismatchException mismatchException) {
+            mismatchException.getMessage();
+            throw new InputMismatchException("Erro de entrada incompatível.");
         }
     }
 
@@ -235,6 +250,69 @@ public class Main {
         } catch (FileNotFoundException exception) {
             exception.getMessage();
             throw new FileNotFoundException("Erro de Leitura: Arquivo não encontrado");
+        }
+    }
+
+    /**
+     * Menu Opção 4:
+     * Método para imprimir no console filmes filtrados pelo idFilme no arquivo "IMBD.csv"
+     * @param diretorio - Diretorio do arquivo
+     * @throws FileNotFoundException
+     */
+    private static void idFilme(String diretorio) throws FileNotFoundException {
+        //Tratamento de exceção para arquivo não encontrado:
+        try {
+            //Instancia de arquivo imdb.txt
+            File menuImbd = new File(diretorio);
+
+            //Scanner para entrada de dados e leitura de arquivo:
+            Scanner lerArquivo = new Scanner(menuImbd);
+            Scanner input = new Scanner(System.in);
+
+            //Declaração de variáveis:
+            boolean produtorExiste = false;
+            String idFilmeAux = "", idFilmePesquisa, conteudoLinha = "";
+
+            //Entrada de dados:
+            System.out.println("\t\t\t\t\t\t» Para informações do filme indique a identificação entre os valosres abaixo:");
+            System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t» F00-001 - F00-129 «");
+            System.out.print("\t\t\t\t\t\t» Por qual ID deseja pesquisar? ");
+            idFilmePesquisa = input.nextLine();
+
+            //Ciclo para executar o arquivo:
+            lerArquivo.nextLine();
+            while (lerArquivo.hasNextLine()) {
+                //Atribuir na variável o conteúdo da linha do arquivo:
+                conteudoLinha = lerArquivo.nextLine();
+
+                String[] parteLinha = conteudoLinha.split(";");
+                if (parteLinha[0].equalsIgnoreCase(idFilmePesquisa)) {
+                    produtorExiste = true;
+                    if (produtorExiste == true) {
+                        idFilmeAux = conteudoLinha;
+                    }
+                }
+            }
+
+            //Saida de dados:
+            if (produtorExiste == true) {
+                System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t» Opção valida «");
+                System.out.println("\t\t\t\t\t\t» Informações do filme: ");
+                System.out.println("\t\t\t\t\t\tID do Filme;Titulo do Filme;Rating;Duração;Ano;Estudio;Realizador;Genero");
+                System.out.println("\t\t\t\t\t\t" + idFilmeAux);
+            } else {
+                System.out.println("\t\t\t\t\t\t» Identificação inválida.");
+                System.out.println("\t\t\t\t\t\t» Verifique se escreveu corretamente \n\t\t\t\t\t\t\t\t\t\t\t» Exemplo: 'F00-001' «");
+            }
+
+            //Fechamento do arquivo:
+            lerArquivo.close();
+        } catch (FileNotFoundException exception) {
+            exception.getMessage();
+            throw new FileNotFoundException("Erro de Leitura: Arquivo não encontrado");
+        } catch (InputMismatchException mismatchException) {
+            mismatchException.getMessage();
+            throw new InputMismatchException("Erro de entrada incompatível.");
         }
     }
 }
