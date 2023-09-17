@@ -40,7 +40,7 @@ public class Main {
             System.out.println(" |\t\t\t\t\t\t2 - Quantidade total de Filmes em IMBD.\t\t\t\t\t\t\t|");
             System.out.println(" |\t\t\t\t\t\t3 - Média da classificação por Produtores.\t\t\t\t\t\t|");
             System.out.println(" |\t\t\t\t\t\t4 - Informações dos filmes em IMBD.\t\t\t\t\t\t\t\t|");
-            System.out.println(" |\t\t\t\t\t\t5 - Melhor e Pior filmes de acordo com produtores(realizador)");
+            System.out.println(" |\t\t\t\t\t\t5 - Rating dos filmes.\t\t\t\t\t\t\t\t\t\t\t|");
             System.out.println(" |\t\t\t\t\t\t6 - Pesquisar filmes por Estudio.\t\t\t\t\t\t\t\t|");
             System.out.println(" |\t\t\t\t\t\t0 - Sair.\t\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             System.out.println(" ========================================================================================");
@@ -102,7 +102,15 @@ public class Main {
                     }
                     break;
                 case 6: //'Imprimir no console todos filmes do estudio'
-                    System.out.println("Opção 6 Escolhida");
+                    try {
+                        estudioFilme("files/IMBD.csv");
+                    } catch (FileNotFoundException exception) {
+                        System.err.println("\t\t\t\t\t\t"+exception.getMessage());
+                        System.out.println("\t\t\t\t\t\tContinuando programa... ");
+                    } catch (InputMismatchException mismatchException) {
+                        System.err.println("\t\t\t\t\t\t"+mismatchException.getMessage());
+                        System.out.println("\t\t\t\t\t\tContinuando programa... ");
+                    }
                     break;
                 case 0: //Finalizar programa
                     System.out.println("\t\t\t\t\t\t******* Finalizando programa *******");
@@ -189,15 +197,17 @@ public class Main {
             //Declaração de variáveis:
             int numFilme = 0;
 
-            //Ciclo para executar cada linha do arquivo:
+            //Pular primeira linha do arquivo "IMBD.csv":
             lerArquivo.nextLine();
+
+            //Ciclo para executar cada linha do arquivo:
             while (lerArquivo.hasNextLine()) {
                 numFilme++;
                 lerArquivo.nextLine();
             }
 
             //Saida de dados:
-            System.out.println("\t\t\t\t\t\tTotal de " + numFilme + " Filmes registrados: ");
+            System.out.println("\t\t\t\t\t\t- Total de " + numFilme + " Filmes registrados.");
 
             //Fechamento do arquivo:
             lerArquivo.close();
@@ -233,11 +243,13 @@ public class Main {
             String nomeProdutor, conteudoLinha = "";
 
             //Entrada de dados:
-            System.out.print("\t\t\t\t\t\t» Por Produtor deseja pesquisar? ");
+            System.out.print("\t\t\t\t\t\t» Por Qual Produtor deseja pesquisar? ");
             nomeProdutor = input.nextLine();
 
-            //Ciclo para executar o arquivo:
+            //Pular primeira linha do arquivo "IMBD.csv":
             lerArquivo.nextLine();
+
+            //Ciclo para executar o arquivo:
             while (lerArquivo.hasNextLine()) {
                 //Atribuir na variável o conteúdo da linha do arquivo:
                 conteudoLinha = lerArquivo.nextLine();
@@ -299,8 +311,10 @@ public class Main {
             System.out.print("\t\t\t\t\t\t» Por qual ID deseja pesquisar? ");
             idFilmePesquisa = input.nextLine();
 
-            //Ciclo para executar o arquivo:
+            //Pular primeira linha do arquivo "IMBD.csv":
             lerArquivo.nextLine();
+
+            //Ciclo para executar o arquivo:
             while (lerArquivo.hasNextLine()) {
                 //Atribuir na variável o conteúdo da linha do arquivo:
                 conteudoLinha = lerArquivo.nextLine();
@@ -339,14 +353,14 @@ public class Main {
     /**
      * Menu Opção 5:
      * Método para imprimir no console o melhor e pior filme do Produtor
-     * filtrados de acordo com Ranting no arquivo "IMBD.csv"
+       filtrados de acordo com Ranting no arquivo "IMBD.csv"
      * @param diretorio - Diretorio do arquivo
      * @throws FileNotFoundException
      */
     private static void melhorPiorFilme(String diretorio) throws FileNotFoundException {
         //Tratamento de exceção para arquivo não encontrado:
         try {
-            //Instancia de arquivo imdb.txt
+            //Instancia de arquivo "IMBD.csv"
             File menuImbd = new File(diretorio);
 
             //Scanner para entrada de dados e leitura de arquivo:
@@ -364,8 +378,10 @@ public class Main {
             System.out.print("\t\t\t\t\t\t» Por qual Produtor deseja pesquisar? ");
             nomeProdutor = input.nextLine();
 
-            //Ciclo para executar o arquivo:
+            //Pular primeira linha do arquivo "IMBD.csv":
             lerArquivo.nextLine();
+
+            //Ciclo para executar o arquivo:
             while (lerArquivo.hasNextLine()) {
                 //Atribuir na variável o conteúdo da linha do arquivo:
                 conteudoLinha = lerArquivo.nextLine();
@@ -375,7 +391,6 @@ public class Main {
                 if (parteLinha[6].equalsIgnoreCase(nomeProdutor)) {
                     produtorIsTrue = true;
                     if (qt == 0) {
-                        //idFilmeAux = conteudoLinha;
                         maiorRating = Double.parseDouble(parteLinha[2]);
                         menorRating = Double.parseDouble(parteLinha[2]);
                         idFilmeAuxMaior = parteLinha[1];
@@ -404,6 +419,100 @@ public class Main {
             } else {
                 System.out.println("\t\t\t\t\t\t» Produtor não existe na Lista IMBD.");
                 System.out.println("\t\t\t\t\t\t» Verifique o Nome e Sobrenome.");
+            }
+
+            //Fechamento do arquivo:
+            lerArquivo.close();
+        } catch (FileNotFoundException exception) {
+            exception.getMessage();
+            throw new FileNotFoundException("Erro de Leitura: Arquivo não encontrado");
+        } catch (InputMismatchException mismatchException) {
+            mismatchException.getMessage();
+            throw new InputMismatchException("Erro de entrada incompatível.");
+        }
+    }
+    /**
+     * Menu Opção 6:
+     * Método para imprimir no console o melhor e pior filme do Produtor
+       filtrados de acordo com Ranting no arquivo "IMBD.csv"
+     * @param diretorio
+     * @throws FileNotFoundException
+     */
+    private static void estudioFilme(String diretorio) throws FileNotFoundException {
+        //Tratamento de exceção para arquivo não encontrado:
+        try {
+            //Instancia de arquivo "IMBD.csv"
+            File menuImbd = new File(diretorio);
+
+            //Scanner para entrada de dados e leitura de arquivo:
+            Scanner lerArquivo = new Scanner(menuImbd);
+            Scanner input = new Scanner(System.in);
+
+
+            //Declaração de variáveis e matrizes para armazenar filmes por gênero
+            String[][] generoFilme = new String[50][130];
+            int[] generoQuantidade = new int[50];
+            int numLinha, numColuna, indiceGenero = 0;
+            String conteudoLinha, nomeEstudio = "";
+            boolean estudioIsTrue = false;
+            boolean generoEncontrado = false;
+
+            //Entrada de dados:
+            System.out.println("\t\t\t\t\t\t\t\t\t\t\t» Análise de Filmes «");
+            System.out.print("\t\t\t\t\t\t» Por qual Estudio deseja pesquisar? ");
+            nomeEstudio = input.nextLine();
+
+            //Pular primeira linha do arquivo "IMBD.csv":
+            lerArquivo.nextLine();
+
+            //Ciclo para executar o arquivo:
+            while (lerArquivo.hasNextLine()) {
+                conteudoLinha = lerArquivo.nextLine();
+                String[] parteLinha = conteudoLinha.split(";");
+
+                if (parteLinha.length > 7 && parteLinha[5].equalsIgnoreCase(nomeEstudio)) {
+                    estudioIsTrue = true;
+                    String genero = parteLinha[7];
+                    String filme = parteLinha[1];
+
+                    //Pesquisa por um gênero na matriz
+                    generoEncontrado = false;
+                    for (numLinha = 0; numLinha < indiceGenero; numLinha++) {
+                        if (generoFilme[numLinha][0].equalsIgnoreCase(genero)) {
+                            generoEncontrado = true;
+                            generoFilme[numLinha][generoQuantidade[numLinha] + 1] = filme;
+                            generoQuantidade[numLinha]++;
+                            break;
+                        }
+                    }
+
+                    if (generoEncontrado == false) {
+                        generoFilme[indiceGenero][0] = genero;
+                        generoFilme[indiceGenero][1] = filme;
+                        generoQuantidade[indiceGenero] = 1;
+                        indiceGenero++;
+                    }
+                }
+            }
+
+            //Saída de dados:
+            if (estudioIsTrue == true) {
+                System.out.println("\t\t\t\t\t\t» Estudio a pesquisar: " + nomeEstudio + ".");
+                System.out.println("\t\t\t\t\t\t» **** " + nomeEstudio + " ****");
+
+                //Imprime no console todos os filmes por gênero
+                for (numLinha = 0; numLinha < indiceGenero; numLinha++) {
+                    String genero = generoFilme[numLinha][0];
+                    System.out.println("\t\t\t\t\t\t\t\t\t»» " + genero + " ««");
+
+                    for (numColuna = 1; numColuna <= generoQuantidade[numLinha]; numColuna++) {
+                        System.out.println("\t\t\t\t\t\t\t\t\t - " + generoFilme[numLinha][numColuna]);
+                    }
+                    System.out.println();
+                }
+            } else {
+                System.out.println("\t\t\t\t\t\t» Estudio não existe na Lista IMBD.");
+                System.out.println("\t\t\t\t\t\t» Verifique o nome corretamente.");
             }
 
             //Fechamento do arquivo:
