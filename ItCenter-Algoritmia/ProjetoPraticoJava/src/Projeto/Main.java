@@ -355,11 +355,13 @@ public class Main {
 
             //Declaração de variáveis:
             boolean produtorIsTrue = false;
-            int maiorRating, menorRating;
-            String idFilmeAux = "", nomeProdutor, conteudoLinha = "";
+            double maiorRating = 0, menorRating = 0;
+            String nomeProdutor, idFilmeAuxMaior = "" , idFilmeAuxMenor = "", conteudoLinha = "";
+            int qt = 0;
 
             //Entrada de dados:
-            System.out.print("\t\t\t\t\t\t» Por Produtor deseja pesquisar? ");
+            System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t» Análise de Filmes «");
+            System.out.print("\t\t\t\t\t\t» Por qual Produtor deseja pesquisar? ");
             nomeProdutor = input.nextLine();
 
             //Ciclo para executar o arquivo:
@@ -369,19 +371,36 @@ public class Main {
                 conteudoLinha = lerArquivo.nextLine();
 
                 String[] parteLinha = conteudoLinha.split(";");
-                if (parteLinha[0].equalsIgnoreCase(nomeProdutor)) {
+
+                if (parteLinha[6].equalsIgnoreCase(nomeProdutor)) {
                     produtorIsTrue = true;
-                    if (produtorIsTrue == true) {
-                        idFilmeAux = conteudoLinha;
-                        maiorRating = 0;
-                        menorRating = 0;
+                    if (qt == 0) {
+                        //idFilmeAux = conteudoLinha;
+                        maiorRating = Double.parseDouble(parteLinha[2]);
+                        menorRating = Double.parseDouble(parteLinha[2]);
+                        idFilmeAuxMaior = parteLinha[1];
+                        idFilmeAuxMenor = parteLinha[1];
+                        qt++;
+                    } else {
+                        if (Double.parseDouble(parteLinha[2]) > maiorRating) {
+                            maiorRating = Double.parseDouble(parteLinha[2]);
+                            idFilmeAuxMaior = parteLinha[1];
+                        }
+                        if (Double.parseDouble(parteLinha[2]) < menorRating) {
+                            menorRating = Double.parseDouble(parteLinha[2]);
+                            idFilmeAuxMenor = parteLinha[1];
+                        }
                     }
                 }
             }
 
             //Saida de dados:
             if (produtorIsTrue == true) {
-                System.out.println("\t\t\t\t\t\t» O Produtor " + nomeProdutor + " contém " + "quantidadeProdutor" + " filmes na lista IMBD.");
+                System.out.println("\t\t\t\t\t\t» Rating do Produtor " + nomeProdutor + " filmes na lista IMBD.");
+                System.out.println("\t\t\t\t\t\t\t\t\t\t» Maior Rating de nota " + maiorRating + " «");
+                System.out.println("\t\t\t\t\t\t\t\t\t\t» Nome do Filme: " + idFilmeAuxMaior + " «");
+                System.out.println("\t\t\t\t\t\t\t\t\t\t» Menor Rating de nota " + menorRating + " «");
+                System.out.println("\t\t\t\t\t\t\t\t\t\t» Nome do Filme: " + idFilmeAuxMenor + " «");
             } else {
                 System.out.println("\t\t\t\t\t\t» Produtor não existe na Lista IMBD.");
                 System.out.println("\t\t\t\t\t\t» Verifique o Nome e Sobrenome.");
