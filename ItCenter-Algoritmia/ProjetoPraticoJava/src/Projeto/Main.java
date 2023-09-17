@@ -34,7 +34,7 @@ public class Main {
             System.out.println(" ================================== CLASSIFICAÇÕES IMBD =================================");
             System.out.println(" |\t\t\t\t\t\t1 - Lista de Filmes.\t\t\t\t\t\t\t\t\t\t\t|");
             System.out.println(" |\t\t\t\t\t\t2 - Quantidade total de Filmes em IMBD.\t\t\t\t\t\t\t|");
-            System.out.println(" |\t\t\t\t\t\t3 - Pesquisar filmes por produtores.\t\t\t\t\t\t\t|");
+            System.out.println(" |\t\t\t\t\t\t3 - Média de classificação por Produtores.\t\t\t\t\t\t|");
             System.out.println(" |\t\t\t\t\t\t4 - Informações de filmes desejado.\t\t\t\t\t\t\t\t|");
             System.out.println(" |\t\t\t\t\t\t5 - Melhor e Pior filmes de acordo com produtores(realizador)");
             System.out.println(" |\t\t\t\t\t\t6 - Pesquisar filmes por Estudio.\t\t\t\t\t\t\t\t|");
@@ -62,7 +62,12 @@ public class Main {
                     }
                     break;
                 case 3: //Classificação média de filmes do Produtor(realizador)
-                    System.out.println("Opção 3 Escolhida");
+                    try {
+                        mediaFilme("files/IMBD.csv");
+                    } catch (FileNotFoundException exception) {
+                        System.err.println("\t\t\t\t\t\t"+exception.getMessage());
+                        System.out.println("\t\t\t\t\t\tContinuando programa... ");
+                    }
                     break;
                 case 4: //Todas informações do arquivo para imprimir na consla
                     System.out.println("Opção 4 Escolhida");
@@ -139,7 +144,7 @@ public class Main {
 
     /**
      * Menu Opção 2:
-     * Método para imprimir no console quantidade total de filmes no arquivo "IMBD.csv":
+     * Método para imprimir no console quantidade total de filmes no arquivo "IMBD.csv"
      * @param diretorio - Diretorio do arquivo
      * @throws FileNotFoundException
      */
@@ -163,7 +168,67 @@ public class Main {
             }
 
             //Saida de dados:
-            System.out.println("\t\t\t\t\t\tTotal de 'LINHAS' registrados: " + numFilme);
+            System.out.println("\t\t\t\t\t\tTotal de " + numFilme + " Filmes registrados: ");
+
+            //Fechamento do arquivo:
+            lerArquivo.close();
+        } catch (FileNotFoundException exception) {
+            exception.getMessage();
+            throw new FileNotFoundException("Erro de Leitura: Arquivo não encontrado");
+        }
+    }
+
+    /**
+     * Menu Opção 3:
+     * Método para imprimir no console media dos filmes por Produtor no arquivo "IMBD.csv"
+     * @param diretorio - Diretorio do arquivo
+     * @throws FileNotFoundException
+     */
+    private static void mediaFilme(String diretorio) throws FileNotFoundException {
+        //Tratamento de exceção para arquivo não encontrado:
+        try {
+            //Instancia de arquivo imdb.txt
+            File menuImbd = new File(diretorio);
+
+            //Scanner para entrada de dados e leitura de arquivo:
+            Scanner lerArquivo = new Scanner(menuImbd);
+            Scanner input = new Scanner(System.in);
+
+            //Declaração de variáveis:
+            boolean produtorExiste = false;
+            int quantidadeProdutor = 0;
+            double somaLinha = 0.0, mediaFilme = 0.0;
+            String nomeProdutor, conteudoLinha = "";
+
+            //Entrada de dados:
+            System.out.print("\t\t\t\t\t\t» Por Produtor deseja pesquisar? ");
+            nomeProdutor = input.nextLine();
+
+            //Ciclo para executar o arquivo:
+            lerArquivo.nextLine();
+            while (lerArquivo.hasNextLine()) {
+                //Atribuir na variável o conteúdo da linha do arquivo:
+                conteudoLinha = lerArquivo.nextLine();
+
+                String[] parteLinha = conteudoLinha.split(";");
+                if (parteLinha[6].equalsIgnoreCase(nomeProdutor)) {
+                    produtorExiste = true;
+                    if (produtorExiste == true) {
+                        quantidadeProdutor++;
+                        somaLinha += Double.parseDouble(parteLinha[2]);
+                        mediaFilme = (somaLinha / quantidadeProdutor);
+                    }
+                }
+            }
+
+            //Saida de dados:
+            if (produtorExiste == true) {
+                System.out.println("\t\t\t\t\t\t» O Produtor " + nomeProdutor + " contém " + quantidadeProdutor + " filmes na lista IMBD.");
+                System.out.println("\t\t\t\t\t\t» Média = " + mediaFilme);
+            } else {
+                System.out.println("\t\t\t\t\t\t» Produtor não existe na Lista IMBD.");
+                System.out.println("\t\t\t\t\t\t» Verifique o Nome e Sobrenome.");
+            }
 
             //Fechamento do arquivo:
             lerArquivo.close();
