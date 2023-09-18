@@ -1,5 +1,7 @@
 package Ex_08;
 
+import java.util.Scanner;
+
 /**
  * Crie uma classe Aluno que tenha os atributos nome, idade, curso e média.
     I - Crie um construtor que receba os quatro atributos como parâmetros.
@@ -22,12 +24,12 @@ public class Aluno {
      * @param nota1 - Nota 1 do aluno
      * @param nota2 - Nota 2 do aluno
      */
-    public Aluno(String nome, String curso, int idade, double nota1, double nota2) {
+    public Aluno(String nome, String curso, int idade) {
         this.nome = nome;
         this.curso = curso;
         this.idade = idade;
-        this.nota1 = nota1;
-        this.nota2 = nota2;
+        //this.nota1 = nota1;
+        //this.nota2 = nota2;
     }
 
     /**
@@ -36,8 +38,15 @@ public class Aluno {
      * @param nota2 - Nota 2 do aluno
      * @return Média = (nota1 + nota2) / 2
      */
-    public double mediaAluno(double nota1, double nota2) {
-        return this.media = (nota1 + nota2) / 2;
+    public double mediaAluno() {
+        //Scanner para apresentar nota:
+        Scanner input = new Scanner(System.in);
+        System.out.print("Insira nota 1:");
+        this.nota1 = input.nextDouble();
+        System.out.print("Insira nota 2:");
+        this.nota2 = input.nextDouble();
+
+        return this.media = (this.nota1 + this.nota2) / 2;
     }
 
     /**
@@ -45,7 +54,7 @@ public class Aluno {
      * @return - "Aprovado" ou "Reprovado"
      */
     public String resultadoAluno() {
-        if (this.media < 9.5) {
+        if (this.media > 9.5) {
             return "Aprovado";
         } else {
             return "Reprovado";
