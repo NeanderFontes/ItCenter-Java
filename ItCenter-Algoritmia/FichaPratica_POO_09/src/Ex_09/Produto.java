@@ -1,6 +1,7 @@
 package Ex_09;
 
 import java.util.Scanner;
+import java.util.spi.AbstractResourceBundleProvider;
 
 /**
  * Crie uma classe Produto que tenha os atributos nome, preço e quantidade em stock
@@ -34,6 +35,7 @@ public class Produto {
     public void menuProduto() {
         Scanner input = new Scanner(System.in);
 
+        String opcaoStock;
         int opcaoMenu;
 
         do {
@@ -41,13 +43,31 @@ public class Produto {
             System.out.println("1 - Comprar.");
             System.out.println("2 - Stock.");
             System.out.println("0 - Sair.");
+            System.out.print("Escolha uma opção acima: ");
             opcaoMenu = input.nextInt();
             switch (opcaoMenu) {
                 case 1:
                     comprar();
                     break;
                 case 2:
-                    atualizarEstoque();
+                    System.out.println("Disponível " + getNomePruduto() + "[" + this.qtStock + "] no momento.");
+                    System.out.println("Deseja atualizar o Stock? [S/N]");
+                    opcaoStock = input.next();
+                    if (opcaoStock.equalsIgnoreCase("S") && this.qtStock == 0) {
+                        System.out.print("Quanto deseja adicionar ao Stock? ");
+                        this.qtStock = input.nextInt();
+                        atualizarEstoque(this.qtStock);
+                        System.out.println("Disponível " + getNomePruduto() + "[" + this.qtStock + "] no momento.");
+                    } else {
+                        if (opcaoStock.equalsIgnoreCase("N")) {
+                            break;
+                        } else {
+                            System.out.print("Quanto deseja adicionar ao Stock? ");
+                            this.qtStock = input.nextInt();
+                            atualizarEstoque(this.qtStock);
+                            System.out.println("Disponível " + getNomePruduto() + "[" + this.qtStock + "] no momento.");
+                        }
+                    }
                     break;
                 case 0:
                     System.out.println("Sair.");
@@ -63,14 +83,14 @@ public class Produto {
         Scanner input = new Scanner(System.in);
 
         //Entrada e saída de dados:
-        System.out.println(getCliente() + "Seja bem vindo!");
+        System.out.println(getCliente() + " Seja bem vindo!");
         System.out.println("Disponível " + getNomePruduto() + "[" + this.qtStock + "] no momento.");
 
         //Se quantidade de stock maior que 0 intriduzir quantidade do produto
         if (this.qtStock > 0) {
             System.out.print("Quantos " + getNomePruduto() + " deseja comprar? ");
             this.qtProduto = input.nextInt();
-            if (qtProduto > 0) {
+            if (this.qtProduto > 0 && this.qtProduto <= this.qtStock) {
                 this.precoProduto *= this.qtProduto;
                 System.out.println("Valor total = €" + this.precoProduto);
                 if (this.precoProduto > 0 && this.qtProduto > 0) {
@@ -78,7 +98,8 @@ public class Produto {
                     vender();
                 }
             } else {
-                System.out.println("Obrigado, volte sempre!");
+                System.out.println("Quantidade maior do que contem no Stock");
+                System.out.println("Disponível " + getNomePruduto() + "[" + this.qtStock + "] no momento.");
             }
         } else {
             //Se não, quantidade de stock = 0
@@ -103,18 +124,19 @@ public class Produto {
                 if (atualizarStock) {
                     System.out.print("Quantos produtos deseja adicionar ao Stock? ");
                     int qtMaisStock = input.nextInt();
-                    atualizarEstoque(qtMaisStock);
+                    this.qtStock += qtMaisStock;
                 }
             } else {
                 System.out.println(getNomePruduto() + "Indisponível no momento.");
             }
         } else {
-            System.out.println("Qual a quantidade desejada do " + getNomePruduto() + " ?");
-            this.qtProduto = input.nextInt();
-            if (this.qtProduto > this.qtStock) {
-                System.out.println("Quantidade de produto pedido mairo que quantidade em stock.");
+            System.out.println("Deseja comprar " + this.qtProduto + " de " + getNomePruduto() + "? [S/N]");
+            String opcaoCompra = input.next();
+            if (opcaoCompra.equalsIgnoreCase("S")) {
+                this.qtStock -= this.qtProduto;
                 System.out.println("Disponível " + getNomePruduto() + "[" + this.qtStock + "] no momento.");
             } else {
+                this.precoProduto /= this.qtProduto;
                 System.out.println("Disponível " + getNomePruduto() + "[" + this.qtStock + "] no momento.");
             }
         }
@@ -125,7 +147,7 @@ public class Produto {
      * @param qtMaisStock
      * @return
      */
-    public int atualizarEstoque(int qtMaisStock) {
+    private int atualizarEstoque(int qtMaisStock) {
         this.qtStock = qtMaisStock;
             return this.qtStock ;
     }
