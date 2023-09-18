@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 public class Funcionario {
     private String nomeFuncionario, departamento;
-    private double salarioFuncionario;
+    private double salarioFuncionario, aumentoFuncionario;
 
     /**
      * Método Construtor para cadastrar o funcionario em instancia.
@@ -29,21 +29,21 @@ public class Funcionario {
 
     public void exibirDados() {
         System.out.println("Funcionário: " + getNomeFuncionario());
-        System.out.println("Salário: " + getSalarioFuncionario());
+        System.out.println("Salário: €" + getSalarioFuncionario());
         System.out.println("Departamento: " + getDepartamento());
     }
 
     /**
      * Método para aumentar salário de acordo com a porcentagem de desconto introduzida.
-     * @param aumentoFuncionario
      * @return - Aumento Funcionário já adicionado.
      */
-    private double aumentarSalario(double aumentoFuncionario) {
+    public double aumentarSalario() {
         Scanner input = new Scanner(System.in);
         System.out.print("Quantos % Deseja aumentar o salário? ");
         double descontoFuncionario = input.nextDouble();
-        descontoFuncionario = (aumentoFuncionario * this.salarioFuncionario) / 100;
-        return (this.salarioFuncionario + descontoFuncionario);
+        this.aumentoFuncionario = (this.salarioFuncionario * descontoFuncionario ) / 100;
+        this.salarioFuncionario += this.aumentoFuncionario;
+        return this.salarioFuncionario;
     }
 
     /**
@@ -68,5 +68,13 @@ public class Funcionario {
      */
     public double getSalarioFuncionario() {
         return this.salarioFuncionario;
+    }
+
+    /**
+     * Método getter para obter valor de Aumento
+     * @return - Aumento de Salario do Funcionario
+     */
+    public double getAumentoFuncionario() {
+        return aumentoFuncionario;
     }
 }
