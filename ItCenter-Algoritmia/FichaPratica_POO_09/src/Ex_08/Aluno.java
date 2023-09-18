@@ -21,21 +21,16 @@ public class Aluno {
      * @param nome - Nome ALuno
      * @param curso - Curso Aluno
      * @param idade - Idade Aluno
-     * @param nota1 - Nota 1 do aluno
-     * @param nota2 - Nota 2 do aluno
      */
     public Aluno(String nome, String curso, int idade) {
         this.nome = nome;
         this.curso = curso;
         this.idade = idade;
-        //this.nota1 = nota1;
-        //this.nota2 = nota2;
     }
 
     /**
      * Método para obter Média do aluno.
-     * @param nota1 - Nota 1 do Aluno
-     * @param nota2 - Nota 2 do aluno
+        Utilizando entrada de dados para atribuir valores as nota1 e nota2
      * @return Média = (nota1 + nota2) / 2
      */
     public double mediaAluno() {
