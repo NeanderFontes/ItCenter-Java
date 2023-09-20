@@ -92,7 +92,7 @@ public class Conta {
                     if (novoAtributoObjeto != null) {
                         transfencia(valorTransferido, novoAtributoObjeto);
                     } else {
-                        System.out.println("Número de conta " + getNumConta() + "não existe!");
+                        System.out.println("Número de conta " + getNumConta() + " não existe!");
                     }
                     break;
                 case 0:
