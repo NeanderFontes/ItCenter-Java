@@ -7,15 +7,15 @@ import java.util.Scanner;
  *  • Crie uma classe chamada "Conta" com os seguintes atributos: número da conta, saldo e titular da conta.
  *  • Crie um método “transferência” que tenha como parâmetros o valor a transferir e a conta de destinatário.
  *  • Crie os métodos depositar (aumentar saldo), levantar (diminuir saldo) e mostrarSaldo.
-        (Exemplo de mostarSaldo: “Saldo da conta 12345: 950 EUR”)
+ (Exemplo de mostarSaldo: “Saldo da conta 12345: 950 EUR”)
  *  • O método depositar deve receber um valor como parâmetro e atualizar o saldo.
  *  • O método levantar deve receber um valor como parâmetro e verificar se é possível realizar a
-        operação, considerando o saldo. De seguida, atualiza o saldo se a transação for possível.
+ operação, considerando o saldo. De seguida, atualiza o saldo se a transação for possível.
  *  • O método exibirSaldo deve exibir na consola o saldo atual da conta.
  *  • No método main, crie um objeto da classe Conta e invoque os métodos para depositar 1000€ e exibir o saldo.
  *  • De seguida, invoque o método para levantar 120€ e exiba o saldo.
  *  • De seguida, crie mais dois objetos da classe e atribua valores aos seus atributos. De seguida,
-        transfira um valor de uma conta para a outra.
+ transfira um valor de uma conta para a outra.
  *  • No fim, deve exibir o saldo atual das três contas.
  */
 public class Conta {
@@ -87,13 +87,16 @@ public class Conta {
                     valorTransferido = input.nextDouble();
                     System.out.print("Para qual conta deseja realizar a transferência? ");
                     int numUtilizador = input.nextInt();
-                    //Composição da class Conta para encontrar Numero da Conta:
-                    novoAtributoObjeto = encontrarConta(numUtilizador);
+                    //Composição de class Conta para encontrar Numero da Conta:
+                    //novoAtributoObjeto = encontrarConta(numUtilizador);
+                    transfencia(valorTransferido, novoAtributoObjeto);
+                    /*todo Refazer nova Classe Banco
                     if (novoAtributoObjeto != null) {
-                        transfencia(valorTransferido, novoAtributoObjeto);
+
                     } else {
-                        System.out.println("Número de conta " + getNumConta() + " não existe!");
+                        System.out.println("Número de conta " + this.numConta + " não existe!");
                     }
+                    */
                     break;
                 case 0:
                     System.out.println("Sair.");
@@ -104,17 +107,19 @@ public class Conta {
         } while (opcaoMenu != 0);
     }
 
-    /**
+    /**todo Refazer nova Classe Banco
      * Método de lógica criado para Composição da class Conta Numero da Conta
      * @param numUtilizador - Numero de entrada pelo utilizador
      * @return - Null ou Numero de Conta se existir
-     */
-    private Conta encontrarConta(int numUtilizador) {
-        if (this.numConta == numUtilizador) {
+
+     public Conta encontrarConta(int numUtilizador) {
+         for (int i = 0; i < )
+         if (numUtilizador == this.numConta) {
             return this; //Retorna valor do Numero da conta
-        }
+         }
         return null;
     }
+     */
 
     /**
      * Função para retornar valor Depositado na Conta
@@ -172,6 +177,11 @@ public class Conta {
             System.out.println(this.getTitularConta() + " Seu saldo atual = €" + this.saldoConta);
             //Decremento para valor transferido da conta
             this.saldoConta -= valorTransferido;
+
+            //Transferência do valor para conta de destino:
+            contaDestino.saldoConta += (valorTransferido);
+
+            //Dados finais:
             System.out.println("Transferência de €" + valorTransferido + " realizada com sucesso para "
                     + contaDestino.getTitularConta() + " Nº Conta: " + contaDestino.getNumConta());
 
@@ -194,5 +204,9 @@ public class Conta {
      */
     public int getNumConta() {
         return this.numConta;
+    }
+
+    public void setNumConta(int numConta) {
+        this.numConta = numConta;
     }
 }
