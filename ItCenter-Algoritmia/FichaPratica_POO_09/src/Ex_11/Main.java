@@ -16,7 +16,12 @@ public class Main {
 
         //Entrada de dados:
         contaExemplo[1].mostrarSaldo();
-        contaExemplo[0].menuConta();
+        contaExemplo[0].mostrarSaldo();
+        System.out.println();
+
+        contaExemplo[0].depositar(1000);
+        contaExemplo[0].transfencia(400,contaExemplo[1]);
+        System.out.println();
 
         //Saida de dados finais:
         contaExemplo[1].mostrarSaldo();
