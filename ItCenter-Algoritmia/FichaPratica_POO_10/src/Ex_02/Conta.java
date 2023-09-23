@@ -10,8 +10,9 @@ public class Conta {
 
     /**
      * Método Construtor para instancia do objeto Conta
+     *
      * @param titularConta - Titular da conta
-     * @param numConta - Numero da conta
+     * @param numConta     - Numero da conta
      */
     public Conta(String titularConta, int numConta) {
         this.titularConta = titularConta;
@@ -113,6 +114,7 @@ public class Conta {
 
     /**
      * Função para retornar valor Depositado na Conta
+     *
      * @return - Saldo da Conta + Depoisto realizado
      */
     public double depositar(double valorDepositado) {
@@ -132,6 +134,7 @@ public class Conta {
 
     /**
      * Função criada pra Levantar (Sacar)
+     *
      * @return - Valor Levantado
      */
     public double levantarSacar(double valorLevantar) {
@@ -158,8 +161,9 @@ public class Conta {
 
     /**
      * Método para Transferência entre contas:
+     *
      * @param valorTransferido - Valor de transferência pelo utilizador
-     * @param contaDestino -
+     * @param contaDestino     -
      */
     public void transfencia(double valorTransferido, Conta contaDestino) {
         if (this.saldoConta >= valorTransferido && valorTransferido > 0) {
@@ -175,12 +179,14 @@ public class Conta {
                     + contaDestino.getTitularConta() + " Nº Conta: " + contaDestino.getNumConta());
 
         } else {
-            System.out.println("Saldo insuficiente para realizar transferência.");;
+            System.out.println("Saldo insuficiente para realizar transferência.");
+            ;
         }
     }
 
     /**
      * Método getter para obter nome do Titular da Conta
+     *
      * @return - Nome do Titular da Conta
      */
     public String getTitularConta() {
@@ -189,6 +195,7 @@ public class Conta {
 
     /**
      * Método getter para retornar Numero da COnta
+     *
      * @return - Numero da conta
      */
     public int getNumConta() {
