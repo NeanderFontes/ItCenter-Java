@@ -16,15 +16,16 @@ public class Carro {
         this.anoFabricacaoCarro = anoFabricacaoCarro;
         this.ciclindradaCarro = ciclindradaCarro;
         this.potenciaCarro = potenciaCarro;
-        this.anoAtual = anoAtual;
+        this.anoAtual = getAnoAtual();
         this.kmPorLitro = kmPorLitro;
     }
 
-    public void anoAtual() {
+    private void anoAtual() {
         LocalDate dataAtual = LocalDate.now();
         this.anoAtual = dataAtual.getYear();
         this.diaAtual = dataAtual.getDayOfMonth();
         this.mesAtual = dataAtual.getMonthValue();
+        System.out.println("Estamos Atualmente em: " + getDiaAtual() + "/" + getMesAtual() + "/" + getAnoAtual());
     }
 
     /**
@@ -34,7 +35,7 @@ public class Carro {
      * som do carro de acordo com a potência do Carro
      */
     public void ligarCarro() {
-        int idadeCarro = this.anoAtual - this.anoFabricacaoCarro;
+        int idadeCarro = 2023 - this.anoFabricacaoCarro;
 
         if (idadeCarro > 30) {
             if (this.tipoCombustivelCarro.equals(TipoCombustivel.DIESEL)) {
@@ -57,7 +58,6 @@ public class Carro {
      * Método para imprimir no console os Detalhes do Carro
      */
     public void exibirDetalhes() {
-        System.out.println("Estamos Atualmente em: " + this.diaAtual + "/" + this.mesAtual + "/" + anoAtual);
         System.out.println("Marca: " + this.marcaCarro);
         System.out.println("Modelo: " + this.modeloCarro);
         System.out.println("Ano Fabricação: " + this.anoFabricacaoCarro);
@@ -73,11 +73,13 @@ public class Carro {
         System.out.println("Potência: " + this.potenciaCarro);
         System.out.println("Cilindrada: " + this.ciclindradaCarro);
         System.out.println("Tipo de Combustivel: " + this.tipoCombustivelCarro);
+        System.out.println("Ano do Carro: " + this.anoFabricacaoCarro);
         System.out.println("\t\t***** Carro 2 *****");
         System.out.println("Marca: " + carroAdversario.marcaCarro);
         System.out.println("Potência: " + carroAdversario.potenciaCarro);
         System.out.println("Cilindrada: " + carroAdversario.ciclindradaCarro);
         System.out.println("Tipo de Combustivel: " + carroAdversario.tipoCombustivelCarro);
+        System.out.println("Ano do Carro: " + carroAdversario.anoFabricacaoCarro);
         System.out.println("=============================================");
     }
 
@@ -102,10 +104,10 @@ public class Carro {
                     } else {
                         if (this.anoFabricacaoCarro > carroAdversario.getAnoFabricacaoCarro()) {
                             return this;
-                        } else if (this.anoFabricacaoCarro > carroAdversario.getAnoFabricacaoCarro()) {
-                            return carroAdversario;
                         } else {
-                            System.out.println("Empate Total!!");
+                            if (this.anoFabricacaoCarro < carroAdversario.getAnoFabricacaoCarro()) {
+                                return carroAdversario;
+                            }
                         }
                     }
                 }
@@ -145,5 +147,17 @@ public class Carro {
 
     public int getAnoFabricacaoCarro() {
         return this.anoFabricacaoCarro;
+    }
+
+    public int getDiaAtual() {
+        return this.diaAtual;
+    }
+
+    public int getMesAtual() {
+        return this.mesAtual;
+    }
+
+    public int getAnoAtual() {
+        return this.anoAtual;
     }
 }
