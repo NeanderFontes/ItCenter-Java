@@ -12,39 +12,38 @@ public class Carro {
 
     /**
      * Método Construtor para chamada de instancia
-     * @param marca - Marca do carro
-     * @param modelo - Modelo do carro
+     *
+     * @param marca         - Marca do carro
+     * @param modelo        - Modelo do carro
      * @param anoFabricacao - Ano de fabricação do carro
      */
     public Carro(String marca, String modelo, int anoFabricacao) {
         this.marca = marca;
         this.modelo = modelo;
         this.anoFabricacao = anoFabricacao;
+        this.ligado = false;
     }
 
     public void ligarCarro() {
-        if (ligado) {
-            System.out.println("Carro Desligado.\nPrecisa Ligar o carro.");
+        this.ligado = true;
+        if (!this.ligado) {
+            System.out.println("Carro já está deligado");
         } else {
-            this.ligado = true;
-            System.out.println("***** Atenção Carro Ligado!! *****");
+            System.out.println("Vru vru vruummm.. Carro Ligado!!");
         }
     }
 
     public void desligarCarro() {
-        if (ligado == true) {
-            System.out.println("Carro Ligado.\nCuidado ao dirigir.");
-        } else {
-            this.ligado = false;
-            System.out.println("***** Carro Desligado!! *****");
-        }
+        this.ligado = false;
+        System.out.println("***** Carro Desligado!! *****");
+
     }
 
-    public void travarCarro() {
+/*    public void travarCarro() {
         //Scanner para travar o carro:
         Scanner input = new Scanner(System.in);
 
-        if (ligado == true) {
+        if (ligado) {
             System.out.println("***** Atenção!! Carro ligado, Desligar antes de Travar.");
         } else if (ligado) {
             System.out.println("Carro Está desligado!!");
@@ -63,5 +62,5 @@ public class Carro {
                 }
             } while (opcaoTrava.equals("S"));
         }
-    }
+    } */
 }

@@ -10,7 +10,7 @@ public class Main {
         Carro carroTipo1 = new Carro("BMW", "Série 1", 2023);
 
         //Saída de dados para obter resultado para ligar/desligar/travar Caro:
-        carroTipo1.travarCarro();
+        carroTipo1.ligarCarro();
         carroTipo1.desligarCarro();
     }
 }
