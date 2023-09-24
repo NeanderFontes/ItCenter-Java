@@ -40,4 +40,36 @@ public class Pessoa {
     public void exibirDetalhePessoa() {
         System.out.print("Nome: " + this.nomePessoa + " | Idade: " + this.idadePessoa + " | Telefone: " + this.telefonePessoa);
     }
+
+    public String getNomePessoa() {
+        return nomePessoa;
+    }
+
+    public void setNomePessoa(String nomePessoa) {
+        this.nomePessoa = nomePessoa;
+    }
+
+    public String getEmailPessoa() {
+        return emailPessoa;
+    }
+
+    public void setEmailPessoa(String emailPessoa) {
+        this.emailPessoa = emailPessoa;
+    }
+
+    public String getTelefonePessoa() {
+        return telefonePessoa;
+    }
+
+    public void setTelefonePessoa(String telefonePessoa) {
+        this.telefonePessoa = telefonePessoa;
+    }
+
+    public int getIdadePessoa() {
+        return idadePessoa;
+    }
+
+    public void setIdadePessoa(int idadePessoa) {
+        this.idadePessoa = idadePessoa;
+    }
 }
