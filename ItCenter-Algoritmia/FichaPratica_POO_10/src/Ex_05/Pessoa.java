@@ -11,6 +11,14 @@ public class Pessoa {
     private String nomePessoa, emailPessoa, telefonePessoa;
     private int idadePessoa;
 
+    /**
+     * Criando Método de Class Pessoa para instanciamento do objeto
+     *
+     * @param nomePessoa     - Nome da Pessoa
+     * @param emailPessoa    - Email da Pessoa
+     * @param telefonePessoa - Telefone da Pessoa
+     * @param idadePessoa    - Idade da Pessoa
+     */
     public Pessoa(String nomePessoa, String emailPessoa, String telefonePessoa, int idadePessoa) {
         this.nomePessoa = nomePessoa;
         this.emailPessoa = emailPessoa;
@@ -18,6 +26,9 @@ public class Pessoa {
         this.idadePessoa = idadePessoa;
     }
 
+    /**
+     * Método para Exibir detalhes das pessoas cadastradas em objeto Pessoa:
+     */
     public void exibirDetalhePessoa() {
         System.out.print("Nome: " + this.nomePessoa + " | Idade: " + this.idadePessoa + " | Telefone: " + this.telefonePessoa);
     }

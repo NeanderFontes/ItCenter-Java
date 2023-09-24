@@ -10,13 +10,17 @@ public class Agenda {
     private Pessoa[] pessoaAgenda;
     private int contadorPessoaAgenda;
 
+    /**
+     * Método para Adicionar através de array objeto Pessoa em objeto Agenda:
+     */
     public Agenda() {
         this.pessoaAgenda = new Pessoa[50];
         this.contadorPessoaAgenda = 0;
     }
 
     /**
-     * Método para Adicionar novas pessoa a agenda.
+     * Método para Adicionar novas pessoa de objeto Pessoa no objeto Agenda.
+     *
      * @param addNovaPessoa - Adicionando Nova pessoa da Class Pessoa
      */
     public void adicionarPessoaAgenda(Pessoa addNovaPessoa) {
