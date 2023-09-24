@@ -40,7 +40,7 @@ public class MusicPlayer {
     /**
      * Método para Trocar as posições do indice do ArrayList<Musica>
      *
-     * @param indexMusica1  - Indice que deseja trocar a Musica
+     * @param indexMusica1 - Indice que deseja trocar a Musica
      * @param indexMusica2 - Indice da Musica qual deseja vai ser trocada no indice desejado
      */
     public void trocarPosicaoMusica(int indexMusica1, int indexMusica2) {
