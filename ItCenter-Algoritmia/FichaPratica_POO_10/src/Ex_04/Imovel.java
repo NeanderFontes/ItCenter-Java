@@ -41,7 +41,6 @@ public class Imovel {
      * @param cidadeImovel          - Cidade do Imovel
      * @param tipoAcabamentoImovel  - Tipo de Acabamento enum (RESTAURO, USADO, NOVO, ALTA_QUALIDADE)
      * @param tipoApartamentoImovel - Tipo de Apartamento enum (CASA, APARTAMENTO, MANSAO)
-     * @param precoTotalImovel      - Preço Total do Imovel
      */
     public Imovel(int numRuaImovel, int numPortaImovel, int numQuartosImovel, int numBanheiroImovel, double areaImovel, int tamanhoPiscinaImivel, String cidadeImovel, AcabamentoImovel tipoAcabamentoImovel, TipoApartamento tipoApartamentoImovel) {
         this.numRuaImovel = numRuaImovel;
@@ -112,6 +111,12 @@ public class Imovel {
         System.out.println("Valor Final do Imovel = €" + this.precoTotalImovel);
     }
 
+    /**
+     * Método para comprar Imovel através de comparação
+     *
+     * @param imovelComparado - Imovel a comparar
+     * @return - Imovel com preço Maior, menor ou igual de acordo com valores total
+     */
     public boolean comprarImovel(Imovel imovelComparado) {
         if (this.precoTotalImovel > imovelComparado.precoTotalImovel) {
             System.out.println("Preço do Imovel " + getCidadeImovel() + " €" + this.precoTotalImovel + " é o Maior valor");
