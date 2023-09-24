@@ -38,9 +38,11 @@ public class Sorteio {
      * @param novoParticipante - Participante da classe Pessoa adicionada
      */
     public void addParticipante(Pessoa novoParticipante) {
-        this.listPessoaSorteio.add(novoParticipante);
         if (novoParticipante.getIdadePessoa() < 18) {
-            System.out.println("Participante " + novoParticipante.getNomePessoa() + " do Sorteio é menor de idade.\nNão pode Participar.");
+            System.out.println("Participante " + novoParticipante.getNomePessoa() + " do Sorteio tem menos de 18 anos.\nNão pode Participar.");
+        } else {
+            this.listPessoaSorteio.add(novoParticipante);
+            System.out.println(novoParticipante.getNomePessoa() + " Cadastrada com Sucesso!!");
         }
     }
 
