@@ -57,6 +57,7 @@ public class Sorteio {
         //Gerar numero aleatório entre 0 e total de participantes do ArrayList<Pessoa>
         Pessoa ganhador = this.listPessoaSorteio.get(random.nextInt(this.listPessoaSorteio.size()));
 
+        System.out.println("Ganhador = " + ganhador);
         return ganhador;
     }
 }
