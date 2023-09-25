@@ -106,7 +106,7 @@ public class Conta {
             System.out.println(this.getTitularConta() + " Seu saldo atual = €" + this.saldoConta);
         } else {
             this.saldoConta += valorEmprestimoPedido;
-            this.valorDivida++;
+            this.valorDivida += valorEmprestimoPedido;
             System.out.println("Foram depositado €" + valorEmprestimoPedido);
             System.out.println(this.getTitularConta() + " Seu saldo atualizado = €" + this.saldoConta);
         }
@@ -126,7 +126,7 @@ public class Conta {
 
             //Saldo Atualizado após deposito:
             System.out.println("Foram depositado €" + valorDepositado);
-            System.out.println(this.getTitularConta() + " Seu saldo atual = €" + this.saldoConta);
+            mostrarSaldo();
         }
 
         return this.saldoConta;
@@ -144,7 +144,7 @@ public class Conta {
 
             //Saldo Atualizado após levantamento:
             System.out.println("Foram levantado(sacado) €" + valorLevantar);
-            System.out.println(this.getTitularConta() + " Seu saldo atual = €" + this.saldoConta);
+            mostrarSaldo();
         } else {
             System.out.println("Saldo Insificiente para Levantar.");
         }
@@ -157,6 +157,8 @@ public class Conta {
     public void mostrarSaldo() {
         //Mostrar Saldo atualizado da conta utilizador:
         System.out.println(this.getTitularConta() + " Seu saldo atual = €" + this.saldoConta);
+
+        System.out.println("Valor Divida = " + this.valorDivida);
     }
 
     /**
