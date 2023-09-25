@@ -79,9 +79,17 @@ public class MusicPlayer {
      * Método para Imprimir Relatório utilizando forEach:
      */
     public void exibirDetalhesMusicas() {
+        /*
+        for (int numIndice2 = 0; numIndice2 < this.programacaoMusical.size(); numIndice2++) {
+            System.out.print("Indice: " + numIndice2++ + "\n");
+            System.out.println("Nome da Musica: " + this.programacaoMusical.get(numIndice2).getTituloMusica() + " | Genero: " + musica.getGeneroMusica() + " | Artista: " + musica.getArtistaMusica() + " | Tempo Total: " + musica.getDuracaoSegundoMusica() + "'s");
+            System.out.println();
+        } */
+
+        //Variável "musica" vai ser fator de iteração para o ArrayList<Criado>
+        int numIndice = 0;
         for (Musica musica : this.programacaoMusical) {
-            int numIndice = 0;
-            System.out.print("Indice: " + this.programacaoMusical.get(numIndice) + "\n");
+            System.out.print("Indice: " + numIndice++ + "\n");
             System.out.println("Nome da Musica: " + musica.getTituloMusica() + " | Genero: " + musica.getGeneroMusica() + " | Artista: " + musica.getArtistaMusica() + " | Tempo Total: " + musica.getDuracaoSegundoMusica() + "'s");
             System.out.println();
         }
