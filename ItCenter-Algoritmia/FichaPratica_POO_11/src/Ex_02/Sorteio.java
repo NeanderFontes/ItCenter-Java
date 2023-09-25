@@ -38,11 +38,13 @@ public class Sorteio {
      * @param novoParticipante - Participante da classe Pessoa adicionada
      */
     public void addParticipante(Pessoa novoParticipante) {
+        System.out.println("+++++++++++++++ LISTA DE CADASTRO DO SORTEIO +++++++++++++++");
+        System.out.println("\t\t\t\t  ***** APENAS (18+) *****");
         if (novoParticipante.getIdadePessoa() < 18) {
-            System.out.println("Participante " + novoParticipante.getNomePessoa() + " do Sorteio tem menos de 18 anos.\nNão pode Participar.");
+            System.out.println("» Participante " + novoParticipante.getNomePessoa() + " do Sorteio tem menos de 18 anos.\nNão pode Participar.");
         } else {
             this.listPessoaSorteio.add(novoParticipante);
-            System.out.println(novoParticipante.getNomePessoa() + " Cadastrada com Sucesso!!");
+            System.out.println("» " + novoParticipante.getNomePessoa() + " Cadastrada com Sucesso!!");
         }
     }
 
@@ -59,7 +61,9 @@ public class Sorteio {
         //Gerar numero aleatório entre 0 e total de participantes do ArrayList<Pessoa>
         Pessoa ganhador = this.listPessoaSorteio.get(random.nextInt(this.listPessoaSorteio.size()));
 
-        System.out.println("Ganhador = " + ganhador);
+        System.out.println("+++++++++++++++++ GANHADOR DO SORTEIO +++++++++++++++++");
+        System.out.println("\t\t\t  » Ganhador(a) é " + ganhador.getNomePessoa() + "!!! «");
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         return ganhador;
     }
 
@@ -67,10 +71,12 @@ public class Sorteio {
      * Método para Exibir ArrayList<Pessoa> de Participantes(idade 18 ou +) no Sorteio:
      */
     public void exibirListaSorteio() {
-        int numIndice = 0;
+        System.out.println("+++++++++++++++ LISTA DOS PARTICIPANTES +++++++++++++++");
+        int numIndice = 1;
         for (Pessoa pessoaList : this.listPessoaSorteio) {
-            System.out.print((numIndice + 1) + "ª: ");
-            System.out.println(pessoaList.getNomePessoa());
+            System.out.print("\t\t\t" + (numIndice++) + "ª: ");
+            System.out.println(pessoaList.getNomePessoa() + ", com idade de " + pessoaList.getIdadePessoa() + " anos.");
         }
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++");
     }
 }
