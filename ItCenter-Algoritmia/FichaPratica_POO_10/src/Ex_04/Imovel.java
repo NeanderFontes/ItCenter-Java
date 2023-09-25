@@ -52,13 +52,13 @@ public class Imovel {
         this.cidadeImovel = cidadeImovel;
         this.tipoAcabamentoImovel = tipoAcabamentoImovel;
         this.tipoApartamentoImovel = tipoApartamentoImovel;
-        this.precoTotalImovel = 0.0;
+        this.precoTotalImovel = valorImovel();
     }
 
     /**
      * Método para obter Valor do Preço do Imovel de acordo com as condições dada
      */
-    public void valorImovel() {
+    public double valorImovel() {
         //Declaração de variáveis:
         double valorM2 = 0.0;
 
@@ -109,6 +109,8 @@ public class Imovel {
 
         //Resultado Valor Total Final do Imovel:
         System.out.println("Valor Final do Imovel = €" + this.precoTotalImovel);
+
+        return this.precoTotalImovel;
     }
 
     /**
@@ -117,14 +119,14 @@ public class Imovel {
      * @param imovelComparado - Imovel a comparar
      * @return - Imovel com preço Maior, menor ou igual de acordo com valores total
      */
-    public boolean comprarImovel(Imovel imovelComparado) {
+    public Imovel comprarImovel(Imovel imovelComparado) {
         if (this.precoTotalImovel > imovelComparado.precoTotalImovel) {
             System.out.println("Preço do Imovel " + getCidadeImovel() + " €" + this.precoTotalImovel + " é o Maior valor");
-            return true;
+            return this;
         } else {
             if (this.precoTotalImovel < imovelComparado.precoTotalImovel) {
                 System.out.println("Preço do Imovel " + getCidadeImovel() + " €" + this.precoTotalImovel + " é o Menor valor");
-                return true;
+                return this;
             } else {
                 if (imovelComparado.precoTotalImovel > this.precoTotalImovel) {
                     System.out.println("Preço do Imovel " + getCidadeImovel() + " €" + this.precoTotalImovel + " é o Maior valor");
@@ -133,7 +135,7 @@ public class Imovel {
                 }
             }
         }
-        return false;
+        return imovelComparado;
     }
 
     /**
