@@ -7,6 +7,9 @@
     <list default="true" id="b0ad27ed-3415-4558-bcb3-b7d7e1cb0cd1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Ex_02/Conta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ex_02/Conta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ex_04/Imovel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ex_04/Imovel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FichaPratica_POO_11/src/Ex_01/MusicPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FichaPratica_POO_11/src/Ex_01/MusicPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FichaPratica_POO_11/src/Ex_02/Sorteio.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FichaPratica_POO_11/src/Ex_02/Sorteio.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +61,7 @@
       <workItem from="1695371168597" duration="48000" />
       <workItem from="1695383924395" duration="4000" />
       <workItem from="1695466728647" duration="41193000" />
-      <workItem from="1695629851174" duration="1111000" />
+      <workItem from="1695629851174" duration="5132000" />
     </task>
     <servers />
   </component>
