@@ -62,4 +62,15 @@ public class Sorteio {
         System.out.println("Ganhador = " + ganhador);
         return ganhador;
     }
+
+    /**
+     * Método para Exibir ArrayList<Pessoa> de Participantes(idade 18 ou +) no Sorteio:
+     */
+    public void exibirListaSorteio() {
+        int numIndice = 0;
+        for (Pessoa pessoaList : this.listPessoaSorteio) {
+            System.out.print((numIndice + 1) + "ª: ");
+            System.out.println(pessoaList.getNomePessoa());
+        }
+    }
 }
