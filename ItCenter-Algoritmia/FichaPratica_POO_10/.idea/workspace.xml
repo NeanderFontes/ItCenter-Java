@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0ad27ed-3415-4558-bcb3-b7d7e1cb0cd1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../FichaPratica_POO_12_Ex_02/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FichaPratica_POO_12_Ex_02/files/Mota.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FichaPratica_POO_12_Ex_02/src/Corrida/Caminhao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FichaPratica_POO_12_Ex_02/src/Corrida/Carro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FichaPratica_POO_12_Ex_02/src/Corrida/Enum/TipoCombustivel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FichaPratica_POO_12_Ex_02/src/Corrida/Mota.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FichaPratica_POO_12_Ex_02/src/Corrida/Veiculos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Ex_02/Conta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ex_02/Conta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Ex_04/Imovel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ex_04/Imovel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FichaPratica_POO_11/src/Ex_01/MusicPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FichaPratica_POO_11/src/Ex_01/MusicPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FichaPratica_POO_11/src/Ex_02/Sorteio.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FichaPratica_POO_11/src/Ex_02/Sorteio.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +65,9 @@
       <workItem from="1695383924395" duration="4000" />
       <workItem from="1695466728647" duration="41193000" />
       <workItem from="1695629851174" duration="5132000" />
+      <workItem from="1695650216227" duration="285000" />
+      <workItem from="1695652283813" duration="1011000" />
+      <workItem from="1695660838594" duration="139000" />
     </task>
     <servers />
   </component>
