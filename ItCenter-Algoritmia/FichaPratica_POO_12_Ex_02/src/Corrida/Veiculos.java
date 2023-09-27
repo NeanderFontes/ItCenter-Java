@@ -214,4 +214,8 @@ public class Veiculos {
     public int getAnoAtual() {
         return this.anoAtual;
     }
+
+    public double getKmPorLitro() {
+        return kmPorLitro;
+    }
 }
