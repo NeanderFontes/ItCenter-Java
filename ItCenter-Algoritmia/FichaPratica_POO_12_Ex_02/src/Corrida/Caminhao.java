@@ -41,22 +41,26 @@ public class Caminhao extends Veiculos {
      * (considere que todos os camiões usam DIESEL), sabendo que cada 100Kg de carga
      * aumentam 0,1L/100Km ao consumo.
      *
-     * @param distanciaKm     - Distância Total Pecorrida (em Km)
-     * @param capacidadeCarga - Capacidade da Carga do Caminhão
+     * @param distanciaPecorridaEm100Km - Distância Total Pecorrida (a cada 100Km)
+     * @param capacidadeCarga           - Capacidade da Carga do Caminhão
      * @return - asd
      */
-    public String viagemCaminhao(int distanciaKm, double capacidadeCarga) {
-        //Caso ultrapasse a capacidade deve recusar a viagem.
+    public String viagemCaminhao(int distanciaPecorridaEm100Km, double capacidadeCarga) {
+        //Caso ultrapasse a capacidade deve recusar a viagem:
         if (capacidadeCarga > this.capacidadeCargaMax) {
             return "Capacidade de Carga acima do limite!!";
         } else {
             System.out.println("Capacidade de Carga Dentro do limite de Carga Maxima");
-            calcularConsumoVeiculo(distanciaKm);
-            System.out.println("De acordo com " + getKmPorLitro() + "/100Km irá conseguir pecorrer " + distanciaKm + " Km. \n*** OBS.: Sem Calcular a Carga ***");
-            System.out.println("Considerando todos os Caminhões sendo a Diesel");
-            double consumoAdicional = (capacidadeCarga / 100.0) * 0.1;
-            double custoDaViagem = consumoAdicional + (distanciaKm * 1.95);
-            return "Custo Total da Viagem = €" + custoDaViagem;
+            calcularConsumoVeiculo(distanciaPecorridaEm100Km);
+            System.out.println("De acordo com " + getKmPorLitro() + "/100Km irá conseguir pecorrer " + distanciaPecorridaEm100Km + " Km. \n*** OBS.: Sem Calcular a Carga ***");
+
+            //Consumo Estimado adicionado de acordo com a carga adicional de 0.1L/100km:
+            double consumoEstimado = getKmPorLitro() + ((capacidadeCarga / 100) * 0.1);
+
+            //Custo da Viagem, considerando todos os Caminhões a DIESEL:
+            double custoDaViagem = (consumoEstimado * 1.95);
+            return "» Consumo da Viagem é de " + consumoEstimado + "/100km\n" +
+                    "» Custo Total da Viagem = €" + custoDaViagem;
         }
     }
 }
