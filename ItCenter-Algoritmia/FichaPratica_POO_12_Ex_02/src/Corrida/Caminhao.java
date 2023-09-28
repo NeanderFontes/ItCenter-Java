@@ -48,11 +48,11 @@ public class Caminhao extends Veiculos {
     public String viagemCaminhao(int distanciaPecorridaEm100Km, double capacidadeCarga) {
         //Caso ultrapasse a capacidade deve recusar a viagem:
         if (capacidadeCarga > this.capacidadeCargaMax) {
-            return "Capacidade de Carga acima do limite!!";
+            return "\t\t****** Capacidade de Carga acima do limite!! ******";
         } else {
             System.out.println("Capacidade de Carga Dentro do limite de Carga Maxima");
             calcularConsumoVeiculo(distanciaPecorridaEm100Km);
-            System.out.println("De acordo com " + getKmPorLitro() + "/100Km irá conseguir pecorrer " + distanciaPecorridaEm100Km + " Km. \n*** OBS.: Sem Calcular a Carga ***");
+            System.out.println("De acordo com " + getKmPorLitro() + "/100Km irá conseguir pecorrer " + distanciaPecorridaEm100Km + " Km. \n\t\t\t*** OBS.: Sem Calcular a Carga ***");
 
             //Consumo Estimado adicionado de acordo com a carga adicional de 0.1L/100km:
             double consumoEstimado = getKmPorLitro() + ((capacidadeCarga / 100) * 0.1);

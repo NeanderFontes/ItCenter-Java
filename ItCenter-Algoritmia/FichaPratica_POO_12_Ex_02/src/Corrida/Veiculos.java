@@ -53,9 +53,9 @@ public class Veiculos {
         this.anoFabricacaoVeiculo = anoFabricacaoVeiculo;
         this.ciclindradaVeiculo = ciclindradaVeiculo;
         this.potenciaVeiculo = potenciaVeiculo;
-        this.anoAtual = getAnoAtual();
+        //this.anoAtual = getAnoAtual();
         this.kmPorLitro = kmPorLitro;
-        this.anoAtual();
+        //this.anoAtual();
     }
 
     /**
