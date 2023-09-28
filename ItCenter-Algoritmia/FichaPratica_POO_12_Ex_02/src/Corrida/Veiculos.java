@@ -165,7 +165,8 @@ public class Veiculos {
     }
 
     /**
-     * Método para calcular Consumo do Veiculo por distância Pecorrida em Km
+     * Método para calcular a distância Pecorrida em 100Km de acordo com o consumo
+     * Ex.:(5.5L/100km)
      *
      * @param kmPecorrido - Distância em Km
      * @return - Valor Pecorrido de acordo com Km/Litro do Veiculo.
