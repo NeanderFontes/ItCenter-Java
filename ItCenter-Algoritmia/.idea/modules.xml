@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/FichaPratica_POO_09/FichaPratica_POO_09.iml" filepath="$PROJECT_DIR$/FichaPratica_POO_09/FichaPratica_POO_09.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FichaPratica_POO_10/FichaPratica_POO_10.iml" filepath="$PROJECT_DIR$/FichaPratica_POO_10/FichaPratica_POO_10.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FichaPratica_POO_11/FichaPratica_POO_11.iml" filepath="$PROJECT_DIR$/FichaPratica_POO_11/FichaPratica_POO_11.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FichaPratica_POO_12/FichaPratica_POO_12.iml" filepath="$PROJECT_DIR$/FichaPratica_POO_12/FichaPratica_POO_12.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FichaPratica_POO_12_Ex_02/FichaPratica_POO_12_Ex_02.iml" filepath="$PROJECT_DIR$/FichaPratica_POO_12_Ex_02/FichaPratica_POO_12_Ex_02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FichaPratica_POO_12_Ex_03_04/FichaPratica_POO_12_Ex_03_04.iml" filepath="$PROJECT_DIR$/FichaPratica_POO_12_Ex_03_04/FichaPratica_POO_12_Ex_03_04.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FichaPratica_POO_13/FichaPratica_POO_13.iml" filepath="$PROJECT_DIR$/FichaPratica_POO_13/FichaPratica_POO_13.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ItCenter-Algoritmia.iml" filepath="$PROJECT_DIR$/.idea/ItCenter-Algoritmia.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ItCenter_Java/ItCenter_Java.iml" filepath="$PROJECT_DIR$/ItCenter_Java/ItCenter_Java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProjetoPraticoJava/ProjetoPraticoJava.iml" filepath="$PROJECT_DIR$/ProjetoPraticoJava/ProjetoPraticoJava.iml" />
+    </modules>
+  </component>
+</project>
