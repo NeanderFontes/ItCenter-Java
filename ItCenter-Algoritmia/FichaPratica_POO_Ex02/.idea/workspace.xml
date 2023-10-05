@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac365ee8-ef17-466f-84d4-e8acf4386d21" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../ProjetoFinal/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ProjetoFinal/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ProjetoFinal/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ProjetoFinal/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Entidade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Enum/ArmaPrincipal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Enum/ClassePersonagem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Heroi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/NPC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +57,7 @@
       <option name="presentableId" value="Default" />
       <updated>1696241767234</updated>
       <workItem from="1696241768328" duration="15702000" />
-      <workItem from="1696506330056" duration="340000" />
+      <workItem from="1696506330056" duration="2362000" />
     </task>
     <servers />
   </component>
