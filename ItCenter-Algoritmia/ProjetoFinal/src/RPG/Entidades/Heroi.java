@@ -1,7 +1,7 @@
 package RPG.Entidades;
 
 import RPG.Item.AbstractClass.Consumivel;
-import RPG.Enum.ArmaPrincipal;
+import RPG.Item.ArmaPrincipal;
 
 import java.util.ArrayList;
 
@@ -13,18 +13,15 @@ public abstract class Heroi extends Entidade {
     /**
      * Método Construtor da SuperClass abstrata <b>Entidade</b>
      *
-     * @param nomeEntidade       - Nome do Herói
-     * @param vidaEntidade       - Total de Vida do Herói (em hp)
-     * @param forcaEntidade      - Total de Força do Herói
-     * @param nivelHeroi         - Nivel do Herói
-     * @param ouroHeroi          - Quantidade de Ouro do Herói
-     * @param armaPrincipalHeroi - Arma Principal do Herói
+     * @param nomeEntidade  - Nome do Herói
+     * @param vidaEntidade  - Total de Vida do Herói (em hp)
+     * @param forcaEntidade - Total de Força do Herói
      */
-    public Heroi(String nomeEntidade, int vidaEntidade, int forcaEntidade, int nivelHeroi, int ouroHeroi, ArmaPrincipal armaPrincipalHeroi) {
+    public Heroi(String nomeEntidade, int vidaEntidade, int forcaEntidade) {
         super(nomeEntidade, vidaEntidade, forcaEntidade);
-        this.nivelHeroi = nivelHeroi;
-        this.ouroHeroi = ouroHeroi;
-        this.armaPrincipalHeroi = armaPrincipalHeroi;
+        this.nivelHeroi = 1;
+        this.ouroHeroi = 0;
+        this.armaPrincipalHeroi = null;
         this.inventarioHeroi = new ArrayList<>();
     }
 
@@ -34,6 +31,35 @@ public abstract class Heroi extends Entidade {
      * @param oponenteNPC - Recebe como Parâmetro o Npc para Batalha
      */
     public abstract void atacar(NPC oponenteNPC);
+
+    /**
+     * Método para Exibir Detalhes do Herói:
+     */
+    public void exibirDetalhes() {
+        System.out.println("************************ Herói ************************");
+        System.out.println("SubClasse do Herói: " + this.getTipoHeroi());
+        System.out.println("Nickname: " + this.getNomeEntidade());
+        System.out.println("Nivel: " + this.getNivelHeroi());
+        System.out.println("Total HP: " + this.getVidaEntidade());
+        System.out.println("Força: " + this.getForcaEntidade());
+        System.out.println("Quantidade Ouro: " + this.getOuroHeroi());
+        System.out.println("Arma Principal: " + this.armaPrincipalHeroi);
+        System.out.println("*******************************************************");
+    }
+
+
+    /**
+     * Método para Completar a comparação entre tipos de classes
+     *
+     * @return - Tipo do Personagem "Aprendiz, Arqueiro, Espadachim..."
+     */
+    public String getTipoHeroi() {
+        String classeCompleta = this.getClass().getName();
+        //RPG.Entidades.Personagens.Gatuno
+
+        String[] classeCompletaPartida = classeCompleta.split("\\.");
+        return classeCompletaPartida[3];
+    }
 
     /**
      * Métodos Getter e Setter da SubClass <b>Heroi</b>
@@ -54,19 +80,15 @@ public abstract class Heroi extends Entidade {
         this.ouroHeroi = ouroHeroi;
     }
 
-    public ArmaPrincipal getArmaPrincipalHeroi() {
-        return this.armaPrincipalHeroi;
-    }
-
-    public void setArmaPrincipalHeroi(ArmaPrincipal armaPrincipalHeroi) {
-        this.armaPrincipalHeroi = armaPrincipalHeroi;
-    }
-
     public ArrayList<Consumivel> getInventarioHeroi() {
         return this.inventarioHeroi;
     }
 
     public void setInventarioHeroi(ArrayList<Consumivel> inventarioHeroi) {
         this.inventarioHeroi = inventarioHeroi;
+    }
+
+    public void setArmaPrincipalHeroi(ArmaPrincipal armaPrincipalHeroi) {
+        this.armaPrincipalHeroi = armaPrincipalHeroi;
     }
 }

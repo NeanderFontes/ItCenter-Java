@@ -3,24 +3,29 @@ package RPG.Item.AbstractClass;
 import java.util.ArrayList;
 
 public abstract class ItemHeroi {
-    //todo preço em moedas de ouro (int)
     private String nomeItemHeroi;
+    private int precoItemHeroi;
     private ArrayList<String> itemHeroiPermitido;
 
     /**
-     * Método Construtor da Abstract Class <b>ItemHeroi</b>
-     * @param nomeItemHeroi - Nome do Item
+     * Método Construtor da Abstract SuperClass <b>ItemHeroi</b>
+     *
+     * @param nomeItemHeroi  - Nome do Item
+     * @param precoItemHeroi - Preço do Item
      */
-    public ItemHeroi(String nomeItemHeroi) {
+    public ItemHeroi(String nomeItemHeroi, int precoItemHeroi) {
         this.nomeItemHeroi = nomeItemHeroi;
+        this.precoItemHeroi = precoItemHeroi;
         this.itemHeroiPermitido = new ArrayList<>();
     }
 
     /**
-     * Método para Mostra Detalhe dos Itens
+     * Método Abstrato para Mostra Detalhe dos Itens
      */
-    public void mostrarDetalheItem() {
-        System.out.println("Os Itens são: " + this.nomeItemHeroi);
+    public void exibirDetalhes() {
+        System.out.println("nomeItemHeroi='" + nomeItemHeroi + '\'' +
+                ", precoItemHeroi=" + precoItemHeroi +
+                ", itemHeroiPermitido=" + itemHeroiPermitido);
     }
 
     /**
@@ -34,6 +39,14 @@ public abstract class ItemHeroi {
         this.nomeItemHeroi = nomeItemHeroi;
     }
 
+    /**
+     * Método para Adicionar ao Herói
+     * @param heroiPermitido - Personagens que são permitidos
+     */
+    public void addHeroiPermitido(String heroiPermitido){
+        this.itemHeroiPermitido.add(heroiPermitido);
+    }
+
     public ArrayList<String> getItemHeroiPermitido() {
         return this.itemHeroiPermitido;
     }
@@ -41,4 +54,13 @@ public abstract class ItemHeroi {
     public void setItemHeroiPermitido(ArrayList<String> itemHeroiPermitido) {
         this.itemHeroiPermitido = itemHeroiPermitido;
     }
+
+    public int getPrecoItemHeroi() {
+        return precoItemHeroi;
+    }
+
+    public void setPrecoItemHeroi(int precoItemHeroi) {
+        this.precoItemHeroi = precoItemHeroi;
+    }
+
 }

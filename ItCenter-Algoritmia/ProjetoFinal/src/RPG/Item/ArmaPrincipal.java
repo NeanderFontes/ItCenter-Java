@@ -1,25 +1,27 @@
 package RPG.Item;
 
+import RPG.Entidades.Heroi;
 import RPG.Item.AbstractClass.ItemHeroi;
 
 public class ArmaPrincipal extends ItemHeroi {
     private int ataqueNormal, ataqueEspecial;
-    private ArmaPrincipal armaPrincipal;
 
     /**
      * Método Construtor da Abstract SuperClass <b>ItemHeroi</b>
      *
-     * @param nomeItemHeroi  - Nome do Item para o Herói usar
-     * @param ataqueNormal   - Ataque Normal do Herói
-     * @param ataqueEspecial - Ataque Especial do Herói
-     * @param armaPrincipal  - Arma Principal do Herói
+     * @param nomeItemHeroi  - Nome do Arma para o Herói.
+     * @param precoItemHeroi - Preço da Arma para o Herói.
+     * @param ataqueNormal   - Ataque Normal da Arma do Herói
+     * @param ataqueEspecial - Ataque Especial da Arma do Herói
      */
-    public ArmaPrincipal(String nomeItemHeroi, int ataqueNormal, int ataqueEspecial, ArmaPrincipal armaPrincipal) {
-        super(nomeItemHeroi);
+    public ArmaPrincipal(String nomeItemHeroi, int precoItemHeroi, int ataqueNormal, int ataqueEspecial) {
+        super(nomeItemHeroi, precoItemHeroi);
         this.ataqueNormal = ataqueNormal;
         this.ataqueEspecial = ataqueEspecial;
-        this.armaPrincipal = armaPrincipal;
     }
+
+
+
 
     /**
      * Métodos Getter e Setter da SubClass <b>ArmaPrincipal</b>
@@ -38,13 +40,5 @@ public class ArmaPrincipal extends ItemHeroi {
 
     public void setAtaqueEspecial(int ataqueEspecial) {
         this.ataqueEspecial = ataqueEspecial;
-    }
-
-    public ArmaPrincipal getArmaPrincipal() {
-        return armaPrincipal;
-    }
-
-    public void setArmaPrincipal(ArmaPrincipal armaPrincipal) {
-        this.armaPrincipal = armaPrincipal;
     }
 }
