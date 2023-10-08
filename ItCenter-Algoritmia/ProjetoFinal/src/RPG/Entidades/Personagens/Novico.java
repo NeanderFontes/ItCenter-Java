@@ -17,14 +17,10 @@ public class Novico extends Heroi {
     }
 
     /**
-     * Método para o Herói Usar Poção
-     */
-    public void usarPocao() {
-
-    }
-
-    /**
      * Método @Override Adaptado ao Noviço para Atacar um NPC
+     * O Novico tem Habilidade de auto recuperação de HP...
+     * ...Recupera 10% de hp a cada Turno durante a batalha somente.
+     * Se o Noviço ganhar a batalha: Nivel +1, +7% de HP e +2% de Força.
      *
      * @param oponenteNPC - Recebe como Parâmetro o Npc para Batalha
      */

@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac365ee8-ef17-466f-84d4-e8acf4386d21" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Entidades/Personagens/Aprendiz.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Jogo/Jogo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Jogo/TesteLoja.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Jogo/TesteLuta.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Entidades/Heroi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Entidades/Heroi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Entidades/Personagens/Aprendiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Entidades/Personagens/Aprendiz.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Entidades/Personagens/Arqueiro.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Entidades/Personagens/Arqueiro.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Entidades/Personagens/Espadachim.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Entidades/Personagens/Espadachim.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Entidades/Personagens/Gatuno.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Entidades/Personagens/Gatuno.java" afterDir="false" />
@@ -17,13 +14,6 @@
       <change beforePath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Entidades/Personagens/Mercador.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Entidades/Personagens/Mercador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Entidades/Personagens/Novico.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Entidades/Personagens/Novico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Entidades/VendedorJogo/Vendedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Entidades/VendedorJogo/Vendedor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Enum/ArmaPrincipal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Enum/ClassePersonagem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Item/AbstractClass/Consumivel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Item/AbstractClass/Consumivel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Item/AbstractClass/ItemHeroi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Item/AbstractClass/ItemHeroi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Item/ArmaPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Item/ArmaPrincipal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Item/ConsumivelCombate.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Item/ConsumivelCombate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Item/Pocao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjetoFinal/src/RPG/Item/Pocao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +42,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/neander.barbosa_itce/Desktop/MeusProjetos/ItCenter-Java/ItCenter-Algoritmia/FichaPratica_POO_12_Ex_02",
+    "last_opened_file_path": "C:/Users/neander.barbosa_itce/Desktop/MeusProjetos/ItCenter-Java/ItCenter-Algoritmia/FichaPratica_POO_Ex02",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -71,6 +61,7 @@
       <updated>1696241767234</updated>
       <workItem from="1696241768328" duration="15702000" />
       <workItem from="1696506330056" duration="8043000" />
+      <workItem from="1696768332438" duration="17000" />
     </task>
     <servers />
   </component>

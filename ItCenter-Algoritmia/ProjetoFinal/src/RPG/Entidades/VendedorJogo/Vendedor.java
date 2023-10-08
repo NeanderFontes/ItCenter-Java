@@ -7,13 +7,14 @@ import RPG.Item.AbstractClass.ItemHeroi;
 
 import javax.naming.CompositeName;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Vendedor {
     private ArrayList<ItemHeroi> itensLoja;
 
     /**
-     * Método Construtor
+     * Método Construtor da Class <b>Vendedor</b>
      */
     public Vendedor() {
         this.itensLoja = new ArrayList<>();
@@ -24,11 +25,19 @@ public class Vendedor {
      * "Exibit detalhes"
      */
     public void imprimirLojaVendedor() {
+        //Import Biblioteca Random para numeros aleatórios
+        Random random = new Random();
+
+        //Atribuindo biblioteca para sortear no min (10 - size())
+        //Ou Math.min(10, this.itensLoja.size());
+        int itensAleatorios = random.nextInt(10, this.itensLoja.size());
+        int indexRandom;
+
         //Ciclo For para imprimir 10 itens do ArrayList<ItemHeroi>
-        //Todo: tem de ser aleatorio
-        for (int numIndice = 0; numIndice < itensLoja.size(); numIndice++) {
+        for (int numIndice = 0; numIndice < itensAleatorios; numIndice++) {
+            indexRandom = random.nextInt(this.itensLoja.size());
             System.out.print("Item " + (numIndice + 1) + " - ");
-            itensLoja.get(numIndice).exibirDetalhes();
+            this.itensLoja.get(indexRandom).exibirDetalhes();
             System.out.println();
         }
     }

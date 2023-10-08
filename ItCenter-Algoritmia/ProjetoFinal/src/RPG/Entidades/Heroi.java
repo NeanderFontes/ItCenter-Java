@@ -2,8 +2,10 @@ package RPG.Entidades;
 
 import RPG.Item.AbstractClass.Consumivel;
 import RPG.Item.ArmaPrincipal;
+import RPG.Item.Pocao;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public abstract class Heroi extends Entidade {
     private int nivelHeroi, ouroHeroi;
@@ -23,6 +25,55 @@ public abstract class Heroi extends Entidade {
         this.ouroHeroi = 0;
         this.armaPrincipalHeroi = null;
         this.inventarioHeroi = new ArrayList<>();
+    }
+
+    /**
+     * Método para Adicionar Consumivel ao Inventário do Herói
+     *
+     * @param itemAdicionado - Item Adicionado ArrayList<Consumivel>
+     */
+    public void adicionarInventarioHeroi(Consumivel itemAdicionado) {
+        this.inventarioHeroi.add(itemAdicionado);
+    }
+
+    /**
+     * Método para Usar Poção
+     */
+    public void usarPocao() {
+        //Scanner para entrada de dados:
+        Scanner input = new Scanner(System.in);
+        int itemEscolhido;
+
+        //Acesso ao Inventário do Herós
+        if (this.inventarioHeroi.isEmpty()) {
+            System.out.println("O Inventário está vazio!");
+        } else {
+            //Ciclo para Listar as Poções do Herói.
+            System.out.println("************* LISTA DE POçÔES *************");
+            for (int numIndice = 0; numIndice < this.inventarioHeroi.size(); numIndice++) {
+                System.out.println((numIndice + 1) + "º = " + this.inventarioHeroi.get(numIndice).getNomeItemHeroi());
+            }
+
+            //Entrada de dados para selecionar e usar a Poção:
+            System.out.println("Escolha a Poção acima para usar.");
+            itemEscolhido = input.nextInt();
+            //todo laço while para validar a escolha e não encerrar o programa correto?
+            do {
+                if (itemEscolhido < 1 && itemEscolhido > this.inventarioHeroi.size()) {
+                    System.out.println("Escolha Inválida");
+                } else {
+                    //todo Criar condição para usar Poção de For e Poção para Aumentar HP
+
+                    //Remoção do item escohido do ArrayList<Consumivel> todo "REMOVE DO INVENTARIO CONSUMIVEL???"
+                    Pocao consumivel = (Pocao) this.inventarioHeroi.remove(itemEscolhido - 1);
+
+                    //todo "aumentar Hp de acordo com a poção usada???"
+                    setVidaEntidade(getVidaEntidade() + consumivel.getRecuperarVida());
+                    //todo "aumenta For de acordo com poção usada????"
+                    setForcaEntidade(getForcaEntidade() + consumivel.getAumentarForca());
+                }
+            } while (itemEscolhido >= 1 && itemEscolhido <= this.inventarioHeroi.size());
+        }
     }
 
     /**
@@ -46,7 +97,6 @@ public abstract class Heroi extends Entidade {
         System.out.println("Arma Principal: " + this.armaPrincipalHeroi);
         System.out.println("*******************************************************");
     }
-
 
     /**
      * Método para Completar a comparação entre tipos de classes

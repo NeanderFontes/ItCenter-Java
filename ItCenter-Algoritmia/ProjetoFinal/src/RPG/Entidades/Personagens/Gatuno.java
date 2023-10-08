@@ -17,14 +17,9 @@ public class Gatuno extends Heroi {
     }
 
     /**
-     * Método para o Herói Usar Poção
-     */
-    public void usarPocao() {
-
-    }
-
-    /**
      * Método @Override Adaptado ao Gatuno para Atacar um NPC
+     * Gatuno Por ter uma boa Agilidade tem prioridade de atacar 2x o NPC antes do mesmo atacar
+     * Se o Gatuno ganhar a batalha: Nivel +1, +5% de HP e +2% de Força.
      *
      * @param oponenteNPC - Recebe como Parâmetro o Npc para Batalha
      */

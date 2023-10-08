@@ -17,14 +17,10 @@ public class Mercador extends Heroi {
     }
 
     /**
-     * Método para o Herói Usar Poção
-     */
-    public void usarPocao() {
-
-    }
-
-    /**
      * Método @Override Adaptado ao Mercador para Atacar um NPC
+     * O Mercador por sem ambicioso recebe 10% a mais do Ouro ao Matar o NPC...
+     * ... tem prioridade de ataque
+     * Se o Arqueiro ganhar a batalha: Nivel +1, +3% de HP e +3% de Força.
      *
      * @param oponenteNPC - Recebe como Parâmetro o Npc para Batalha
      */
