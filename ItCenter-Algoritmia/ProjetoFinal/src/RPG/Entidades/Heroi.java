@@ -2,15 +2,17 @@ package RPG.Entidades;
 
 import RPG.Item.AbstractClass.Consumivel;
 import RPG.Item.ArmaPrincipal;
+import RPG.Item.ConsumivelCombate;
 import RPG.Item.Pocao;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public abstract class Heroi extends Entidade {
     private int nivelHeroi, ouroHeroi;
     private ArmaPrincipal armaPrincipalHeroi;
-    private ArrayList<Consumivel> inventarioHeroi;
+    protected ArrayList<Consumivel> inventarioHeroi;
 
     /**
      * Método Construtor da SuperClass abstrata <b>Entidade</b>
@@ -39,10 +41,11 @@ public abstract class Heroi extends Entidade {
     /**
      * Método para Usar Poção
      */
-    public void usarPocao() {
+    public void heroiUsarPocao() {
         //Scanner para entrada de dados:
         Scanner input = new Scanner(System.in);
         int itemEscolhido;
+        int numIndice = 0;
 
         //Acesso ao Inventário do Herós
         if (this.inventarioHeroi.isEmpty()) {
@@ -50,7 +53,7 @@ public abstract class Heroi extends Entidade {
         } else {
             //Ciclo para Listar as Poções do Herói.
             System.out.println("************* LISTA DE POçÔES *************");
-            for (int numIndice = 0; numIndice < this.inventarioHeroi.size(); numIndice++) {
+            for (numIndice = 0; numIndice < this.inventarioHeroi.size(); numIndice++) {
                 System.out.println((numIndice + 1) + "º = " + this.inventarioHeroi.get(numIndice).getNomeItemHeroi());
             }
 
@@ -60,21 +63,69 @@ public abstract class Heroi extends Entidade {
             //todo laço while para validar a escolha e não encerrar o programa correto?
             do {
                 //Escolha Inválida do Item no Inventário do Herois:
-                if (itemEscolhido < 1 && itemEscolhido > this.inventarioHeroi.size()) {
+                if (itemEscolhido < 1 || itemEscolhido > this.inventarioHeroi.size()) {
                     System.out.println("Escolha Inválida");
                 } else {
-                    //todo Criar condição para usar Poção de For e Poção para Aumentar HP
-
-                    //Remoção do item escohido do ArrayList<Consumivel> todo "REMOVE DO INVENTARIO CONSUMIVEL???"
+                    //Remoção do item escohido do ArrayList<Consumivel>:
                     Pocao consumivel = (Pocao) this.inventarioHeroi.remove(itemEscolhido - 1);
 
-                    //todo "aumentar Hp de acordo com a poção usada???"
+                    //Aumentar Hp de acordo com a poção usada:
                     this.setVidaEntidade(this.getVidaEntidade() + consumivel.getRecuperarVida());
 
-                    //todo "aumenta For de acordo com poção usada????"
+                    //Aumenta For de acordo com poção usada:
                     this.setForcaEntidade(this.getForcaEntidade() + consumivel.getAumentarForca());
                 }
             } while (itemEscolhido >= 1 && itemEscolhido <= this.inventarioHeroi.size());
+        }
+    }
+
+    /**
+     * Método para Herói usar Comsumivel de Combate:
+     *
+     * @return null para Inventário ArrayList<ConsumivelCombate> Vazio
+     * @return O Item Desejado para uso do Herói no Combate
+     */
+    protected ConsumivelCombate heroiUsarComsumivelCombate() {
+        //Scanner para Entrada de dados:
+        Scanner input = new Scanner(System.in);
+
+        //Construir novo menu de ArrayList<ConsumivelCombate>:
+        ArrayList<ConsumivelCombate> consumivelCombates = new ArrayList<>();
+        int numIndice = 0;
+
+        for (numIndice = 0; numIndice < this.inventarioHeroi.size(); numIndice++) {
+            //Se o Item for instancia de ComsumivelCombate adicionará:
+            if (this.inventarioHeroi.get(numIndice) instanceof ConsumivelCombate) {
+                consumivelCombates.add((ConsumivelCombate) this.inventarioHeroi.get(numIndice));
+            }
+        }
+
+        //Listagem dos Itens Adicionados ao ArrayList<ConsumivelCombate>:
+        if (consumivelCombates.isEmpty()) {
+            System.out.println("Inventário Vazio...");
+            return null;
+        } else {
+            //Ciclo for para apresentar os itens de Consumivel de Combate existentes:
+            System.out.println("=========== LISTA(S) DO(S) CONSUMIVÉL(EIS) DE COMBATE ===========");
+            for (numIndice = 0; numIndice < consumivelCombates.size(); numIndice++) {
+                System.out.println((numIndice + 1) + "º - " + consumivelCombates.get(numIndice - 1));
+            }
+            System.out.println("=================================================================");
+
+            //Tratamento de Erros para Opções inválidas do Usuário:
+            System.out.print("Escolha uma opção dos itens acima: ");
+            int indexEscolhido = 0;
+            try {
+                indexEscolhido = input.nextInt();
+                if (indexEscolhido > consumivelCombates.size() || indexEscolhido < 1) { //Condição para definir se está fora
+                    throw new IllegalArgumentException();
+                }
+            } catch (InputMismatchException exc) { //Tratamento para entrada de dados != numeros
+                System.out.println("Tem de ser numero");
+            } catch (IllegalArgumentException exc) { //Tratamento para caso número fora do intervalo válido
+                System.out.println("Tem de ser entre 1 e " + consumivelCombates.size());
+            }
+            return consumivelCombates.get(numIndice - 1);
         }
     }
 
@@ -143,5 +194,9 @@ public abstract class Heroi extends Entidade {
 
     public void setArmaPrincipalHeroi(ArmaPrincipal armaPrincipalHeroi) {
         this.armaPrincipalHeroi = armaPrincipalHeroi;
+    }
+
+    public ArmaPrincipal getArmaPrincipalHeroi() {
+        return armaPrincipalHeroi;
     }
 }
