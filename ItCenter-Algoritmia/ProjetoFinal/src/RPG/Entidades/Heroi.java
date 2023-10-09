@@ -59,6 +59,7 @@ public abstract class Heroi extends Entidade {
             itemEscolhido = input.nextInt();
             //todo laço while para validar a escolha e não encerrar o programa correto?
             do {
+                //Escolha Inválida do Item no Inventário do Herois:
                 if (itemEscolhido < 1 && itemEscolhido > this.inventarioHeroi.size()) {
                     System.out.println("Escolha Inválida");
                 } else {
@@ -68,9 +69,10 @@ public abstract class Heroi extends Entidade {
                     Pocao consumivel = (Pocao) this.inventarioHeroi.remove(itemEscolhido - 1);
 
                     //todo "aumentar Hp de acordo com a poção usada???"
-                    setVidaEntidade(getVidaEntidade() + consumivel.getRecuperarVida());
+                    this.setVidaEntidade(this.getVidaEntidade() + consumivel.getRecuperarVida());
+
                     //todo "aumenta For de acordo com poção usada????"
-                    setForcaEntidade(getForcaEntidade() + consumivel.getAumentarForca());
+                    this.setForcaEntidade(this.getForcaEntidade() + consumivel.getAumentarForca());
                 }
             } while (itemEscolhido >= 1 && itemEscolhido <= this.inventarioHeroi.size());
         }
@@ -95,6 +97,7 @@ public abstract class Heroi extends Entidade {
         System.out.println("Força: " + this.getForcaEntidade());
         System.out.println("Quantidade Ouro: " + this.getOuroHeroi());
         System.out.println("Arma Principal: " + this.armaPrincipalHeroi);
+        System.out.println("Inventário: " + this.getInventarioHeroi());
         System.out.println("*******************************************************");
     }
 

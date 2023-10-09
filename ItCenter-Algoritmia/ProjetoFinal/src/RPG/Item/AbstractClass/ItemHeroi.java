@@ -22,7 +22,7 @@ public abstract class ItemHeroi {
     /**
      * Método Abstrato para Mostra Detalhe dos Itens
      */
-    public void exibirDetalhes() {
+    public void exibirDetalhesItemHeroi() {
         System.out.println("nomeItemHeroi='" + nomeItemHeroi + '\'' +
                 ", precoItemHeroi=" + precoItemHeroi +
                 ", itemHeroiPermitido=" + itemHeroiPermitido);

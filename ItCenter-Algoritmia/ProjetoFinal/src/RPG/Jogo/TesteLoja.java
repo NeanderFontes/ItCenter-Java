@@ -13,6 +13,7 @@ public class TesteLoja {
 
         // Heroi
         Heroi ezio = new Gatuno("Ezio",100,8);
+        ezio.setOuroHeroi(100);
 
         //Instância de Armas para "Aprendiz":
         ItemHeroi faca = new ArmaPrincipal("Faca de Aprendiz",0,10,15);
@@ -122,6 +123,9 @@ public class TesteLoja {
         vendedorRPG.adicionarStock(bombaFumo);
         vendedorRPG.adicionarStock(superBock);
 
+
+        ezio.exibirDetalhes();
         vendedorRPG.venderItem(ezio);
+        ezio.exibirDetalhes();
     }
 }
