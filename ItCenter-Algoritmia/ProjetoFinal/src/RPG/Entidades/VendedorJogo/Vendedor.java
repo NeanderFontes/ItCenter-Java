@@ -3,6 +3,7 @@ package RPG.Entidades.VendedorJogo;
 import RPG.Entidades.Heroi;
 import RPG.Entidades.Personagens.Aprendiz;
 import RPG.Entidades.Personagens.Gatuno;
+import RPG.Item.AbstractClass.Consumivel;
 import RPG.Item.AbstractClass.ItemHeroi;
 
 import javax.naming.CompositeName;
@@ -26,18 +27,24 @@ public class Vendedor {
      */
     public void imprimirLojaVendedor() {
         //Import Biblioteca Random para numeros aleatórios
-        Random random = new Random();
+        //Random random = new Random();
 
         //Atribuindo biblioteca para sortear no min (10 - size())
         //Ou Math.min(10, this.itensLoja.size());
-        int itensAleatorios = random.nextInt(10, this.itensLoja.size());
-        int indexRandom;
+        //int itensAleatorios = random.nextInt(10, this.itensLoja.size());
+        //int indexRandom;
 
         //Ciclo For para imprimir 10 itens do ArrayList<ItemHeroi>
-        for (int numIndice = 0; numIndice < itensAleatorios; numIndice++) {
-            indexRandom = random.nextInt(this.itensLoja.size());
+        //for (int numIndice = 0; numIndice < itensAleatorios; numIndice++) {
+        //    indexRandom = random.nextInt(this.itensLoja.size());
+        //   System.out.print("Item " + (numIndice + 1) + " - ");
+        //    this.itensLoja.get(indexRandom).exibirDetalhesItemHeroi();
+        //    System.out.println();
+        //}
+        //Ciclo para Testes:
+        for (int numIndice = 0; numIndice < this.itensLoja.size(); numIndice++) {
             System.out.print("Item " + (numIndice + 1) + " - ");
-            this.itensLoja.get(indexRandom).exibirDetalhes();
+            this.itensLoja.get(numIndice).exibirDetalhesItemHeroi();
             System.out.println();
         }
     }
@@ -91,9 +98,15 @@ public class Vendedor {
 
                 //Validação para o Herói usar arma devida da Subclasse do Personagem
                 if ((compraHeroi.getTipoHeroi()).equals(heroiPermitido)) {
-                    // Sabe usar
                     System.out.println("Compra feita com Sucesso!!");
+                    //Subtraindo valor do item ao Ouro total do Herói:
                     compraHeroi.setOuroHeroi(compraHeroi.getOuroHeroi() - valorItem);
+
+                    //Item Adicionado ao Inventário do Herói:
+                    compraHeroi.getInventarioHeroi().add((Consumivel) itemEscolhido);
+
+                    //Remover item Loja:
+                    this.itensLoja.remove(indexItemEscolhido);
                     return true;
                 }
             }
