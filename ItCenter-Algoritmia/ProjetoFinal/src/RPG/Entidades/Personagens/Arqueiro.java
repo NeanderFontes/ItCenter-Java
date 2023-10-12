@@ -82,8 +82,15 @@ public class Arqueiro extends Heroi {
                 case 2: //Ataque Especial do Arqueiro:
                     System.err.println("\t\t\t   *** " + this.getNomeEntidade() + " USA ***");
                     System.err.println("\t   *** ATAQUE ESPECIAL CHUVA DE FLECHAS!! ***");
-                    System.out.println("»----->\t\t»----->\t\t»----->\t\t \n »----->\t\t»----->\t\t»----->\t\t»----   , , , , ,  \n  »----->\t\t  »----->\t\t»----->\t\t»--- OUCH !! -\n »----->\t\t»----->\t\t»----->\t\t»----   ' ' ' ' '  \n»----->\t\t»----->\t\t»----->");
-                    System.out.println("\t*** ATAQUE ESPECIAL REALIZADO COM SUCESSO!! ***");
+                    System.out.println("\n");
+                    System.out.println("   (\t»----->\n" +
+                            "    \\     »----->\t»----->\t\t»----->\n" +
+                            "     )       »----->\t\t»----->\t\t»----->\t\t»----   , , , , ,\n" +
+                            "##--------> \t»----->\t\t  »----->\t\t»----->\t\t»--- OUCH !! -\n" +
+                            "     )\t     »----->\t\t»----->\t\t»----->\t\t»----   ' ' ' ' '  \n" +
+                            "    /\t  »----->\t»----->\t\t»----->\n" +
+                            "   (\t»----->");
+                    System.out.println("\n\t*** ATAQUE ESPECIAL REALIZADO COM SUCESSO!! ***");
                     System.out.println("\t\t\t\tDANO = " + this.getArmaPrincipalHeroi().getAtaqueNormal() + " ATK\n");
                     hpNPC -= this.getForcaEntidade() + this.getArmaPrincipalHeroi().getAtaqueEspecial();
                     if (hpNPC >= 0) {
@@ -152,8 +159,8 @@ public class Arqueiro extends Heroi {
             int aumentoVida = (this.getVidaEntidade() * 5) / 100;
             this.setVidaEntidade(this.getVidaEntidade() + aumentoVida);
 
-            //AUmenta Força em 2%:
-            int aumentoForca = (this.getForcaEntidade() * 2 / 100);
+            //AUmenta Força em 3%:
+            int aumentoForca = (this.getForcaEntidade() * 3 / 100);
             this.setForcaEntidade(this.getForcaEntidade() + aumentoForca);
 
             //Chamda de função da SuperClass<b>Heroi<b>
