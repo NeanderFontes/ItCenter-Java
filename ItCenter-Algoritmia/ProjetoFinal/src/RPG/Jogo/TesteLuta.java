@@ -3,6 +3,7 @@ package RPG.Jogo;
 import RPG.Entidades.NPC;
 import RPG.Entidades.Personagens.Aprendiz;
 import RPG.Entidades.Personagens.Arqueiro;
+import RPG.Entidades.Personagens.Espadachim;
 import RPG.Entidades.Personagens.Gatuno;
 import RPG.Item.AbstractClass.ItemHeroi;
 import RPG.Item.ArmaPrincipal;
@@ -18,15 +19,23 @@ public class TesteLuta {
         ArmaPrincipal facaNPC = new ArmaPrincipal("Faca NPC", 10,12,12);
         facaNPC.addHeroiPermitido("Arqueiro");
 
-        Arqueiro robinHood = new Arqueiro("Robin Hood", 100, 100);
         NPC testeNPC = new NPC("Teste",400,10,10);
         testeNPC.addInventarioNPC(facaNPC);
 
+        //Teste de Luta para Arqueiro:
+        Arqueiro robinHood = new Arqueiro("Robin Hood", 100, 100);
         ItemHeroi arco = new ArmaPrincipal("Arco", 60, 60, 110);
         arco.addHeroiPermitido("Arqueiro");
         robinHood.setArmaPrincipalHeroi((ArmaPrincipal) arco);
         robinHood.exibirDetalhes();
-        robinHood.atacar(testeNPC);
-        robinHood.exibirDetalhes();
+        //robinHood.atacar(testeNPC);
+
+        //TEste de Luta para Espadachim:
+        Espadachim reiArthur = new Espadachim("Rei Arthur", 100, 100);
+        ItemHeroi espada = new ArmaPrincipal("Espada", 60, 60, 110);
+        espada.addHeroiPermitido("Espadachim");
+        reiArthur.setArmaPrincipalHeroi((ArmaPrincipal) espada);
+        reiArthur.exibirDetalhes();
+        reiArthur.atacar(testeNPC);
     }
 }
