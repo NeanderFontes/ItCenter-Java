@@ -1,10 +1,11 @@
 package RPG.Entidades;
 
 import RPG.Item.AbstractClass.ItemHeroi;
+import RPG.Item.ArmaPrincipal;
 
 import java.util.ArrayList;
 
-public abstract class NPC extends Entidade {
+public class NPC extends Entidade {
     private int ouroNPC;
     private ArrayList<ItemHeroi> inventarioNPC;
 
@@ -20,6 +21,10 @@ public abstract class NPC extends Entidade {
         super(nomeEntidade, vidaEntidade, forcaEntidade);
         this.ouroNPC = ouroNPC;
         this.inventarioNPC = new ArrayList<>();
+    }
+
+    public void addInventarioNPC(ArmaPrincipal armaPrincipalNPC) {
+        this.inventarioNPC.add(armaPrincipalNPC);
     }
 
     /**
