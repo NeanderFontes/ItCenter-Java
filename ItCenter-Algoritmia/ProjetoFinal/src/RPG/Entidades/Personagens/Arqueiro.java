@@ -42,7 +42,6 @@ public class Arqueiro extends Heroi {
         int hpNPC = oponenteNPC.getVidaEntidade();
         int hpPersonagem = this.getVidaEntidade();
         int opcaoAtaqueHeroi;
-        boolean venceuBatalha = false;
 
         //Prioridade de ataque do Arqueiro:
         System.err.println("\t\t*** Prioridade de Ataque de " + this.getNomeEntidade() + " ***");
@@ -101,6 +100,8 @@ public class Arqueiro extends Heroi {
 
                         //Ataque do Consumivel de Combate ao NPC:
                         hpNPC -= consumivelUsado.getAtaqueInstataneo();
+                    } else {//Não existe Consumivel de combate e retorna para nova opção:
+                        opcaoAtaqueHeroi = 0;
                     }
                     break;
                 default: //Opção Inválida
