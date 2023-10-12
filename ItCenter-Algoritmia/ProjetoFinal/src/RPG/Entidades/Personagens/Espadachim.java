@@ -92,15 +92,18 @@ public class Espadachim extends Heroi {
                     System.err.println("\t\t\t   *** " + this.getNomeEntidade() + " USA ***");
                     System.err.println("\t   *** ATAQUE ESPECIAL IMPACTO DE TYR!! ***");
                     System.out.println();
-                    System.out.println("           _____   _____\n" +
-                            "          /     \\ /     \\\n" +
-                            "     ,   |       '       |\n" +
-                            "     I __L________       L__  , , , , ,\n" +
-                            "O====IE__________/     ./___>   OUCH !! -\n" +
-                            "     I      \\.       ./\t      ' ' ' ' '  \n" +
-                            "     `        \\.   ./\n" +
-                            "                \\ /\n" +
-                            "                 '");
+                    System.out.println("                              .___.\n" +
+                            "          /)               ,-^     ^-.\n" +
+                            "         //               /           \\\n" +
+                            ".-------| |--------------/  __     __  \\-------------------.__\n" +
+                            "|WMWMWMW| |>>>>>>>>>>>>> | />>\\   />>\\ |>>>>>>>>>>>>>>>>>>>>>>:>\n" +
+                            "`-------| |--------------| \\__/   \\__/ |-------------------'^^\n" +
+                            "         \\\\               \\    /|\\    /\n" +
+                            "          \\)               \\   \\_/   /\n" +
+                            "                            |       |\n" +
+                            "                            |+H+H+H+|\n" +
+                            "                            \\       /\n" +
+                            "                             ^-----^");
                     System.out.println("\t*** ATAQUE ESPECIAL REALIZADO COM SUCESSO!! ***");
                     System.out.println("\t\t\t\tDANO = " + this.getArmaPrincipalHeroi().getAtaqueNormal() + " ATK\n");
                     hpNPC -= this.getForcaEntidade() + this.getArmaPrincipalHeroi().getAtaqueEspecial();
