@@ -3,7 +3,11 @@ package RPG.Entidades.Personagens;
 import RPG.Entidades.Heroi;
 import RPG.Entidades.NPC;
 import RPG.Item.AbstractClass.ItemHeroi;
+import RPG.Item.ConsumivelCombate;
 import RPG.Item.Pocao;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class Aprendiz extends Heroi {
 
@@ -19,12 +23,6 @@ public class Aprendiz extends Heroi {
 
     }
 
-    /**
-     * Método para o Herói Usar Poção
-     */
-    public void usarPocao(ItemHeroi usarPocao) {
-        usarPocao.getNomeItemHeroi();
-    }
 
     /**
      * Método @Override Adaptado ao Aprendiz para Atacar um NPC
@@ -35,45 +33,126 @@ public class Aprendiz extends Heroi {
     @Override
     public void atacar(NPC oponenteNPC) {
         //Declaração de variáveis do escopo:
-        int qtRoud = 0;
+        int qtRoud = 1;
         int hpNPC = oponenteNPC.getVidaEntidade();
         int hpPersonagem = this.getVidaEntidade();
+        int opcaoAtaqueHeroi;
 
         //Caso Aprendiz esteja Nível 12 Escolher Outra SubClasse para continuar labirinto...
-        if (this.getVidaEntidade() >= 12) {
+        if (this.getNivelHeroi() >= 12) {
             System.out.println(this.getTipoHeroi() + "Já está bem Treinado! Siga Caminho...");
             System.out.println("Está na hora de definir o seu destino.");
         } else {
-            //Prioridade de ataque do Aprendiz:
-            System.out.println("Prioridade de Ataque de " + this.getNomeEntidade());
+            //Scaner para Entrada de dados:
+            Scanner input = new Scanner(System.in);
+
+            //Prioridade de ataque do Arqueiro:
+            System.err.println("\t\t*** Prioridade de Ataque de " + this.getNomeEntidade() + " ***");
+
             do {
-                System.out.println("======== ROUND " + qtRoud++ + "========");
-                //Simulação de ataque do Aprendiz:
-                if (hpNPC >= 0) {
-                    hpNPC -= this.getForcaEntidade();
-                    //Utilização do setter:
-                    //npcGamer.setVidaEntidade(npcGamer.getVidaEntidade()-this.getForcaEntidade());
-                    System.out.println("Hp Atual do " + oponenteNPC.getNomeEntidade() + " = " + hpNPC + " hp.");
+                //Simulação de ataque do Arqueiro:
+                System.out.println("======================= ROUND " + qtRoud++ + " ========================");
+                System.out.println("[ 1 ]   -   Ataque Normal");
+                System.out.println("[ 2 ]   -   Ataque Especial");
+                System.out.println("[ 3 ]   -   Usar Consumível de Ataque");
+                System.out.println("========================================================");
+                System.out.print(this.getNomeEntidade() + "!! Escolha uma Opção de Atk acima: ");
+
+                //Tratamento de Erro para "InputMismatchException" entrada de dados diferente de números:
+                try {
+                    opcaoAtaqueHeroi = input.nextInt();
+                } catch (InputMismatchException mismatchException) {
+                    System.err.println("Erro: Entrada inválida. Certifique-se de digitar um número inteiro.");
+                    input.next();
+                    opcaoAtaqueHeroi = 0;
                 }
+
+                switch (opcaoAtaqueHeroi) {
+                    case 1: //Ataque Normal do Arqueiro:
+                        System.out.println("\n" + this.getNomeEntidade() + " Usa a(o) " + this.getArmaPrincipalHeroi().getNomeItemHeroi() + " e.......");
+                        System.out.println("»-----> \n\t\t\t»-----> \n\t\t\t\t\t\t»-----> \n\t\t\t\t\t\t\t\t\t»--- OUCH!");
+                        System.out.println("\t*** ATAQUE REALIZADO COM SUCESSO!! ***");
+                        System.out.println("\t\t\t\tDANO = " + this.getArmaPrincipalHeroi().getAtaqueNormal() + " ATK\n");
+                        hpNPC -= this.getForcaEntidade() + this.getArmaPrincipalHeroi().getAtaqueNormal();
+                        if (hpNPC > 0) {
+                            //Utilização do setter:
+                            //npcGamer.setVidaEntidade(npcGamer.getVidaEntidade()-this.getForcaEntidade());
+                            System.out.println("Hp Atual do Oponente " + oponenteNPC.getNomeEntidade() + " = " + hpNPC + " hp.");
+                        } else if (hpNPC <= 0) {
+                            System.out.println("Hp do Oponente " + oponenteNPC.getNomeEntidade() + " = 0");
+                        }
+                        break;
+                    case 2: //Ataque Especial do Arqueiro:
+                        System.out.println("QUE VACILO!! VOCê AINDA É UM APRENDIZ!!");
+                        System.out.println("Ainda está no Campo de Treinamento!! Aprimore seus conhecimentos e LUTE MAIS!!");
+                        break;
+                    case 3:
+                        System.out.println("QUE VACILO!! VOCê AINDA É UM APRENDIZ!!");
+                        System.out.println("Você pode até possuir Consumiveis de Combate, mas precisa treinar mais!!");
+                        System.out.println("Ainda está no Campo de Treinamento!! Aprimore seus conhecimentos e LUTE MAIS!!");
+                        break;
+                    default: //Opção Inválida
+                        System.err.println("\n\t\t\t*** Opção Inválida ***\n");
+                        break;
+                }
+
                 //Simulação de ataque do NPC:
-                if (hpPersonagem >= 0) {
+                if (opcaoAtaqueHeroi >= 1 && opcaoAtaqueHeroi <= 3) {
+                    System.out.println("\n" + oponenteNPC.getNomeEntidade() + " Ataca!!! e.......");
+                    System.out.println("OUCH!-----« \n\t\t\t<-----« \n\t\t\t\t\t\t<-----« \n\t\t\t\t\t\t\t\t\t<-----«");
+                    System.out.println("\t*** ATAQUE REALIZADO COM SUCESSO!! ***");
+                    System.out.println("\t\t\t\tDANO = " + oponenteNPC.getForcaEntidade() + " ATK\n");
                     hpPersonagem -= oponenteNPC.getForcaEntidade();
-                    System.out.println("Hp Atual do " + this.getNomeEntidade() + " = " + hpPersonagem + " hp.");
+                    if (hpNPC <= 0) {
+                        hpPersonagem += oponenteNPC.getForcaEntidade();
+                    }
+                    if (hpPersonagem > 0) {
+                        System.out.println("Hp Atual do Herói " + this.getNomeEntidade() + " = " + hpPersonagem + " hp.");
+                    } else if (hpPersonagem <= 0) {
+                        System.out.println("O Herói Morreu");
+                    }
+                } else {
+                    qtRoud--;
                 }
 
                 //Laço executável até a Quantidade de HP de algum dos oponentes acabar.
-            } while (hpNPC >= 0 && hpPersonagem >= 0);
+            } while (hpNPC > 0 && hpPersonagem > 0);
 
-            //Dados do Vencedor da Batalha:
-            if (getVidaEntidade() <= 0) {
-                System.out.println(getNomeEntidade() + "Infelizmente Perdeu a Luta");
-            } else {
-                System.out.println(getNomeEntidade() + " É o Vencedor!!!");
+            //Dados finais da Batalha:
+            if (hpPersonagem <= 0) { //Perder Batalha
+                System.out.println(this.getNomeEntidade() + "Infelizmente Perdeu a Luta");
+
+                //Teste para resultados:
+                System.out.println("Teste de Resultados: ");
+                System.out.println("Nivel do Heroi: " + this.getNivelHeroi());
+                System.out.println("For = " + this.getForcaEntidade());
+                //TODO HP FICANDO NEGATIVO AO FINAL DA DERROTA
+                System.out.println("HP = " + hpPersonagem);
+                System.out.println("Ouro = " + this.getOuroHeroi());
+
+            } else { //Ganhar Batalha
+                System.out.println(this.getNomeEntidade() + " É o Vencedor!!!");
+                //Aumenta Nivel + 1:
                 this.setNivelHeroi(getNivelHeroi() + 1);
-                int aumentoVida = (getVidaEntidade() * 10) / 100;
-                this.setVidaEntidade(getVidaEntidade() + aumentoVida);
-                int aumentoForca = (getForcaEntidade() * 10 / 100);
-                this.setForcaEntidade(getForcaEntidade() + aumentoForca);
+
+                //Aumenta HP em 10%:
+                int aumentoVida = (this.getVidaEntidade() * 10) / 100;
+                this.setVidaEntidade(this.getVidaEntidade() + aumentoVida);
+
+                //AUmenta Força em 3%:
+                int aumentoForca = (this.getForcaEntidade() * 10 / 100);
+                this.setForcaEntidade(this.getForcaEntidade() + aumentoForca);
+
+                //Chamda de função da SuperClass<b>Heroi<b>
+                this.heroiRecolherItemNPC(oponenteNPC);
+
+                //Teste para resultados:
+                System.out.println("Teste de Resultados: ");
+                System.out.println("Nivel do Heroi: " + this.getNivelHeroi());
+                System.out.println("For = " + this.getForcaEntidade());
+                System.out.println("HP = " + hpPersonagem);
+                System.out.println("Ouro = " + this.getOuroHeroi());
+                System.out.println("Arma Principal: " + this.getArmaPrincipalHeroi().getNomeItemHeroi());
             }
         }
     }

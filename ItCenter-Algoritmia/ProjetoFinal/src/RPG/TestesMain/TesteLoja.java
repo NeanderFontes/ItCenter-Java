@@ -1,4 +1,4 @@
-package RPG.Jogo;
+package RPG.TestesMain;
 
 import RPG.Entidades.Heroi;
 import RPG.Entidades.Personagens.Gatuno;

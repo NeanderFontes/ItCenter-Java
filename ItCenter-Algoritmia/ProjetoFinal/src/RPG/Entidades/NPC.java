@@ -1,5 +1,6 @@
 package RPG.Entidades;
 
+import RPG.Item.AbstractClass.Consumivel;
 import RPG.Item.AbstractClass.ItemHeroi;
 import RPG.Item.ArmaPrincipal;
 
@@ -25,6 +26,10 @@ public class NPC extends Entidade {
 
     public void addInventarioNPC(ArmaPrincipal armaPrincipalNPC) {
         this.inventarioNPC.add(armaPrincipalNPC);
+    }
+
+    public void addConsumivelNPC(Consumivel consumivelNPC) {
+        this.inventarioNPC.add(consumivelNPC);
     }
 
     /**

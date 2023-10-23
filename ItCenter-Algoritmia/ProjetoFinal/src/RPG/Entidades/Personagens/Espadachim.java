@@ -116,11 +116,36 @@ public class Espadachim extends Heroi {
                 case 3: //Consumível de Ataque:
                     ConsumivelCombate consumivelUsado = heroiUsarComsumivelCombate();
                     if (consumivelUsado != null) {
+                        System.out.println(". . .                         \n" +
+                                "              \\|/                          \n" +
+                                "            `--+--'                        \n" +
+                                "              /|\\                          \n" +
+                                "             ' | '                         \n" +
+                                "               |                           \n" +
+                                "               |                           \n" +
+                                "           ,--'#`--.                       \n" +
+                                "           |#######|                       \n" +
+                                "        _.-'#######`-._                    \n" +
+                                "     ,-'##############`-.                 \n" +
+                                "   ,'####################`,               \n" +
+                                "  /########################\\              \n" +
+                                " |##########################|             \n" +
+                                "|############################|            \n" +
+                                "|############################|            \n" +
+                                "|############################|            \n" +
+                                "|############################|            \n" +
+                                " |##########################|             \n" +
+                                "  \\########################/              \n" +
+                                "   `.#####################,'               \n" +
+                                "     `._###############_,'                 \n" +
+                                "        `--..#####..--'");
                         //Remoção do Consumível de Combate Usado.
                         this.inventarioHeroi.remove(consumivelUsado);
 
                         //Ataque do Consumivel de Combate ao NPC:
                         hpNPC -= consumivelUsado.getAtaqueInstataneo();
+                        System.out.println("Hp Atual do Oponente " + oponenteNPC.getNomeEntidade() + " = " + hpNPC + " hp.");
+
                     } else {//Não existe Consumivel de combate e retorna para nova opção:
                         opcaoAtaqueHeroi = 0;
                     }
