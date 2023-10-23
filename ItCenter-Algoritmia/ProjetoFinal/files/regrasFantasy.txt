@@ -1,0 +1,17 @@
+Bem-vindo ao emocionante mundo de Fantasy, onde a jornada de um herói está prestes a começar! No início de sua aventura, você se encontra no Nível 1, na pele de um modesto Aprendiz. Seu destino é se aperfeiçoar no campo de batalha, elevando-se até o Nível 12 para adquirir as habilidades necessárias para encarar o temido chefe final deste reino mágico.
+
+Quando atingir o Nível 12, um mundo de possibilidades se abrirá diante de você. Neste ponto, você terá a escolha de se especializar em uma das seis subclasses superiores, cada uma com suas habilidades e vantagens únicas:
+
+1) Arqueiro: Mestre do ataque à distância, o Arqueiro possui a habilidade de Prioridade de Ataque. Após vencer uma batalha contra os monstros dos mapas, o Arqueiro ganha um aumento de Nível +1, +5% de HP e +3% de Força.
+
+2) Espadachim: Vestido com armadura resistente, o Espadachim sofre apenas 80% do dano do ataque dos NPCs, mas os oponentes têm prioridade de ataque. Vencer uma batalha resulta em um aumento de Nível +1, +6% de HP e +6% de Força.
+
+3) Gatuno: Ágil e sorrateiro, o Gatuno tem a chance de atacar o monstro duas vezes. Após vencer uma batalha, o Gatuno ganha Nível +1, +5% de HP e +3% de Força.
+
+4) Mago: Especialista em magia, o Mago não possui armadura adequada e sofre 10% a mais de dano do ataque dos monstros, mas seu ataque mágico inflige 20% a mais de dano. Após a vitória, o Mago ganha Nível +1, +7% de HP e +2% de Força.
+
+5) Mercador: Ambicioso e astuto, o Mercador recebe 10% a mais de ouro, baseado na quantidade de ouro que o monstro possui. Além disso, o Mercador tem prioridade de ataque. Vencer uma batalha resulta em um aumento de Nível +1, +3% de HP, +3% de Força e um bônus de 10% no ouro adquirido.
+
+6) Noviço: Um curandeiro por natureza, o Noviço tem a habilidade de auto-recuperação de HP, restaurando 10% de seu HP após cada batalha contra monstros. Após vencer uma batalha, o Noviço ganha Nível +1, +7% de HP e +2% de Força.
+
+À medida que avança pela terra de Fantasy, você explorará uma série de mapas, cada um com diferentes níveis de dificuldade, que se ajustam ao seu progresso e ao Nível alcançado em suas batalhas. Prepare-se para enfrentar desafios épicos, descobrir tesouros ocultos e, eventualmente, encarar o chefe principal, determinado a se tornar uma lenda neste mundo mágico. Boa sorte, herói em ascensão!
