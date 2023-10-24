@@ -12,7 +12,6 @@ import RPG.Item.ArmaPrincipal;
 import RPG.Item.ConsumivelCombate;
 import RPG.Item.Pocao;
 
-import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -24,10 +23,8 @@ public class Jogo {
 
     /**
      * Método Construtor do Jogo:
-     *
-     * @param nomeJogo - Nome Para Criação do Jogo.
      */
-    public Jogo(String nomeJogo) {
+    public Jogo() {
         this.nomeJogo = nomeJogo;
         this.indexAtualSalaDoJogo = 0;
         this.salasJogo = new ArrayList<>();
@@ -380,74 +377,135 @@ public class Jogo {
     /**
      * Método do Jogo Principal.
      *
-     * @param jogadorAtual - Jogador Atual da Class <>Heroi</>
+     * @param jogadorAtual - Jogador Atual da Class <b>Heroi</b>
+     * @return
      */
     public void fantasy(Heroi jogadorAtual) {
-        //Criar Personagem:
-        criarPersonagem(jogadorAtual);
 
-        //Boas Vindas:
-        boasVindas(jogadorAtual);
+        SalaDeJogo sj1 = new SalaDeJogo("Treinamento",0);
 
-        //Regras do Jogo:
-        regrasJogo(jogadorAtual);
-    }
+        this.salasJogo.add(sj1);
 
-    /**
-     * Método para Ler Ficheiro de regras do Jogo.
-     *
-     * @param jogadorAtual - Jogador Atual.
-     */
-    private void regrasJogo(Heroi jogadorAtual) {
-        Scanner lerArquivo = new Scanner("/");
+        sj1.start(jogadorAtual);
 
-
-        lerArquivo.hasNextLine();
-
-        //Fechamento do Arquivo:
-        lerArquivo.close();
-    }
-
-    private void boasVindas(Heroi jogadorAtual) {
-        System.out.println("Em um mundo repleto de magia e mistério, " +
-                "um jovem aprendiz chamado " + jogadorAtual.getNomeEntidade() + " embarca em uma jornada épica em busca de poder e glória. " +
-                "O reino de Fantasy onde é conhecido por seus inúmeros desafios e segredos mágicos.");
+        adicionarMapa(sj1);
     }
 
     /**
      * Método para Criar o personagem Aprendiz Principal.
-     *
-     * @param jogadorAtual - Jogador Atual da Class <>Heroi</>
      */
-    private void criarPersonagem(Heroi jogadorAtual) {
-        //Input para entrada de dados:
+
+    public void dificuldadeJogo(Heroi jogadorAtual) {
         Scanner input = new Scanner(System.in);
-        String jogadorNome = "";
+        String nomePersonagem;
+        int opcaoDificuldade;
+        int totalPontosCriacao = 0;
+        int pontosVida = 0;
+        int pontosForca = 0;
 
-        //Validação de dados para entrada de nome do personagem:
-        do {
-            System.out.print("Digite o nome do seu personagem: ");
-            jogadorNome = input.nextLine();
+        // Passo 1: Escolha de Dificuldade
+        System.out.print("Escolha a dificuldade \n[ 1 ] - Fácil\n[ 2 ] - Difícil: ");
+        opcaoDificuldade = input.nextInt();
 
-            if (jogadorNome.isEmpty()) {
-                System.err.println("Erro: O nome do personagem não pode ser vazio. Tente novamente.");
-            }
-        } while (jogadorNome.isEmpty());
 
-        //Tipo de Herói para começar como Aprendiz:
-        jogadorAtual = new Aprendiz(jogadorNome, 100, 20);
+        // Passo 2: Distribuição de Pontos
+        if (opcaoDificuldade == 1) {
+            totalPontosCriacao = 300;
+            System.out.println("Você tem 300 Pontos para distribuir entre Força e Vida");
+            System.out.println("Quantos Pontos deseja colocar em Força?");
+            pontosForca = input.nextInt();
+            jogadorAtual.setForcaEntidade(pontosForca);
+            pontosVida = totalPontosCriacao - pontosForca;
+            System.out.println("Restaram " + pontosVida + " que será atribuída ao valor da Vida");
+            jogadorAtual.setVidaEntidade(pontosVida);
+            System.out.println("Também foi atribuido valor de 15 moedas de ouro");
+            jogadorAtual.setOuroHeroi(15);
+            jogadorAtual.exibirDetalhes();
 
-        //Exibir Detalhes do Jogador:
-        jogadorAtual.exibirDetalhes();
+        } else if (opcaoDificuldade == 2) {
+            totalPontosCriacao = 220;
+            System.out.println("Você tem 220 Pontos para distribuir entre Força e Vida");
+            System.out.println("Quantos Pontos deseja colocar em Força?");
+            pontosForca = input.nextInt();
+            jogadorAtual.setForcaEntidade(pontosForca);
+            pontosVida = totalPontosCriacao - pontosForca;
+            System.out.println("Restaram " + pontosVida + " que será atribuída ao valor da Vida");
+            jogadorAtual.setVidaEntidade(pontosVida);
+            System.out.println("Também foi atribuido valor de 20 moedas de ouro");
+            jogadorAtual.setOuroHeroi(20);
+            jogadorAtual.exibirDetalhes();
+        } else {
+            System.err.println("Opção de dificuldade inválida.");
+        }
     }
+
+    public Heroi criarPersonagem() {
+        Scanner input = new Scanner(System.in);
+        Heroi jogadorAtual = null;
+        int opcaoJogador;
+
+        System.out.print("Digite o nome do seu personagem: ");
+        String nomePersonagem = input.nextLine();
+
+        do {
+            System.out.println("Escolha a classe para o seu personagem:");
+            System.out.println("[ 1 ] - Arqueiro");
+            System.out.println("[ 2 ] - Espadachim");
+            System.out.println("[ 3 ] - Gatuno");
+            System.out.println("[ 4 ] - Mago");
+            System.out.println("[ 5 ] - Mercador");
+            System.out.println("[ 6 ] - Noviço");
+            System.out.print("Escolha uma Opção Acima: ");
+
+            try {
+                opcaoJogador = input.nextInt();
+            } catch (InputMismatchException mismatchException) {
+                System.err.println("Erro: Entrada inválida. Certifique-se de digitar um número inteiro.");
+                input.next();
+                opcaoJogador = 0;
+            }
+
+            switch (opcaoJogador) {
+                case 1:
+                    jogadorAtual = new Arqueiro(nomePersonagem, 0, 0);
+                    break;
+                case 2:
+                    jogadorAtual = new Espadachim(nomePersonagem, 0, 0);
+                    break;
+                case 3:
+                    jogadorAtual = new Gatuno(nomePersonagem, 0, 0);
+                    break;
+                case 4:
+                    jogadorAtual = new Mago(nomePersonagem, 0, 0);
+                    break;
+                case 5:
+                    jogadorAtual = new Mercador(nomePersonagem, 0, 0);
+                    break;
+                case 6:
+                    jogadorAtual = new Novico(nomePersonagem, 0, 0);
+                    break;
+                default:
+                    System.err.println("\n\t\t\t*** Opção Inválida ***\n");
+                    break;
+            }
+        } while (opcaoJogador < 1 || opcaoJogador > 6);
+
+        //Chamada para Dificuldade do Jogo:
+        dificuldadeJogo(jogadorAtual);
+
+        return jogadorAtual;
+    }
+
+
 
 
     /**
      * Método para Jogador Escolher SubClasse Após Sala de treinamento.
      *
      * @param jogadorAtual Heroi Atual do Jogo.
-     */
-    private void escolherClasse(Heroi jogadorAtual) {
+     *//*
+    public Heroi escolherClasse() {
+
 
         //Scanner input para entrada de dados:
         Scanner input = new Scanner(System.in);
@@ -471,9 +529,9 @@ public class Jogo {
                 input.next();
                 opcaoJogador = 0;
             }
-
             switch (opcaoJogador) {
                 case 1: //Opção SubClasse Arqueiro
+                    Heroi jogadorAtual = new Arqueiro("ara",2,2);
                     jogadorAtual = new Arqueiro(jogadorAtual.getNomeEntidade(), jogadorAtual.getVidaEntidade(), jogadorAtual.getForcaEntidade());
                     break;
                 case 2: //Opção SubClasse Espadachim
@@ -496,7 +554,9 @@ public class Jogo {
                     break;
             }
         } while (opcaoJogador < 1 || opcaoJogador > 6);
-    }
+
+        return jogadorAtual;
+    } */
 
 
     /**

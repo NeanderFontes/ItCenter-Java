@@ -46,6 +46,11 @@ public class TesteLutaEspadachim {
         //Exibir Detalhes Antes da Luta:
         reiArthur.exibirDetalhes();
 
+        //adicionar consumivel NPM
+        testeNPC.addConsumivelNPC(pilulaDeCombate);
+        testeNPC.addConsumivelNPC(venenoMortal);
+        testeNPC.addConsumivelNPC(pocaoDoFuror);
+
         //Começo da Batalha
         reiArthur.atacar(testeNPC);
         System.out.println("FIM do Teste Luta");

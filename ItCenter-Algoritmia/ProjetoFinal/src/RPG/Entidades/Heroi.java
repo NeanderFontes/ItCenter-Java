@@ -22,6 +22,15 @@ public abstract class Heroi extends Entidade {
      * @param vidaEntidade  - Total de Vida do Herói (em hp)
      * @param forcaEntidade - Total de Força do Herói
      */
+/*
+    public Heroi(){
+        super(nomeEntidade, vidaEntidade, forcaEntidade);
+        this.nivelHeroi = 1;
+        this.ouroHeroi = 0;
+        this.armaPrincipalHeroi = null;
+        this.inventarioHeroi = new ArrayList<>();
+    } */
+
     public Heroi(String nomeEntidade, int vidaEntidade, int forcaEntidade) {
         super(nomeEntidade, vidaEntidade, forcaEntidade);
         this.nivelHeroi = 1;
@@ -52,6 +61,7 @@ public abstract class Heroi extends Entidade {
         for (int numIndice = 0; numIndice < this.inventarioHeroi.size(); numIndice++) {
             // Se o Item for uma instância de Poção, adicioná-lo ao ArrayList
             if (this.inventarioHeroi.get(numIndice) instanceof Pocao) {
+
                 pocao.add((Pocao) this.inventarioHeroi.get(numIndice));
             }
         }
@@ -160,6 +170,7 @@ public abstract class Heroi extends Entidade {
      * @param oponenteNPC
      */
     protected void heroiRecolherItemNPC(NPC oponenteNPC) {
+        //TODO Refazer código utilizando ArmaHeroi horoiRecolherArma() e Consumivel heroiRecolherConsumivel()
         //Declaração de variáveis e Import Scanner para Entrada de dados:
         Scanner input = new Scanner(System.in);
         String opcaoParaAdicionarItemHeroi = "";
@@ -217,10 +228,10 @@ public abstract class Heroi extends Entidade {
 
                     //Perguntar ao usuário se deseja substituir a arma principal
                     System.out.print("Deseja Substituir sua Arma Principal '" + this.armaPrincipalHeroi.getNomeItemHeroi() + "' por '" + itemHeroiAtual.getNomeItemHeroi() + "'? [S/N]: ");
+
+
+                    //Adicionar Tratamento de Erro para Opção de Troca da Arma Principal
                     String opcaoTrocaArmaPrincipal = input.nextLine();
-
-                    //Tratamento de Erro para Opção de Troca da Arma Principal
-
 
                     if (opcaoTrocaArmaPrincipal.equalsIgnoreCase("S")) {
                         boolean permitido = false;
