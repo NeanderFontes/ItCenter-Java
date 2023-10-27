@@ -13,9 +13,9 @@ public class Gatuno extends Heroi {
     /**
      * Método Construtor Gatuno da Abstract SuperClass <b>Heroi</b>
      *
-     * @param nomeEntidade       - Nome do Gatuno
-     * @param vidaEntidade       - Total de Vida do Gatuno
-     * @param forcaEntidade      - Total de Força de Ataque do Gatuno
+     * @param nomeEntidade  - Nome do Gatuno
+     * @param vidaEntidade  - Total de Vida do Gatuno
+     * @param forcaEntidade - Total de Força de Ataque do Gatuno
      */
     public Gatuno(String nomeEntidade, int vidaEntidade, int forcaEntidade) {
         super(nomeEntidade, vidaEntidade, forcaEntidade);
@@ -156,7 +156,7 @@ public class Gatuno extends Heroi {
             }
 
             // Condição do Herói Gatuno realizar 2 Ataques:
-            ataqueDuploEfeito = ataqueRandom.nextInt(1,6);
+            ataqueDuploEfeito = ataqueRandom.nextInt(1, 6);
             if (ataqueDuploEfeito == 1) {
                 if (hpNPC > 0) {
                     System.out.println("*** ATAQUE DUPLO SURPRESA ***");
