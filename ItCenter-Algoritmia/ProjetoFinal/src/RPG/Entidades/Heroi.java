@@ -22,15 +22,6 @@ public abstract class Heroi extends Entidade {
      * @param vidaEntidade  - Total de Vida do Herói (em hp)
      * @param forcaEntidade - Total de Força do Herói
      */
-/*
-    public Heroi(){
-        super(nomeEntidade, vidaEntidade, forcaEntidade);
-        this.nivelHeroi = 1;
-        this.ouroHeroi = 0;
-        this.armaPrincipalHeroi = null;
-        this.inventarioHeroi = new ArrayList<>();
-    } */
-
     public Heroi(String nomeEntidade, int vidaEntidade, int forcaEntidade) {
         super(nomeEntidade, vidaEntidade, forcaEntidade);
         this.nivelHeroi = 1;
@@ -50,68 +41,172 @@ public abstract class Heroi extends Entidade {
 
     /**
      * Método para o Herói Usar Poção
+     *
+     public Pocao heroiUsarPocao() {
+     // Scanner para Entrada de dados:
+     Scanner input = new Scanner(System.in);
+
+     // Construir novo menu de ArrayList<Pocao>:
+     ArrayList<Pocao> pocao = new ArrayList<>();
+
+     for (int numIndice = 0; numIndice < this.inventarioHeroi.size(); numIndice++) {
+     // Se o Item for uma instância de Poção, adicioná-lo ao ArrayList
+     if (this.inventarioHeroi.get(numIndice) instanceof Pocao) {
+
+     pocao.add((Pocao) this.inventarioHeroi.get(numIndice));
+     }
+     }
+
+     // Listagem dos Itens Adicionados ao ArrayList<Pocao>:
+     if (pocao.isEmpty()) {
+     System.out.println("Inventário Vazio...");
+     return null;
+     } else {
+     // Ciclo for para apresentar os itens de Consumível de Combate existentes:
+     System.out.println("=========== LISTA(S) DA(S) POÇÃO(ÕES) DE RECUPERAÇÃO ===========");
+     for (int numIndice = 0; numIndice < pocao.size(); numIndice++) {
+     System.out.println((numIndice + 1) + "º - " + pocao.get(numIndice).getNomeItemHeroi() + "; HP + " + pocao.get(numIndice).getRecuperarVida() + "; FOR + " + pocao.get(numIndice).getAumentarForca());
+     }
+     System.out.println("=================================================================");
+
+     // Tratamento de Erros para Opções inválidas do Usuário:
+     System.out.print("Escolha uma opção dos itens acima: ");
+     int indexEscolhido = 0;
+     try {
+     indexEscolhido = input.nextInt();
+     if (indexEscolhido > pocao.size() || indexEscolhido < 1) {
+     throw new IllegalArgumentException();
+     } else {
+     // Remoção do item escolhido do ArrayList<Consumivel>:
+     Pocao consumivel = (Pocao) pocao.get(indexEscolhido - 1);
+     pocao.remove(indexEscolhido - 1);
+
+     //TODO Ajustar aumento do HP sem Alterar o HP do Herói
+     // Aumentar Hp de acordo com a poção usada:
+     int vidaAuxiliarAtualHeroi = this.getVidaEntidade();
+     int vidaRecuperada = consumivel.getRecuperarVida();
+     this.setVidaEntidade(this.getVidaEntidade() + vidaRecuperada);
+
+     // Aumenta Força de acordo com a poção usada:
+     int forcaAumentada = consumivel.getAumentarForca();
+     this.setForcaEntidade(this.getForcaEntidade() + forcaAumentada);
+
+     // Mensagem de feedback sobre o uso da poção
+     System.out.println("Você usou " + consumivel.getNomeItemHeroi() + " e recuperou " + vidaRecuperada + " de vida e aumentou sua força em " + forcaAumentada + ".");
+
+     }
+     // Retornar o consumível selecionado
+     //return pocao.get(indexEscolhido - 1);
+     } catch (InputMismatchException mismatchException) {
+     System.out.println("Erro: A entrada deve ser um número inteiro.");
+     } catch (IllegalArgumentException argumentException) {
+     System.out.println("Erro: A escolha deve estar entre 1 e " + pocao.size() + ".");
+     }
+     return null;
+     }
+     }
      */
-    public Pocao heroiUsarPocao() {
-        // Scanner para Entrada de dados:
-        Scanner input = new Scanner(System.in);
+    /**
+     * Método para o Herói Recolher o Item do NPC se Vencer a Batalha
+     *
+     * @param oponenteNPC
+     *
+    protected void heroiRecolherItemNPC(NPC oponenteNPC) {
+    //Declaração de variáveis e Import Scanner para Entrada de dados:
+    Scanner input = new Scanner(System.in);
+    String opcaoParaAdicionarItemHeroi = "";
+    boolean entradaValida = false;
+    int numIndice = 0;
 
-        // Construir novo menu de ArrayList<Pocao>:
-        ArrayList<Pocao> pocao = new ArrayList<>();
+    //Adicionar a quantidade de Ouro perdido na batalha do NPC para o Herói:
+    this.setOuroHeroi(getOuroHeroi() + oponenteNPC.getOuroNPC());
 
-        for (int numIndice = 0; numIndice < this.inventarioHeroi.size(); numIndice++) {
-            // Se o Item for uma instância de Poção, adicioná-lo ao ArrayList
-            if (this.inventarioHeroi.get(numIndice) instanceof Pocao) {
+    if (oponenteNPC.getInventarioNPC().isEmpty()) {
+    System.out.println("=======================================");
+    System.out.println("INVENTÁRIO DO NPC ESTÁ VAZIO!!");
+    System.out.println("=======================================");
+    } else {
+    // Ciclo ForEach para percorrer o inventário do NPC
+    for (ItemHeroi itemHeroiAtual : oponenteNPC.getInventarioNPC()) {
+    if (itemHeroiAtual instanceof Consumivel) {
+    // Imprimir os detalhes
+    System.out.println("========== LISTA(S) DO(S) CONSUMIVEL(EIS) EXISTENTE(S) DO NPC ==========");
+    System.out.println((numIndice + 1) + "º - " + itemHeroiAtual.getNomeItemHeroi());
+    System.out.println("========================================================================");
 
-                pocao.add((Pocao) this.inventarioHeroi.get(numIndice));
-            }
-        }
+    // Perguntar ao utilizador se quer ou não
+    do {
+    System.out.print("Gostaria de Adicionar o(s) consumível(eis) ao seu inventário? [S/N]: ");
+    try {
+    opcaoParaAdicionarItemHeroi = input.nextLine();
 
-        // Listagem dos Itens Adicionados ao ArrayList<Pocao>:
-        if (pocao.isEmpty()) {
-            System.out.println("Inventário Vazio...");
-            return null;
-        } else {
-            // Ciclo for para apresentar os itens de Consumível de Combate existentes:
-            System.out.println("=========== LISTA(S) DA(S) POÇÃO(ÕES) DE RECUPERAÇÃO ===========");
-            for (int numIndice = 0; numIndice < pocao.size(); numIndice++) {
-                System.out.println((numIndice + 1) + "º - " + pocao.get(numIndice).getNomeItemHeroi() + "; HP + " + pocao.get(numIndice).getRecuperarVida() + "; FOR + " + pocao.get(numIndice).getAumentarForca());
-            }
-            System.out.println("=================================================================");
-
-            // Tratamento de Erros para Opções inválidas do Usuário:
-            System.out.print("Escolha uma opção dos itens acima: ");
-            int indexEscolhido = 0;
-            try {
-                indexEscolhido = input.nextInt();
-                if (indexEscolhido > pocao.size() || indexEscolhido < 1) {
-                    throw new IllegalArgumentException();
-                } else {
-                    // Remoção do item escolhido do ArrayList<Consumivel>:
-                    Pocao consumivel = (Pocao) pocao.remove(indexEscolhido - 1);
-
-                    //TODO Ajustar aumento do HP sem Alterar o HP do Herói
-                    // Aumentar Hp de acordo com a poção usada:
-                    int vidaRecuperada = consumivel.getRecuperarVida();
-                    this.setVidaEntidade(this.getVidaEntidade() + vidaRecuperada);
-
-                    // Aumenta Força de acordo com a poção usada:
-                    int forcaAumentada = consumivel.getAumentarForca();
-                    this.setForcaEntidade(this.getForcaEntidade() + forcaAumentada);
-
-                    // Mensagem de feedback sobre o uso da poção
-                    System.out.println("Você usou " + consumivel.getNomeItemHeroi() + " e recuperou " + vidaRecuperada + " de vida e aumentou sua força em " + forcaAumentada + ".");
-
-                }
-                // Retornar o consumível selecionado
-                //return pocao.get(indexEscolhido - 1);
-            } catch (InputMismatchException mismatchException) {
-                System.out.println("Erro: A entrada deve ser um número inteiro.");
-            } catch (IllegalArgumentException argumentException) {
-                System.out.println("Erro: A escolha deve estar entre 1 e " + pocao.size() + ".");
-            }
-            return null;
-        }
+    if (opcaoParaAdicionarItemHeroi.equalsIgnoreCase("S")) {
+    // Adicionar ao inventário
+    this.inventarioHeroi.add((Consumivel) itemHeroiAtual);
+    } else if (!opcaoParaAdicionarItemHeroi.equalsIgnoreCase("N")) {
+    System.err.println("Entrada inválida. Digite 'S' para Sim ou 'N' para Não.");
     }
+    } catch (InputMismatchException mismatchException) {
+    System.err.println("Entrada inválida. Digite 'S' para Sim ou 'N' para Não.");
+    opcaoParaAdicionarItemHeroi = "";
+    input.next(); // Limpar o buffer do scanner
+    }
+    } while (!opcaoParaAdicionarItemHeroi.equalsIgnoreCase("S") && !opcaoParaAdicionarItemHeroi.equalsIgnoreCase("N"));
+    } else {
+    // Caso não contenha Consumíveis para adicionar ao Herói
+    System.out.println("Desta Vez não tem Consumíveis no Inventário do Oponente " + oponenteNPC.getNomeEntidade());
+    }
+
+
+    //Verificar se o itemHeroiAtual é uma instância de ArmaPrincipal
+    if (itemHeroiAtual instanceof ArmaPrincipal) {
+    // Imprimir os detalhes do item
+    System.out.println("========== Lista da Arma Principal dropada pelo NPC ==========");
+    System.out.println("1º - " + itemHeroiAtual.getNomeItemHeroi());
+    System.out.println("Ataque Normal = " + ((ArmaPrincipal) itemHeroiAtual).getAtaqueNormal());
+    System.out.println("Ataque Especial = " + ((ArmaPrincipal) itemHeroiAtual).getAtaqueEspecial());
+    System.out.println("============================================================");
+
+    //Perguntar ao usuário se deseja substituir a arma principal
+    System.out.print("Deseja Substituir sua Arma Principal '" + this.armaPrincipalHeroi.getNomeItemHeroi() + "' por '" + itemHeroiAtual.getNomeItemHeroi() + "'? [S/N]: ");
+
+
+    //Adicionar Tratamento de Erro para Opção de Troca da Arma Principal
+    String opcaoTrocaArmaPrincipal = input.nextLine();
+
+    if (opcaoTrocaArmaPrincipal.equalsIgnoreCase("S")) {
+    boolean permitido = false;
+
+    //Laço forEach para percorrer o ArrayList de permissões
+    for (String heroiPermitido : itemHeroiAtual.getItemHeroiPermitido()) {
+    //Verificar se o tipo do herói coincide com uma das permissões
+    System.out.println("Estou a comparar " + getTipoHeroi() + " com " + heroiPermitido);
+
+    if (getTipoHeroi().equals(heroiPermitido)) {
+    permitido = true;
+    break;
+    }
+    }
+
+    if (permitido) {
+    // Substituir a arma principal
+    this.setArmaPrincipalHeroi((ArmaPrincipal) itemHeroiAtual);
+    System.out.println("Substituição de arma: ");
+    this.exibirDetalhes();
+    } else {
+    System.out.println("Arma " + itemHeroiAtual.getNomeItemHeroi() + " não é para seu tipo de Herói");
+    }
+    } else {
+    System.out.println(itemHeroiAtual.getNomeItemHeroi() + " ficou ao chão empoeirada");
+    }
+    } else {
+    System.out.println("Oponente " + oponenteNPC.getNomeEntidade() + " não contém nenhuma Arma desta vez!");
+    }
+    }
+    }
+    }
+     */
+
 
     /**
      * Método para Herói usar Comsumivel de Combate:
@@ -123,10 +218,13 @@ public abstract class Heroi extends Entidade {
         // Scanner para Entrada de dados:
         Scanner input = new Scanner(System.in);
 
+        // Declaração de Variáveis:
+        int numIndice = 0;
+
         // Construir novo menu de ArrayList<ConsumivelCombate>:
         ArrayList<ConsumivelCombate> consumivelCombates = new ArrayList<>();
 
-        for (int numIndice = 0; numIndice < this.inventarioHeroi.size(); numIndice++) {
+        for (numIndice = 0; numIndice < this.inventarioHeroi.size(); numIndice++) {
             // Se o Item for uma instância de ConsumivelCombate, adicioná-lo ao ArrayList
             if (this.inventarioHeroi.get(numIndice) instanceof ConsumivelCombate) {
                 consumivelCombates.add((ConsumivelCombate) this.inventarioHeroi.get(numIndice));
@@ -140,7 +238,7 @@ public abstract class Heroi extends Entidade {
         } else {
             // Ciclo for para apresentar os itens de Consumível de Combate existentes:
             System.out.println("=========== LISTA(S) DO(S) CONSUMIVÉL(EIS) DE COMBATE ===========");
-            for (int numIndice = 0; numIndice < consumivelCombates.size(); numIndice++) {
+            for (numIndice = 0; numIndice < consumivelCombates.size(); numIndice++) {
                 System.out.println((numIndice + 1) + "º - " + consumivelCombates.get(numIndice).getNomeItemHeroi() + "; ATK = " + consumivelCombates.get(numIndice).getAtaqueInstataneo());
             }
             System.out.println("=================================================================");
@@ -164,106 +262,6 @@ public abstract class Heroi extends Entidade {
         }
     }
 
-    /**
-     * Método para o Herói Recolher o Item do NPC se Vencer a Batalha
-     *
-     * @param oponenteNPC
-     */
-    protected void heroiRecolherItemNPC(NPC oponenteNPC) {
-        //TODO Refazer código utilizando ArmaHeroi horoiRecolherArma() e Consumivel heroiRecolherConsumivel()
-        //Declaração de variáveis e Import Scanner para Entrada de dados:
-        Scanner input = new Scanner(System.in);
-        String opcaoParaAdicionarItemHeroi = "";
-        boolean entradaValida = false;
-        int numIndice = 0;
-
-        //Adicionar a quantidade de Ouro perdido na batalha do NPC para o Herói:
-        this.setOuroHeroi(getOuroHeroi() + oponenteNPC.getOuroNPC());
-
-        if (oponenteNPC.getInventarioNPC().isEmpty()) {
-            System.out.println("=======================================");
-            System.out.println("INVENTÁRIO DO NPC ESTÁ VAZIO!!");
-            System.out.println("=======================================");
-        } else {
-            // Ciclo ForEach para percorrer o inventário do NPC
-            for (ItemHeroi itemHeroiAtual : oponenteNPC.getInventarioNPC()) {
-                if (itemHeroiAtual instanceof Consumivel) {
-                    // Imprimir os detalhes
-                    System.out.println("========== LISTA(S) DO(S) CONSUMIVEL(EIS) EXISTENTE(S) DO NPC ==========");
-                    System.out.println((numIndice + 1) + "º - " + itemHeroiAtual.getNomeItemHeroi());
-                    System.out.println("========================================================================");
-
-                    // Perguntar ao utilizador se quer ou não
-                    do {
-                        System.out.print("Gostaria de Adicionar o(s) consumível(eis) ao seu inventário? [S/N]: ");
-                        try {
-                            opcaoParaAdicionarItemHeroi = input.nextLine();
-
-                            if (opcaoParaAdicionarItemHeroi.equalsIgnoreCase("S")) {
-                                // Adicionar ao inventário
-                                this.inventarioHeroi.add((Consumivel) itemHeroiAtual);
-                            } else if (!opcaoParaAdicionarItemHeroi.equalsIgnoreCase("N")) {
-                                System.err.println("Entrada inválida. Digite 'S' para Sim ou 'N' para Não.");
-                            }
-                        } catch (InputMismatchException mismatchException) {
-                            System.err.println("Entrada inválida. Digite 'S' para Sim ou 'N' para Não.");
-                            opcaoParaAdicionarItemHeroi = "";
-                            input.next(); // Limpar o buffer do scanner
-                        }
-                    } while (!opcaoParaAdicionarItemHeroi.equalsIgnoreCase("S") && !opcaoParaAdicionarItemHeroi.equalsIgnoreCase("N"));
-                } else {
-                    // Caso não contenha Consumíveis para adicionar ao Herói
-                    System.out.println("Desta Vez não tem Consumíveis no Inventário do Oponente " + oponenteNPC.getNomeEntidade());
-                }
-
-
-                //Verificar se o itemHeroiAtual é uma instância de ArmaPrincipal
-                if (itemHeroiAtual instanceof ArmaPrincipal) {
-                    // Imprimir os detalhes do item
-                    System.out.println("========== Lista da Arma Principal dropada pelo NPC ==========");
-                    System.out.println("1º - " + itemHeroiAtual.getNomeItemHeroi());
-                    System.out.println("Ataque Normal = " + ((ArmaPrincipal) itemHeroiAtual).getAtaqueNormal());
-                    System.out.println("Ataque Especial = " + ((ArmaPrincipal) itemHeroiAtual).getAtaqueEspecial());
-                    System.out.println("============================================================");
-
-                    //Perguntar ao usuário se deseja substituir a arma principal
-                    System.out.print("Deseja Substituir sua Arma Principal '" + this.armaPrincipalHeroi.getNomeItemHeroi() + "' por '" + itemHeroiAtual.getNomeItemHeroi() + "'? [S/N]: ");
-
-
-                    //Adicionar Tratamento de Erro para Opção de Troca da Arma Principal
-                    String opcaoTrocaArmaPrincipal = input.nextLine();
-
-                    if (opcaoTrocaArmaPrincipal.equalsIgnoreCase("S")) {
-                        boolean permitido = false;
-
-                        //Laço forEach para percorrer o ArrayList de permissões
-                        for (String heroiPermitido : itemHeroiAtual.getItemHeroiPermitido()) {
-                            //Verificar se o tipo do herói coincide com uma das permissões
-                            System.out.println("Estou a comparar " + getTipoHeroi() + " com " + heroiPermitido);
-
-                            if (getTipoHeroi().equals(heroiPermitido)) {
-                                permitido = true;
-                                break;
-                            }
-                        }
-
-                        if (permitido) {
-                            // Substituir a arma principal
-                            this.setArmaPrincipalHeroi((ArmaPrincipal) itemHeroiAtual);
-                            System.out.println("Substituição de arma: ");
-                            this.exibirDetalhes();
-                        } else {
-                            System.out.println("Arma " + itemHeroiAtual.getNomeItemHeroi() + " não é para seu tipo de Herói");
-                        }
-                    } else {
-                        System.out.println(itemHeroiAtual.getNomeItemHeroi() + " ficou ao chão empoeirada");
-                    }
-                } else {
-                    System.out.println("Oponente " + oponenteNPC.getNomeEntidade() + " não contém nenhuma Arma desta vez!");
-                }
-            }
-        }
-    }
 
 
     /**
@@ -271,7 +269,7 @@ public abstract class Heroi extends Entidade {
      *
      * @param oponenteNPC - Recebe como Parâmetro o Npc para Batalha
      */
-    public abstract void atacar(NPC oponenteNPC);
+    public abstract void atacar(NPC oponenteNPC) throws InterruptedException;
 
     /**
      * Método para Exibir Detalhes do Herói:
