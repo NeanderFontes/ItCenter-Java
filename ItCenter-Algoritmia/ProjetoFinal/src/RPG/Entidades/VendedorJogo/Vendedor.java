@@ -1,12 +1,12 @@
 package RPG.Entidades.VendedorJogo;
 
 import RPG.Entidades.Heroi;
-import RPG.Entidades.Personagens.Aprendiz;
-import RPG.Entidades.Personagens.Gatuno;
 import RPG.Item.AbstractClass.Consumivel;
 import RPG.Item.AbstractClass.ItemHeroi;
+import RPG.Item.ArmaPrincipal;
+import RPG.Item.ConsumivelCombate;
+import RPG.Item.Pocao;
 
-import javax.naming.CompositeName;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -22,34 +22,6 @@ public class Vendedor {
     }
 
     /**
-     * Método para imprimir no console até 10 item aleatorios em stock.
-     * "Exibit detalhes"
-     */
-    public void imprimirLojaVendedor() {
-        //Import Biblioteca Random para numeros aleatórios
-        //Random random = new Random();
-
-        //Atribuindo biblioteca para sortear no min (10 - size())
-        //Ou Math.min(10, this.itensLoja.size());
-        //int itensAleatorios = random.nextInt(10, this.itensLoja.size());
-        //int indexRandom;
-
-        //Ciclo For para imprimir 10 itens do ArrayList<ItemHeroi>
-        //for (int numIndice = 0; numIndice < itensAleatorios; numIndice++) {
-        //    indexRandom = random.nextInt(this.itensLoja.size());
-        //   System.out.print("Item " + (numIndice + 1) + " - ");
-        //    this.itensLoja.get(indexRandom).exibirDetalhesItemHeroi();
-        //    System.out.println();
-        //}
-        //Ciclo para Testes:
-        for (int numIndice = 0; numIndice < this.itensLoja.size(); numIndice++) {
-            System.out.print("Item " + (numIndice + 1) + " - ");
-            this.itensLoja.get(numIndice).exibirDetalhesItemHeroi();
-            System.out.println();
-        }
-    }
-
-    /**
      * Método para Adicionar Novo item em Stock do Vendedor
      *
      * @param itemNovo - Item Adicionado
@@ -59,56 +31,180 @@ public class Vendedor {
     }
 
     /**
-     * Método para Vender itens para o Herói.
+     * Método Para Vendedor Vender 10 Itens aleatórios:
      *
-     * @param compraHeroi - Boolean para validar a compra do Heroi
-     * @return true se quantidade de ouro é igual ou maior que o valor do item
-     * @return false se quantidade de ouro é menor que o valor do item
+     * @param compraHeroi - Heroi / Jogador Atual
+     * @return - O Item de Acordo com o tipo do item
      */
     public boolean venderItem(Heroi compraHeroi) {
-        //Scanner para Entrada de dados:
+        // Import Scanner input para entrada de dados:
         Scanner input = new Scanner(System.in);
 
-        //Invocação para imprimir itens da loja
-        imprimirLojaVendedor();
+        // Import Random random para Imprimir ArrayList aleatório:
+        Random random = new Random();
 
-        //Escolha do item da loja
-        System.out.println("Qual item quer comprar: ");
-        int indexItemEscolhido = input.nextInt();
+        // Declaração de Variáveis:
+        int maxItens;
+        int indexRandom;
+        int indexItemEscolhido;
+        int valorItem;
 
-        //Atribuindo index do item escolhido a ItemHeroi
-        ItemHeroi itemEscolhido = this.itensLoja.get(indexItemEscolhido);
+        // Se o ArrayList<ItemHeroi> Vazio:
+        if (itensLoja.isEmpty()) {
+            System.out.println("A loja do vendedor está vazia no momento.");
+            return false;
+        }
 
-        //Valor do Item
-        int valorItem = itemEscolhido.getPrecoItemHeroi();
+
+        System.out.println("Itens disponíveis na loja do vendedor:");
+        maxItens = Math.min(10, itensLoja.size());
+
+        ArrayList<ItemHeroi> itensAleatorios = new ArrayList<>();
+
+        // Laço para pecorrer ArrayList<ItemHeroi> aleatórios:
+        while (itensAleatorios.size() < maxItens) {
+            indexRandom = random.nextInt(itensLoja.size());
+            ItemHeroi itemAleatorio = itensLoja.get(indexRandom);
+            if (!itensAleatorios.contains(itemAleatorio)) {
+                itensAleatorios.add(itemAleatorio);
+                System.out.print("Item " + (itensAleatorios.size()) + " - ");
+                itemAleatorio.exibirDetalhesItemHeroi();
+            }
+        }
+
+        System.out.print("Qual item deseja comprar acima? ");
+        indexItemEscolhido = input.nextInt();
+
+        if (indexItemEscolhido < 1 || indexItemEscolhido > maxItens) {
+            System.err.println("Opção inválida.");
+            return false;
+        }
+
+        ItemHeroi itemEscolhido = itensAleatorios.get(indexItemEscolhido - 1);
+        valorItem = itemEscolhido.getPrecoItemHeroi();
 
         System.out.println("\n" + compraHeroi.getNomeEntidade() + " vai tentar comprar: " + itemEscolhido.getNomeItemHeroi());
-        System.out.println("Ouro Heroi: " + compraHeroi.getOuroHeroi() + " | Custo Item: " + itemEscolhido.getPrecoItemHeroi());
+        System.out.println("Ouro Herói: " + compraHeroi.getOuroHeroi() + " | Custo Item: " + valorItem);
+
         if (compraHeroi.getOuroHeroi() < valorItem) {
             System.out.println("Ouro de " + compraHeroi.getNomeEntidade() + " Insuficiente para compra do Item ");
             return false;
-        } else if (this.itensLoja.isEmpty()) {
-            System.out.println("Sem Itens no Momento!!");
-        } else {
+        }
 
-            //ForEach para comparar a Class Herói com a Class dos Personagens
-            // ...e percorrer o array de herois permitidos do item escolhido.
-            for (String heroiPermitido : itemEscolhido.getItemHeroiPermitido()) {
-                System.out.println("Estou a comparar " + compraHeroi.getTipoHeroi() + " com " + heroiPermitido);
-
-                //Validação para o Herói usar arma devida da Subclasse do Personagem
-                if ((compraHeroi.getTipoHeroi()).equals(heroiPermitido)) {
-                    System.out.println("Compra feita com Sucesso!!");
-                    //Subtraindo valor do item ao Ouro total do Herói:
-                    compraHeroi.setOuroHeroi(compraHeroi.getOuroHeroi() - valorItem);
-
-                    //Item Adicionado ao Inventário do Herói:
+        // ArrayList<ItemHeroi> Para permissão de itens de acordo com getTipoHeroi do Jogador:
+        for (String heroiPermitido : itemEscolhido.getItemHeroiPermitido()) {
+            if (compraHeroi.getTipoHeroi().equals(heroiPermitido)) {
+                if (itemEscolhido instanceof Consumivel) {
                     compraHeroi.getInventarioHeroi().add((Consumivel) itemEscolhido);
-
-                    //Remover item Loja:
-                    this.itensLoja.remove(indexItemEscolhido);
-                    return true;
+                } else if (itemEscolhido instanceof ArmaPrincipal) {
+                    compraHeroi.setArmaPrincipalHeroi((ArmaPrincipal) itemEscolhido);
                 }
+
+                compraHeroi.setOuroHeroi(compraHeroi.getOuroHeroi() - valorItem);
+                System.out.println("\n» Compra feita com Sucesso!! " + itemEscolhido.getNomeItemHeroi());
+
+                // Remoção do Item:
+                this.itensLoja.remove(itemEscolhido);
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    /**
+     * Método do Vendedor para Imprimir no console todos os itens da Loja:
+     *
+     * @param compraHeroi - Heroi / Jogador Atual
+     * @return - O Item de Acordo com o tipo do item
+     * @throws InterruptedException
+     */
+    public boolean venderTodosItens(Heroi compraHeroi) throws InterruptedException {
+        // Scanner input para entrada de dados:
+        Scanner input = new Scanner(System.in);
+
+        // Declaração de variáveis:
+        boolean categoriaJaImpressa = false;
+        int numIndice = 0;
+
+        System.out.println("Itens disponíveis na loja do vendedor:");
+
+
+        // Laços para pecorrer ArrayList<ItemHeroi> aleatórios:
+        System.out.println("******** ARMA(S) DO JOGO ********");
+        for (numIndice = 1; numIndice < this.itensLoja.size(); numIndice++) {
+            //Thread.sleep(200);
+            if (this.itensLoja.get(numIndice) instanceof ArmaPrincipal) {
+                System.out.print("Item " + numIndice + " - ");
+                this.itensLoja.get(numIndice).exibirDetalhesItemHeroi();
+                if (this.itensLoja.isEmpty()) {
+                    System.out.println(" »»» Por Enquanto Não Há mais Arma no momento ««« ");
+                }
+            }
+        }
+        System.out.println("******** CONSUMIVEL(IS) DE COMBATE ********");
+        for (numIndice = 1; numIndice < this.itensLoja.size(); numIndice++) {
+            //Thread.sleep(200);
+            if (this.itensLoja.get(numIndice) instanceof ConsumivelCombate) {
+                System.out.print("Item " + numIndice + " - ");
+                this.itensLoja.get(numIndice).exibirDetalhesItemHeroi();
+                if (this.itensLoja.isEmpty()) {
+                    System.out.println(" »»» Por Enquanto Não Há mais Consumiveis de Combate no momento ««« ");
+                }
+            }
+        }
+        System.out.println("******** POÇÃO(OS) DE RECUPERAÇÃO ********");
+        for (numIndice = 1; numIndice < this.itensLoja.size(); numIndice++) {
+            //Thread.sleep(200);
+            if (this.itensLoja.get(numIndice) instanceof Pocao) {
+                System.out.print("Item " + numIndice + " - ");
+                this.itensLoja.get(numIndice).exibirDetalhesItemHeroi();
+                if (this.itensLoja.isEmpty()) {
+                    System.out.println(" »»» Por Enquanto Não Há mais Poção de Recuperação no momento ««« ");
+                }
+            }
+        }
+
+        System.out.print("Qual item deseja comprar acima? ");
+        int indexItemEscolhido = input.nextInt();
+
+        if (indexItemEscolhido < 1 || indexItemEscolhido >= this.itensLoja.size()) {
+            System.err.println("\t\t\t*** Opção inválida ***");
+            return false;
+        }
+
+        ItemHeroi itemEscolhido = this.itensLoja.get(indexItemEscolhido);
+        int valorItem = itemEscolhido.getPrecoItemHeroi();
+
+        System.out.println("\n" + compraHeroi.getNomeEntidade() + " vai tentar comprar: " + itemEscolhido.getNomeItemHeroi());
+        System.out.println("Ouro Herói: " + compraHeroi.getOuroHeroi() + " | Custo Item: " + valorItem);
+
+        if (compraHeroi.getOuroHeroi() < valorItem) {
+            System.out.println("Ouro de " + compraHeroi.getNomeEntidade() + " Insuficiente para compra do Item ");
+            return false;
+        }
+
+        if (this.itensLoja.isEmpty()) {
+            System.out.println("Sem Itens no Momento!!");
+            return false;
+        }
+
+
+        // forEach ArrayList<ItemHeroi> para Validar tipo do item com tipo do heroi / jogador:
+        for (String heroiPermitido : itemEscolhido.getItemHeroiPermitido()) {
+
+            if (compraHeroi.getTipoHeroi().equals(heroiPermitido)) {
+                if (itemEscolhido instanceof Consumivel) {
+                    compraHeroi.getInventarioHeroi().add((Consumivel) itemEscolhido);
+                } else if (itemEscolhido instanceof ArmaPrincipal) {
+                    compraHeroi.setArmaPrincipalHeroi((ArmaPrincipal) itemEscolhido);
+                }
+
+                compraHeroi.setOuroHeroi(compraHeroi.getOuroHeroi() - valorItem);
+                System.out.println("\n» Compra feita com Sucesso!! " + itemEscolhido.getNomeItemHeroi());
+
+                this.itensLoja.remove(indexItemEscolhido);
+                return true;
             }
         }
         return false;
