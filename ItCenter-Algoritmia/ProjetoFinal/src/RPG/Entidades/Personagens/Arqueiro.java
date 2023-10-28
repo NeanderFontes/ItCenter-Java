@@ -42,7 +42,9 @@ public class Arqueiro extends Heroi {
         // Prioridade de ataque do Arqueiro:
         System.err.println("\t\t*** Prioridade de Ataque de " + this.getNomeEntidade() + " ***");
 
-        do {
+
+        // Laço executável até a Quantidade de HP de algum dos oponentes acabar:
+        while (hpNPC > 0 && hpPersonagem > 0) {
             //Simulação de ataque do Arqueiro:
             System.out.println("======================= ROUND " + qtRoud++ + " ========================");
             System.out.println("[ 1 ]   -   Ataque Normal");
@@ -96,8 +98,8 @@ public class Arqueiro extends Heroi {
                                 "   (\t»----->");
                         System.out.println("\n\t*** ATAQUE ESPECIAL REALIZADO COM SUCESSO!! ***");
                         Thread.sleep(1000);
-                        System.out.println("\t\t\t\tDANO = " + this.getArmaPrincipalHeroi().getAtaqueNormal() + " ATK\n");
-                        hpNPC -= this.getForcaEntidade() + this.getArmaPrincipalHeroi().getAtaqueEspecial();
+                        System.out.println("\t\t\t\tDANO = " + this.getArmaPrincipalHeroi().getAtaqueEspecial() + " ATK\n");
+                        hpNPC -= (this.getForcaEntidade() + this.getArmaPrincipalHeroi().getAtaqueEspecial());
                         if (hpNPC >= 0) {
                             System.out.println("Hp Atual do Oponente " + oponenteNPC.getNomeEntidade() + " = " + hpNPC + " hp.");
                         }
@@ -174,9 +176,7 @@ public class Arqueiro extends Heroi {
             } else {
                 qtRoud--;
             }
-
-            // Laço executável até a Quantidade de HP de algum dos oponentes acabar:
-        } while (hpNPC > 0 && hpPersonagem > 0);
+        }
 
         // Dados finais da Batalha:
         if (hpPersonagem <= 0) { //Perder Batalha
@@ -198,13 +198,8 @@ public class Arqueiro extends Heroi {
             int aumentoForca = (this.getForcaEntidade() * 3 / 100);
             this.setForcaEntidade(this.getForcaEntidade() + aumentoForca);
 
-            // Teste para resultados:
-            System.out.println("Teste de Resultados: ");
-            System.out.println("Nivel do Heroi: " + this.getNivelHeroi());
-            System.out.println("For = " + this.getForcaEntidade());
-            System.out.println("HP = " + hpPersonagem);
-            System.out.println("Ouro = " + this.getOuroHeroi());
-            System.out.println("Arma Principal: " + this.getArmaPrincipalHeroi().getNomeItemHeroi());
+            // Método para herói Adicionar item contido no NPC:
+            this.heroiRecolherItemNPC(oponenteNPC);
         }
     }
 }

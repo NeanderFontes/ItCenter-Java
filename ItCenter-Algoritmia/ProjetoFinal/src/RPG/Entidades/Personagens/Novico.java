@@ -89,18 +89,19 @@ public class Novico extends Heroi {
                         System.err.println("\t\t\t   *** " + this.getNomeEntidade() + " USA ***");
                         System.err.println("\t   *** ATAQUE ESPECIAL LUZ DIVINA ***");
                         System.out.println("\n");
-                        System.out.println("   -=-\t\t.-.\t     -=-\n" +
+                        System.out.println("\n" +
+                                "   -=-\t\t\t.-.\t\t     -=-\n" +
                                 "(\\  _  /)     __| |__\t  (\\  _  /)\n" +
                                 "( \\( )/ )    [__   __]\t  ( \\( )/ )\n" +
-                                "(       )\t| |\t  (       )\n" +
-                                " `>   <'\t| |\t   `>   <'\n" +
-                                " /     \\  \t| |\t   /     \\\n" +
-                                " `-._.-'\t'-'\t   `-._.-'");
+                                "(       )\t\t| |\t\t  (       )\n" +
+                                " `>   <'\t\t| |\t\t   `>   <'\n" +
+                                " /     \\  \t\t| |\t\t   /     \\\n" +
+                                " `-._.-'\t\t'-'\t\t   `-._.-'");
                         System.out.println("\n\t*** ATAQUE ESPECIAL REALIZADO COM SUCESSO!! ***");
                         Thread.sleep(1000);
 
-                        System.out.println("\t\t\t\tDANO = " + this.getArmaPrincipalHeroi().getAtaqueNormal() + " ATK\n");
-                        hpNPC -= this.getForcaEntidade() + this.getArmaPrincipalHeroi().getAtaqueEspecial();
+                        System.out.println("\t\t\t\tDANO = " + this.getArmaPrincipalHeroi().getAtaqueEspecial() + " ATK\n");
+                        hpNPC -= (this.getForcaEntidade() + this.getArmaPrincipalHeroi().getAtaqueEspecial());
                         if (hpNPC >= 0) {
                             System.out.println("Hp Atual do Oponente " + oponenteNPC.getNomeEntidade() + " = " + hpNPC + " hp.");
                         }
@@ -191,14 +192,6 @@ public class Novico extends Heroi {
         if (hpPersonagem <= 0) { //Perder Batalha
             System.out.println(this.getNomeEntidade() + "Infelizmente Perdeu a Luta");
 
-            // Teste para resultados:
-            System.out.println("Teste de Resultados: ");
-            System.out.println("Nivel do Heroi: " + this.getNivelHeroi());
-            System.out.println("For = " + this.getForcaEntidade());
-            //TODO HP FICANDO NEGATIVO AO FINAL DA DERROTA
-            System.out.println("HP = " + hpPersonagem);
-            System.out.println("Ouro = " + this.getOuroHeroi());
-
         } else { // Ganhar Batalha
             //Revalidação do Ataque Especial:
             ataqueEspecialUsado = false;
@@ -215,13 +208,8 @@ public class Novico extends Heroi {
             int aumentoForca = (this.getForcaEntidade() * 2 / 100);
             this.setForcaEntidade(this.getForcaEntidade() + aumentoForca);
 
-            //Teste para resultados:
-            System.out.println("Teste de Resultados: ");
-            System.out.println("Nivel do Heroi: " + this.getNivelHeroi());
-            System.out.println("For = " + this.getForcaEntidade());
-            System.out.println("HP = " + hpPersonagem);
-            System.out.println("Ouro = " + this.getOuroHeroi());
-            System.out.println("Arma Principal: " + this.getArmaPrincipalHeroi().getNomeItemHeroi());
+            // Método para herói Adicionar item contido no NPC:
+            this.heroiRecolherItemNPC(oponenteNPC);
         }
     }
 }

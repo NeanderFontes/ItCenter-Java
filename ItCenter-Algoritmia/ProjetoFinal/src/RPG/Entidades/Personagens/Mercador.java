@@ -103,8 +103,8 @@ public class Mercador extends Heroi {
                                 "⠀⠀⢰⣦⡈⠳⠄⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
                                 "⠀⠀⠈⠻⠿⠆⠀⠀⠀⠀");
                         System.out.println("\n\t*** ATAQUE ESPECIAL REALIZADO COM SUCESSO!! ***");
-                        System.out.println("\t\t\t\tDANO = " + this.getArmaPrincipalHeroi().getAtaqueNormal() + " ATK\n");
-                        hpNPC -= this.getForcaEntidade() + this.getArmaPrincipalHeroi().getAtaqueEspecial();
+                        System.out.println("\t\t\t\tDANO = " + this.getArmaPrincipalHeroi().getAtaqueEspecial() + " ATK\n");
+                        hpNPC -= (this.getForcaEntidade() + this.getArmaPrincipalHeroi().getAtaqueEspecial());
                         if (hpNPC >= 0) {
                             System.out.println("Hp Atual do Oponente " + oponenteNPC.getNomeEntidade() + " = " + hpNPC + " hp.");
                         }
@@ -209,15 +209,10 @@ public class Mercador extends Heroi {
             int aumentarOuro = (oponenteNPC.getOuroNPC() * 10 / 100);
             this.setOuroHeroi(this.getOuroHeroi() + aumentarOuro);
 
-            System.out.println("\t\t$$$$$$$ Por ter especialidade com ouro O " + getTipoHeroi() + " Recebe a mais " + aumentarOuro + " de ouro $$$$$$$");
+            // Método para herói Adicionar item contido no NPC:
+            this.heroiRecolherItemNPC(oponenteNPC);
 
-            // Teste para resultados:
-            System.out.println("Teste de Resultados: ");
-            System.out.println("Nivel do Heroi: " + this.getNivelHeroi());
-            System.out.println("For = " + this.getForcaEntidade());
-            System.out.println("HP = " + hpPersonagem);
-            System.out.println("Ouro = " + this.getOuroHeroi());
-            System.out.println("Arma Principal: " + this.getArmaPrincipalHeroi().getNomeItemHeroi());
+            System.out.println("\t\t$$$$$$$ Por ter especialidade com ouro O " + getTipoHeroi() + " Recebe a mais " + aumentarOuro + " de ouro $$$$$$$");
         }
     }
 }

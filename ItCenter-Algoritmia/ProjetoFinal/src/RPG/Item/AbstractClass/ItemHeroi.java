@@ -23,9 +23,9 @@ public abstract class ItemHeroi {
      * Método Abstrato para Mostra Detalhe dos Itens
      */
     public void exibirDetalhesItemHeroi() {
-        System.out.println("nomeItemHeroi='" + nomeItemHeroi + '\'' +
-                ", precoItemHeroi=" + precoItemHeroi +
-                ", itemHeroiPermitido=" + itemHeroiPermitido);
+        System.out.println(this.nomeItemHeroi + '\'' +
+                ", Preço do Item = $" + this.precoItemHeroi +
+                ", Herói(s) Permitido(s) = " + this.itemHeroiPermitido);
     }
 
     /**

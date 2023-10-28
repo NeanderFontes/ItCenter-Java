@@ -36,7 +36,7 @@ public class Vendedor {
      * @param compraHeroi - Heroi / Jogador Atual
      * @return - O Item de Acordo com o tipo do item
      */
-    public boolean venderItem(Heroi compraHeroi) {
+    public boolean venderItem(Heroi compraHeroi) throws InterruptedException {
         // Import Scanner input para entrada de dados:
         Scanner input = new Scanner(System.in);
 
@@ -55,8 +55,11 @@ public class Vendedor {
             return false;
         }
 
-
-        System.out.println("Itens disponíveis na loja do vendedor:");
+        System.out.println("**********************************************************************");
+        System.out.println("\t\t\t\tBEM VINDO A SALA DAS OPORTUNIDADES SE VOCÊ TIVER $$$ APROVEITE!!");
+        System.out.println("\t\tDesfrute com inteligência para sua viagem!!");
+        System.out.println("**********************************************************************");
+        Thread.sleep(1000);
         maxItens = Math.min(10, itensLoja.size());
 
         ArrayList<ItemHeroi> itensAleatorios = new ArrayList<>();
@@ -71,11 +74,17 @@ public class Vendedor {
                 itemAleatorio.exibirDetalhesItemHeroi();
             }
         }
-
-        System.out.print("Qual item deseja comprar acima? ");
+        System.out.println();
+        System.out.println("» Status Atual do Ouro = $" + compraHeroi.getOuroHeroi());
+        System.out.println("[ 0 ] - Para Sair:");
+        System.out.print("» Qual item deseja comprar acima? ");
         indexItemEscolhido = input.nextInt();
 
-        if (indexItemEscolhido < 1 || indexItemEscolhido > maxItens) {
+        if (indexItemEscolhido == 0) {
+            return false;
+        }
+
+        if (indexItemEscolhido < 0 || indexItemEscolhido > maxItens) {
             System.err.println("Opção inválida.");
             return false;
         }
@@ -126,49 +135,61 @@ public class Vendedor {
         // Declaração de variáveis:
         boolean categoriaJaImpressa = false;
         int numIndice = 0;
+        int indexItemEscolhido;
 
-        System.out.println("Itens disponíveis na loja do vendedor:");
-
+        System.out.println("*********************************************************************************");
+        System.out.println("\t\t\tBEM VINDO A SALA DAS OPORTUNIDADES SE VOCÊ TIVER $$$ APROVEITE!!");
+        System.out.println("\t\t\t\tDesfrute com inteligência para sua viagem!!");
+        System.out.println("*********************************************************************************");
+        Thread.sleep(1000);
 
         // Laços para pecorrer ArrayList<ItemHeroi> aleatórios:
-        System.out.println("******** ARMA(S) DO JOGO ********");
+        System.out.println("******************************** ARMA(S) DO JOGO ********************************");
         for (numIndice = 1; numIndice < this.itensLoja.size(); numIndice++) {
-            //Thread.sleep(200);
+            Thread.sleep(150);
             if (this.itensLoja.get(numIndice) instanceof ArmaPrincipal) {
-                System.out.print("Item " + numIndice + " - ");
+                System.out.print("Item [ " + numIndice + " ] - ");
                 this.itensLoja.get(numIndice).exibirDetalhesItemHeroi();
                 if (this.itensLoja.isEmpty()) {
                     System.out.println(" »»» Por Enquanto Não Há mais Arma no momento ««« ");
                 }
             }
         }
-        System.out.println("******** CONSUMIVEL(IS) DE COMBATE ********");
+        System.out.println();
+        System.out.println("******************************** CONSUMIVEL(IS) DE COMBATE ********************************");
         for (numIndice = 1; numIndice < this.itensLoja.size(); numIndice++) {
-            //Thread.sleep(200);
+            Thread.sleep(150);
             if (this.itensLoja.get(numIndice) instanceof ConsumivelCombate) {
-                System.out.print("Item " + numIndice + " - ");
+                System.out.print("Item [ " + numIndice + " ] - ");
                 this.itensLoja.get(numIndice).exibirDetalhesItemHeroi();
                 if (this.itensLoja.isEmpty()) {
                     System.out.println(" »»» Por Enquanto Não Há mais Consumiveis de Combate no momento ««« ");
                 }
             }
         }
-        System.out.println("******** POÇÃO(OS) DE RECUPERAÇÃO ********");
+        System.out.println();
+        System.out.println("******************************** POÇÃO(OS) DE RECUPERAÇÃO ********************************");
         for (numIndice = 1; numIndice < this.itensLoja.size(); numIndice++) {
-            //Thread.sleep(200);
+            Thread.sleep(150);
             if (this.itensLoja.get(numIndice) instanceof Pocao) {
-                System.out.print("Item " + numIndice + " - ");
+                System.out.print("Item [ " + numIndice + " ] - ");
                 this.itensLoja.get(numIndice).exibirDetalhesItemHeroi();
                 if (this.itensLoja.isEmpty()) {
                     System.out.println(" »»» Por Enquanto Não Há mais Poção de Recuperação no momento ««« ");
                 }
             }
         }
+        System.out.println();
+        System.out.println("» Status Atual do Ouro = $" + compraHeroi.getOuroHeroi());
+        System.out.println("[ 0 ] - Para Sair:");
+        System.out.print("» Qual item deseja comprar acima? ");
+        indexItemEscolhido = input.nextInt();
 
-        System.out.print("Qual item deseja comprar acima? ");
-        int indexItemEscolhido = input.nextInt();
+        if (indexItemEscolhido == 0) {
+            return false;
+        }
 
-        if (indexItemEscolhido < 1 || indexItemEscolhido >= this.itensLoja.size()) {
+        if (indexItemEscolhido < 0 || indexItemEscolhido >= this.itensLoja.size()) {
             System.err.println("\t\t\t*** Opção inválida ***");
             return false;
         }

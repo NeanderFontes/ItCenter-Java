@@ -94,16 +94,16 @@ public class Mago extends Heroi {
                         System.out.println("\n");
                         System.out.println("  _-==---_\t       _-==---_\n" +
                                 " -===  _  -\t      -===  _  -\n" +
-                                "-==== ( )  -\t     -==== ( )  -\n" +
-                                "-=====     -\t     -=====     -\n" +
-                                "-==( )=    -\t     -==( )=    -\n" +
+                                "-==== ( )  -\t -==== ( )  -\n" +
+                                "-=====     -\t-=====      -\n" +
+                                "-==( )=    -\t -==( )=    -\n" +
                                 " -=====  _-\t      -=====  _-\n" +
                                 "   -==---     \t\t-==--- ");
                         System.out.println("\n\t*** ATAQUE ESPECIAL REALIZADO COM SUCESSO!! ***");
-                        System.out.println("\t\t\t\tDANO = " + this.getArmaPrincipalHeroi().getAtaqueNormal() + " ATK\n");
+                        System.out.println("\t\t\t\tDANO = " + (this.getArmaPrincipalHeroi().getAtaqueEspecial() + aumentarAtaqueMagicoMago) + " ATK\n");
                         Thread.sleep(350);
 
-                        hpNPC -= this.getForcaEntidade() + this.getArmaPrincipalHeroi().getAtaqueEspecial() + aumentarAtaqueMagicoMago;
+                        hpNPC -= (this.getForcaEntidade() + this.getArmaPrincipalHeroi().getAtaqueEspecial() + aumentarAtaqueMagicoMago);
                         if (hpNPC >= 0) {
                             System.out.println("Hp Atual do Oponente " + oponenteNPC.getNomeEntidade() + " = " + hpNPC + " hp.");
                         }
@@ -201,13 +201,8 @@ public class Mago extends Heroi {
             int aumentoForca = (this.getForcaEntidade() * 2 / 100);
             this.setForcaEntidade(this.getForcaEntidade() + aumentoForca);
 
-            // Teste para resultados:
-            System.out.println("Teste de Resultados: ");
-            System.out.println("Nivel do Heroi: " + this.getNivelHeroi());
-            System.out.println("For = " + this.getForcaEntidade());
-            System.out.println("HP = " + hpPersonagem);
-            System.out.println("Ouro = " + this.getOuroHeroi());
-            System.out.println("Arma Principal: " + this.getArmaPrincipalHeroi().getNomeItemHeroi());
+            // Método para herói Adicionar item contido no NPC:
+            this.heroiRecolherItemNPC(oponenteNPC);
         }
     }
 }
