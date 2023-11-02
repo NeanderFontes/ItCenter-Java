@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"RPG.Entidades"},{"l":"RPG.Entidades.Personagens"},{"l":"RPG.Entidades.VendedorJogo"},{"l":"RPG.Item"},{"l":"RPG.Item.AbstractClass"},{"l":"RPG.Jogo"}];updateSearchResults();

@@ -100,22 +100,22 @@ public class Jogo {
 
         // Criar NPC
         NPC poring = new NPC("Poring", 50, 5, 15);
-        NPC lunatico = new NPC("Lunático", 50, 5, 15);
+        NPC lunatico = new NPC("Lunático", 50, 5, 20);
         NPC salgueiro = new NPC("Salgueiro", 50, 5, 15);
-        NPC picky = new NPC("Picky", 50, 20, 15);
+        NPC picky = new NPC("Picky", 50, 20, 20);
         NPC mandragora = new NPC("Mandragora", 50, 5, 15);
-        NPC fabre = new NPC("Fabre", 50, 5, 15);
+        NPC fabre = new NPC("Fabre", 50, 5, 20);
 
-        NPC loboDeserto = new NPC("Lobo do Deserto", 120, 5, 20);
-        NPC orcGuerreiro = new NPC("Orc Guerreiro", 150, 5, 30);
-        NPC zumbiPrisioneiro = new NPC("Zumbi Prisioneiro", 180, 10, 20);
-        NPC boitata = new NPC("Boitatá", 200, 10, 30);
-        NPC farao = new NPC("Faraó", 180, 10, 30);
-        NPC tritao = new NPC("Tritão", 160, 15, 40);
-        NPC duendeVerde = new NPC("Duende Verde", 190, 15, 60);
-        NPC grinch = new NPC("Grinch", 220, 20, 70);
-        NPC salamandra = new NPC("Salamandra", 250, 20, 30);
-        NPC arcAngeling = new NPC("Arc Angeling", 250, 20, 30);
+        NPC loboDeserto = new NPC("Lobo do Deserto", 120, 5, 5);
+        NPC orcGuerreiro = new NPC("Orc Guerreiro", 150, 5, 5);
+        NPC zumbiPrisioneiro = new NPC("Zumbi Prisioneiro", 180, 10, 15);
+        NPC boitata = new NPC("Boitatá", 200, 10, 15);
+        NPC farao = new NPC("Faraó", 180, 10, 20);
+        NPC tritao = new NPC("Tritão", 160, 15, 30);
+        NPC duendeVerde = new NPC("Duende Verde", 190, 15, 30);
+        NPC grinch = new NPC("Grinch", 220, 20, 40);
+        NPC salamandra = new NPC("Salamandra", 250, 20, 40);
+        NPC arcAngeling = new NPC("Arc Angeling", 250, 20, 40);
 
         // MiniBoss 1 e 2:
         NPC dracula = new NPC("Drácula", 300, 30, 100);
