@@ -24,11 +24,9 @@ public class CatalogoTest {
         catalogoTest.adquirirAviao(aviaoCatalogoTest);
         catalogoTest.adquirirAviao(aviaoCombateCatalogoTest);
 
-        // Calcular total do preço dos aviões ao catalogo
-        double valorTotal = aviaoCatalogoTest.getPreco() + aviaoCombateCatalogoTest.getPreco();
 
         // Verificação do assertEquals do preço "valorTotal" do catalogo
-        assertEquals(2000.0, valorTotal);
+        assertEquals(2000.0, catalogoTest.calcularValorCatalogo());
     }
 
     /**

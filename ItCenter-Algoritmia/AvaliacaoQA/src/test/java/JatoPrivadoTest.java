@@ -25,6 +25,24 @@ public class JatoPrivadoTest {
         jatoPrivadoTest.addInstalacao(Instalacao.WC);
 
         // Verificando se a instalação foi adicionada corretamente
-        assertTrue(jatoPrivadoTest.getInstalacoes().contains(Instalacao.WC));
+        assertEquals(1, jatoPrivadoTest.getInstalacoes().size());
+    }
+
+
+    /**
+     * Teste para Remover Instalação ao Jato
+     */
+    @Test
+    public void testeRemoveInstalacao() {
+        // Adicionando a instalação ao jato
+        jatoPrivadoTest.addInstalacao(Instalacao.WC);
+        jatoPrivadoTest.addInstalacao(Instalacao.SUITE);
+
+        // Removendo instalacao
+        jatoPrivadoTest.removeInstalacao(0);
+
+        // Verificando se a instalação foi adicionada corretamente
+        assertEquals(1, jatoPrivadoTest.getInstalacoes().size());
+
     }
 }
