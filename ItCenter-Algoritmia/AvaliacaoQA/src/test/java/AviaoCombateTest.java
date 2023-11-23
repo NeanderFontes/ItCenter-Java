@@ -14,6 +14,9 @@ public class AviaoCombateTest {
         aviaoCombateTest = new AviaoCombate(999000, 2010, 1, "F16", 2000, 8, 6, 1.5, 2500, 800, 17000000, "USA", false);
     }
 
+    /**
+     * Teste de Adicionar 4 Armas ao ArrayList
+     */
     @Test
     public void testAddArma() {
         // Adicionando 3 armas para o ArrayList<>
@@ -28,6 +31,9 @@ public class AviaoCombateTest {
         assertEquals(3, aviaoCombateTest.getArsenal().size());
     }
 
+    /**
+     * Teste para Remover Arma do ArrayList<>
+     */
     @Test
     public void testRemoveArma() {
         // Adicionando 3 armas para o ArrayList<>

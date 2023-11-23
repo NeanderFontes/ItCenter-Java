@@ -31,6 +31,9 @@ public class CatalogoTest {
         assertEquals(2000.0, valorTotal);
     }
 
+    /**
+     * Teste adicionar Avião do ArrayList do Catalogo
+     */
     @Test
     public void testAddAviaoCatalogo() {
         // Adicionando tipos de aviões ao ArrayList<>
@@ -44,6 +47,9 @@ public class CatalogoTest {
         assertEquals(aviaoCatalogoTest, catalogoTest.getCatalogo().get(0));
     }
 
+    /**
+     * Teste para Remover Avião do ArrayList do Catalogo
+     */
     @Test
     public void testRemoveAviaoCatalogo() {
         // Adicionando tipos de aviões ao ArrayList<>
