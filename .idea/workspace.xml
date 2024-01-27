@@ -5,26 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bf3e4b2-fc34-4b6f-a7b4-9f7ff125f295" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ItCenter-Algoritmia/FichaPratica_POO_13/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ItCenter-Algoritmia/FichaPratica_POO_13/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ItCenter-Algoritmia/FichaPratica_POO_13/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ItCenter-Algoritmia/FichaPratica_POO_13/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ItCenter-Algoritmia/FichaPratica_POO_13/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ItCenter-Algoritmia/FichaPratica_POO_Ex02/src/Jogo/Entidade.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ItCenter-Algoritmia/FichaPratica_POO_Ex02/src/Jogo/Enum/ClassePersonagem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ItCenter-Algoritmia/FichaPratica_POO_Ex02/src/Jogo/NPC.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ItCenter-Algoritmia/FichaPratica_POO_Ex02/src/Jogo/Personagem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ItCenter-Algoritmia/FichaPratica_POO_09/FichaPratica_POO_09.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ItCenter-Algoritmia/FichaPratica_POO_10/FichaPratica_POO_10.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ItCenter-Algoritmia/FichaPratica_POO_11/FichaPratica_POO_11.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ItCenter-Algoritmia/FichaPratica_POO_12/FichaPratica_POO_12.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ItCenter-Algoritmia/FichaPratica_POO_12_Ex_02/FichaPratica_POO_12_Ex_02.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ItCenter-Algoritmia/FichaPratica_POO_12_Ex_03_04/FichaPratica_POO_12_Ex_03_04.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ItCenter-Algoritmia/FichaPratica_POO_13/FichaPratica_POO_13.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ItCenter-Algoritmia/FichaPratica_POO_14_Ex01/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ItCenter-Algoritmia/FichaPratica_POO_14_Ex01/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ItCenter-Algoritmia/FichaPratica_POO_14_Ex01/FichaPratica_POO_14_Ex01.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ItCenter-Algoritmia/ItCenter_Java/ItCenter_Java.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ItCenter-Algoritmia/ProjetoPraticoJava/ProjetoPraticoJava.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ItCenter-Algoritmia/ItCenter_Java/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ItCenter-Algoritmia/ItCenter_Java/.idea/misc.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +17,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2WCo0FK17XnfolYVs62OqnGhz0Z" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -41,9 +27,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/neander.barbosa_itce/Desktop/MeusProjetos/ItCenter-Java",
+    "last_opened_file_path": "C:/Users/Microsoft/Desktop/Java-Estudos/ItCenter-Java",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -65,5 +52,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
