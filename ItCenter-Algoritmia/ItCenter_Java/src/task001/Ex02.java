@@ -1,6 +1,5 @@
 package task001;
 
-import java.lang.foreign.SegmentScope;
 import java.util.Scanner;
 
 public class Ex02 {
