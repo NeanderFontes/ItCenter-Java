@@ -13,6 +13,7 @@ public class Ex05 {
 
         // Declaration of variables
         int num1, num2, numMaior = 0, numMenor = 0;
+        boolean sameValue = false;
 
         // Data input by the user
         System.out.println("Enter two values for the end show the smallest and largest");
@@ -21,8 +22,8 @@ public class Ex05 {
         System.out.print("Second value: ");
         num2 = input.nextInt();
 
-        if (num1 == 0 && num2 == 0) {
-            System.out.println("Both are 0");
+        if (num1 == num2) {
+            sameValue = true;
         } else {
             if (num1 > num2) {
                 numMaior = num1;
@@ -32,9 +33,14 @@ public class Ex05 {
                 numMenor = num1;
             }
         }
+
         // Final data
-        System.out.println("The smallest value is: " + numMenor);
-        System.out.println("The largest value is: " + numMaior);
+        if (sameValue) {
+            System.out.println("Both are the same value = " + num1);
+        } else {
+            System.out.println("The smallest value is: " + numMenor);
+            System.out.println("The largest value is: " + numMaior);
+        }
 
         // Close the scanner to prevent resource leak
         input.close();
