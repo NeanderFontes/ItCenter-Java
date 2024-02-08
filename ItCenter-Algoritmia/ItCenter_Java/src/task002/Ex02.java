@@ -20,25 +20,27 @@ public class Ex02 {
         Scanner input = new Scanner(System.in);
 
         // Declaration of variables
-        double salarioAnual, valorImposto;
+        double salarioAnual, descontoImposto, valorImpostoFixo;
 
         // Data input by the user
         System.out.print("Please insert your amount payment: $");
-        salarioAnual = input.nextInt();
+        salarioAnual = input.nextDouble();
 
         // Final Data
         if (salarioAnual <= 0) {
             System.out.println("Sorry please insert the correct amount");
         } else {
             if (salarioAnual <= 15000) {
-                valorImposto = (salarioAnual * 20 / 100);
-                System.out.println("The tax is 20% you have to pay $" + valorImposto);
-                salarioAnual -= valorImposto;
+                valorImpostoFixo = 20;
+                descontoImposto = (salarioAnual * valorImpostoFixo / 100);
+                System.out.println("The tax is " + (int)valorImpostoFixo + "% you have to pay $" + descontoImposto);
+                salarioAnual -= descontoImposto;
                 System.out.println("Final amount total = $" + salarioAnual);
             } else {
-                valorImposto = (salarioAnual * 30 / 100);
-                System.out.println("The tax is 30% you have to pay $" + valorImposto);
-                salarioAnual -= valorImposto;
+                valorImpostoFixo = 30;
+                descontoImposto = (salarioAnual * valorImpostoFixo / 100);
+                System.out.println("The tax is " + (int)valorImpostoFixo + "% you have to pay $" + descontoImposto);
+                salarioAnual -= descontoImposto;
                 System.out.println("Final amount total = $" + salarioAnual);
             }
         }
