@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bf3e4b2-fc34-4b6f-a7b4-9f7ff125f295" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ItCenter-Algoritmia/ItCenter_Java/src/task002/Ex15.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ItCenter-Algoritmia/ItCenter_Java/src/task002/Ex16.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ItCenter_Java/task002/Ex14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/task002/Ex14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ItCenter_Java/task002/Ex15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/task002/Ex15.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,5 +134,10 @@ HEAD
         </entry>
       </map>
     </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ItCenter_Java$Ex16.ic" NAME="Ex16 Coverage Results" MODIFIED="1708547883252" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>task002.*</FILTER>
+    </SUITE>
   </component>
 </project>
