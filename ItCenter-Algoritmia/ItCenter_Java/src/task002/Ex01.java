@@ -26,14 +26,18 @@ public class Ex01 {
         System.out.print("Second value: ");
         num2 = input.nextInt();
 
-        if (num1 == num2) {
-            resultadoValor = "Both numbers are equal!";
-        } else if (num1 < num2) {
-            resultadoValor = (" Is the lowest value.");
-        } else if (num1 > num2) {
-            resultadoValor = (" Is the highest value");
+        if (num1 == 0 && num2 == 0) {
+            resultadoValor = "Both value are 0";
         } else {
-            resultadoValor = "All the value is 0";
+            if (num1 == num2) {
+                resultadoValor = "Both numbers are equal!";
+            } else if (num1 < num2) {
+                resultadoValor = (num1 + " Is the lowest value.");
+            } else if (num1 > num2) {
+                resultadoValor = (num1 + " Is the highest value");
+            } else {
+                resultadoValor = "Invalid Values please start again";
+            }
         }
 
         // Final data

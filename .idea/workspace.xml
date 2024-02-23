@@ -4,123 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc7a0ada-f5e2-4666-8e6a-add600805c44" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_05_02_2024_20_04_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_05_02_2024_20_04__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Exemplo_menu.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Ficheiros_ou_arquivos/Tipos_de_arquivos.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Java_prova.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Poo_estudonauta/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Poo_estudonauta/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Poo_estudonauta/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Poo_estudonauta/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Poo_estudonauta/Aula_pratica04/Aula04.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Poo_estudonauta/Aula_pratica04/Caneta.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Poo_estudonauta/Aula_pratica06/Aula06.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Poo_estudonauta/Aula_pratica06/Controlador.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Poo_estudonauta/Aula_pratica07_08/Funcionalidade_da_luta.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Poo_estudonauta/Aula_pratica07_08/Luta.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Poo_estudonauta/Aula_pratica07_08/Lutador.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Poo_estudonauta/Aula_pratica07_08/UFC.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Poo_estudonauta/Aula_pratica09/Livro.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Poo_estudonauta/Aula_pratica09/Pessoa.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Poo_estudonauta/Aula_pratica09/ProjetoLivro.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Poo_estudonauta/Aula_pratica09/Publicacao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Poo_estudonauta/Aula_pratica2/Aula2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Poo_estudonauta/Aula_pratica2/Caderno.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Poo_estudonauta/Aula_pratica2/Caneta.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Poo_estudonauta/Aula_pratica2/Notebook.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Poo_estudonauta/Encapsulamento/BancoTester.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Poo_estudonauta/Encapsulamento/InterfaceBanco.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Poo_estudonauta/Encapsulamento/PraticaEncapsulamento.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Poo_estudonauta/Poo_estudonauta.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Poo_estudonauta/Teste_metodos/Aluno_tester.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Poo_estudonauta/Teste_metodos/Alunos.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Poo_estudonauta/Teste_metodos/Banco_tester.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Poo_estudonauta/Teste_metodos/ContaBanco.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Sortear_com_quantidade.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Sortear_sem_repetir.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/Tratamento_de_excecoes.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha01/Exercicio_01.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha01/Exercicio_02.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha01/Exercicio_03.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha01/Exercicio_04.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha01/Exercicio_05.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha01/Exercicio_06.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha01/Exercicio_07.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha02/Ex_01.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha02/Ex_02.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha02/Ex_03.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha02/Ex_04.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha02/Ex_05.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha02/Ex_06.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha02/Ex_07.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha02/Ex_08.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha02/Ex_09.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha02/Ex_10.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha02/Ex_11.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha02/Ex_12.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha02/Ex_13.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha02/Ex_14.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha02/Ex_15.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha02/Ex_16.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha02/Ex_17.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha03/Ex_01.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha03/Ex_02.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha03/Ex_03.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha03/Ex_04.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha03/Ex_05.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha03/Ex_06.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha03/Ex_07.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha03/Ex_08.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha03/Ex_10.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha03/Ex_11.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha03/Ex_12.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha03/Ex_13.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha03/Ex_9.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha04/Ex_01.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha04/Ex_02.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha04/Ex_03.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha04/Ex_04.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha05/Ex_01.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha05/Ex_02.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha05/Ex_03.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha05/Ex_04.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha05/Ex_05.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha05/Ex_06.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha05/Ex_07.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha05/Ex_07_vs2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha05/Ex_08.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha05/Ex_08_vs2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha05/Ex_09.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha05/Ex_10.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha05/Ex_11.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha05/Ex_12.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha05/Ex_13.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha05/Ex_14.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha05/Ex_declaracaoVetores.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha06/Ex_01.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha06/Ex_02.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha06/Ex_03.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha06/Ex_05_06.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha07/Ex_01.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha07/Ex_02.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha07/Ex_03.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha07/Ex_04.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha07/Ex_05.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha07/Ex_05_v2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha07/Ex_06.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha07/Ex_07.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/ficha07/Ex_10.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/task001/Ex01.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/task001/Ex02.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/task001/Ex03.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/task001/Ex04.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/task001/Ex05.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/task001/Ex06.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/task001/Ex07.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ItCenter_Java/task001/FinalExercise.class" afterDir="false" />
+    <list default="true" id="0bf3e4b2-fc34-4b6f-a7b4-9f7ff125f295" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -138,7 +22,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="TASK-001" />
+        <entry key="$PROJECT_DIR$" value="TASK-002" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -248,5 +132,10 @@ HEAD
         </entry>
       </map>
     </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ItCenter_Java$Ex16.ic" NAME="Ex16 Coverage Results" MODIFIED="1708547883252" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>task002.*</FILTER>
+    </SUITE>
   </component>
 </project>
