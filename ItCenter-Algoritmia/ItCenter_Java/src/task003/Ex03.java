@@ -14,10 +14,10 @@ public class Ex03 {
         // Final data
         System.out.println("Odd numbers count between " + inputCount + " and " + finalNum + ": ");
         while (inputCount <= finalNum) {
-            ++inputCount;
             if (inputCount % 2 != 0) {
                 System.out.println(inputCount);
             }
+            inputCount++;
         }
     }
 }
